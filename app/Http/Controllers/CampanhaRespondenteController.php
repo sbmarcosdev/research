@@ -18,9 +18,11 @@ class CampanhaRespondenteController extends Controller
 {
     public function show($campanha_id)
     {
+        $campanha = Campanha::find($campanha_id);
+        
         $pesq=CampanhaRespondente::where('campanha_id', $campanha_id)->get();
         
-        return view('importar.list', compact('pesq'));
+        return view('importar.list', compact('pesq','campanha'));
     }
 
     public function edit($campanha_id)

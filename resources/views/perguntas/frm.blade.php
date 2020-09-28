@@ -29,7 +29,7 @@
                                     <label for="descricao">Pergunta</label>
                                     <input type="text" name="texto" class="form-control" id="texto" value="{{ $pergunta->texto }}" required>
                                 </div>
-                               
+
                                 <div class="form-row mb-3">
                                     <div class="col-sm">
                                         <label>Tipo de Resposta</label>
@@ -39,6 +39,7 @@
                                             <option id="op3" value="3">Afirmativa | Sim | Não |</option>
                                             <option id="op4" value="4">Múltipla Escolha | Check Box |</option>
                                             <option id="op5" value="5">Descritiva | Texto |</option>
+                                            <option id="op6" value="6">Opções Personalizadas </option>
                                         </select>
                                     </div>
                                 </div>

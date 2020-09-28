@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OpcaoPergunta;
 use App\Models\OpcaoResposta;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class OpcoesController extends Controller
-{
-   public function index()
-   {
-       return view('perguntas.teste');
-   }
-   
+{  
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -29,6 +25,12 @@ class OpcoesController extends Controller
 
     public function salvar(Request $request)
     {
-        $ins = OpcaoPergunta::create([]);
+        foreach($request->opcao_resposta_id as $opcao)
+        $ins = OpcaoPergunta::create([
+            'pergunta_id'=>$request->pergunta_id,
+            'opcao_resposta_id'=>$opcao
+            ]);
+
+        return redirect('/perguntas/' . $request->campanha_id);
     }
 }

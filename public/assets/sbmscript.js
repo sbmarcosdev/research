@@ -24,7 +24,9 @@ function jsOption(opt) {
     }
     else if (opt == '5') {
         $('#op5').prop("selected", true);
-    }            
+    } else if (opt == '6') {
+        $('#op6').prop("selected", true);
+    }                        
 }
 
 function jsSelect() {

@@ -8,8 +8,9 @@
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
                             <a> {{ $pergunta->texto }} </a>
-                            <hr>
 
+                            <input type="button" value="Go Back" onClick='window.history.back()'>
+                            <hr>
                             <table class="table table-striped" style="width: 100%; margin: 0 auto;">
                                 <thead>
                                     <tr>@foreach($opcoes as $opcao)

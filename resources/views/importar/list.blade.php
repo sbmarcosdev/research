@@ -4,9 +4,9 @@
 <div class="container">
     <div class="container espacamento">
         <a class="mb-4">Participantes | </a>
-        <a class="mb-4">Campanha {{ $pesq->first()->campanha->descricao }} </a>
+        <a class="mb-4">Campanha {{ $campanha->descricao ?? ''}} </a>
         <hr>
-        <a href="/importar/{{ $pesq->first()->campanha->id }}/edit">
+        <a href="/importar/{{ $campanha->id ?? '' }}/edit">
             <button type="button" class="btn btn-outline-success mb-4">Importar Dados</button></a>
         <a href="/campanhas"><button type="button" class="btn btn-outline-info mb-4">Voltar</button></a>
 

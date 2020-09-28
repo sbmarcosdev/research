@@ -13,7 +13,7 @@ class CreateCampanhasRespondentesTable extends Migration
             $table->foreignId('campanha_id')->constrained();
             $table->char('respondente_id',36);
             $table->foreign('respondente_id')->references('id')->on('respondentes')->onDelete('cascade');
-            $table->char('enviado', 1)->default(0);
+            $table->char('respondida', 1)->default('N');
             $table->timestamps();
         });
     }

@@ -13,8 +13,17 @@ class RelatorioController extends Controller
 {
     public function index()
     {
-        $rel = Campanha::all();
-        
+        $sql= "SELECT c.id, descricao, count(*) as qtd_respostas
+					  FROM satisfacao.campanhas C 
+                INNER JOIN satisfacao.campanha_respondentes R 
+					    ON C.id = R.campanha_id
+                INNER JOIN satisfacao.status_respondentes S 
+                        ON R.id = S.campanha_respondente_id
+					 where S.respondida = 'S' 
+                  group by descricao";
+                  
+        $rel = DB::select($sql);
+            
         return view('relatorios.index', compact('rel'));  
     }
 

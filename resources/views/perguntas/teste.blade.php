@@ -3,14 +3,13 @@
 
 <div class="container">
     <div class="container espacamento">
-        <form action="/opcoes" method="POST">
+        <form action="/salvar_opcoes" method="POST">
             @csrf
             @method('post')
 
-            <input type="text" name="tipo_id" id="tipo_id" value="4">
-            <input type="text" name="titulo" id="titulo" value="Titulo Teste">
-            <input type="text" name="peso" id="peso" value="1">
-            <input type="text" name="ordem" id="ordem" value="9">
+            <input type="text" name="pergunta_id" value="40">
+            <input type="text" name="opcao_resposta_id" value="27">
+
             <input type="submit">
 
         </form>

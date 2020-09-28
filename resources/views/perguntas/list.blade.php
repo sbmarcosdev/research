@@ -25,23 +25,21 @@
                                 </tr>
 
                                 <th>Pergunta</th>
+                        
                                 <th>Tipo</th>
                                 <th>Ordem</th>
                                 <th>Ação</th>
                                 @foreach($perguntas as $perg)
                                 <tr data-id="{{ $perg->id ?? '' }}" class="pergunta" title="Arraste para ordenar">
-
                                     <td>
                                         {{ $perg->texto ?? '' }}
                                     </td>
-                                    <td class="category-name">
-                                        {{ $perg->campanha->descricao ?? '' }}
+                                    <td>
+                                        {{ $perg->tipo->tipo ?? '' }}
                                     </td>
-
                                     <td class="position">
                                         <a>{{ $perg->ordem ?? '' }}</a>
                                     </td>
-
                                     <td>@if ($perg->resposta->first())
                                         <a href='/relatorios/{{$perg->id}}/detalhe' class="btn btn-xs btn-info" title="Ver Respostas">
                                             Ver
@@ -52,7 +50,7 @@
                                         @else
                                         <a href='/perguntas/{{$perg->id}}/edit' class="btn btn-xs btn-info" title="Editar">
                                             Editar </a>
-                                            
+
                                         <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="pergunta_id" value="{{ $perg->id ?? '' }}">

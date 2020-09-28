@@ -45,6 +45,11 @@
                         Campanhas
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link li_menu_topo" href="{{url('relatorios')}}">
+                        Relatórios
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link li_menu_topo" href="{{url('sair')}}">
