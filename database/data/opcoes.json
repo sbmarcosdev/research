@@ -172,7 +172,7 @@
   },
   {
     "id": 30,
-    "tipo_id": 6,
+    "tipo_id": 4,
     "titulo": "Bom, mas poderia melhorar",
     "peso": 1,
     "ordem": 99,
@@ -181,7 +181,7 @@
   },
   {
     "id": 31,
-    "tipo_id": 6,
+    "tipo_id": 4,
     "titulo": "Clareza nas Informações Comerciais",
     "peso": 1,
     "ordem": 99,
@@ -190,7 +190,7 @@
   },
   {
     "id": 32,
-    "tipo_id": 6,
+    "tipo_id": 4,
     "titulo": "Fundo de Reversa atrativo",
     "peso": 1,
     "ordem": 99,
@@ -199,7 +199,7 @@
   },
   {
     "id": 33,
-    "tipo_id": 6,
+    "tipo_id": 4,
     "titulo": "Agilidade no Atendimento Online",
     "peso": 1,
     "ordem": 99,
@@ -208,7 +208,7 @@
   },
   {
     "id": 34,
-    "tipo_id": 6,
+    "tipo_id": 4,
     "titulo": "Nenhuma das Anteriores",
     "peso": 1,
     "ordem": 99,

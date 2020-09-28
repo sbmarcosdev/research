@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Campanha;
 use App\Models\CampanhaRespondente;
+use App\Models\OpcaoPergunta;
 use App\Models\OpcaoResposta;
 use App\Models\Pergunta;
 use App\Models\Resposta;
@@ -48,10 +49,10 @@ class RespostaController extends Controller
         $respondente_id = $session['respondente_id'];
         $campanha_id = $session['campanha_id'];
 
-        $sql = "SELECT pergunta_id FROM satisfacao.perguntas P 
-                        INNER JOIN satisfacao.status_respondentes S
+        $sql = "SELECT pergunta_id FROM perguntas P 
+                        INNER JOIN status_respondentes S
                                 ON P.id = S.pergunta_id
-                        INNER JOIN satisfacao.campanha_respondentes CR
+                        INNER JOIN campanha_respondentes CR
                                 ON S.campanha_respondente_id = CR.id
                               where CR.campanha_id= $campanha_id 
                                 and CR.respondente_id = '$respondente_id'
@@ -89,17 +90,25 @@ class RespostaController extends Controller
                 } elseif ($pergunta->tipo_id == 3) {
                     $afirmativa = OpcaoResposta::where('tipo_id', 3)->get();
                     return view('respostas.afirmativa', compact('resp', 'pergunta', 'afirmativa'));
+
                 } elseif ($pergunta->tipo_id == 4) {
-                    $multipla = OpcaoResposta::where('tipo_id', 4)
-                        ->join('opcao_perguntas', 'id', '=', 'opcao_resposta_id')
-                        ->where('pergunta_id', $pergunta->id)->get();
+
+                    $multipla = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
+                        ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
+                        ->where('perguntas.id', $pergunta->id)
+                        ->where('opcao_respostas.tipo_id',4)->get();
+                        
+
                     return view('respostas.multipla', compact('resp', 'pergunta', 'multipla'));
                 } elseif ($pergunta->tipo_id == 5) {
                     return view('respostas.descritiva', compact('resp', 'pergunta'));
                 } elseif ($pergunta->tipo_id == 6) {
-                    $opcoes = OpcaoResposta::where('tipo_id', 6)
-                        ->join('opcao_perguntas', 'id', '=', 'opcao_resposta_id')
-                        ->where('pergunta_id', $pergunta->id)->get();
+                    
+                    $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
+                        ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
+                        ->where('perguntas.id', $pergunta->id)
+                        ->where('opcao_respostas.tipo_id', 6)->get();
+
                     return view('respostas.personalizada', compact('resp', 'pergunta', 'opcoes'));
                 }
             }

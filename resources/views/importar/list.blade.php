@@ -6,9 +6,9 @@
         <a class="mb-4">Participantes | </a>
         <a class="mb-4">Campanha {{ $campanha->descricao ?? ''}} </a>
         <hr>
-        <a href="/importar/{{ $campanha->id ?? '' }}/edit">
+        <a href="{{url('/importar/'.$campanha->id ?? '') }}/edit">
             <button type="button" class="btn btn-outline-success mb-4">Importar Dados</button></a>
-        <a href="/campanhas"><button type="button" class="btn btn-outline-info mb-4">Voltar</button></a>
+        <a href="{{url('/campanhas')}}"><button type="button" class="btn btn-outline-info mb-4">Voltar</button></a>
 
         <table id="table" name="table" class="table table-striped table-bordered">
             <thead>
@@ -26,10 +26,10 @@
                     <td>{{ $resp->respondente->nome }}</td>
                     <td>{{ $resp->respondente->email }}</td>
                     <td>{{ count($resp->status->where('respondida','S')) }} / {{ count($resp->status) }}</td>
-                    <td><a href="/login/{{ $pesq->first()->campanha->id }}/{{ $resp->respondente->id}}"> Link </a></td>
+                    <td><a href="{{url('/login/'.$pesq->first()->campanha->id) }}/{{ $resp->respondente->id}}"> Link </a></td>
                     <td>
                         @if($resp->status->where('respondida','S')->first())
-                        <a href="/relatorios/{{ $pesq->first()->campanha->id }}/{{ $resp->respondente->id}}" title="Visualizar Respostas"> Ver </a>
+                        <a href="{{url('/relatorios/'.$pesq->first()->campanha->id )}}/{{ $resp->respondente->id}}" title="Visualizar Respostas"> Ver </a>
                         @else
                         <a href="" title="Excluir Participante"> </a>
 

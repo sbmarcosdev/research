@@ -13,7 +13,7 @@
                             <a>Atenção! Cadastre todas as Perguntas antes de realizar a importação de Participantes</a>
                             <hr>
                         </div>
-                        <form id="uploadForm" action="/import/{{$campanha->id}}" method="POST" enctype="multipart/form-data">
+                        <form id="uploadForm" action="{{url('/import/'.$campanha->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
 

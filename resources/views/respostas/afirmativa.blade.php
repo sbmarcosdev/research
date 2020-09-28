@@ -6,7 +6,7 @@
         <a class="mb-4">Campanha {{ $resp->campanha->descricao }}</a> |
         <a class="mb-4"> {{ $resp->respondente->nome }}</a>
         <hr>
-        <form action="{{('/resposta')}}" method="POST">
+        <form action="{{url('/resposta')}}" method="POST">
             <input type="hidden" name="tipo_id" value="3">
             @csrf
             @method('patch')
