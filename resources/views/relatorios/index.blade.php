@@ -33,7 +33,7 @@
                                     <td>{{ $camp->descricao }}</td>
                                     <td>{{ $camp->campanhaRespondente->count() }} </td>
                                     <td>{{ $camp->campanhaRespondente->where('respondida', 'S')->count() }} </td>
-                                    <th><a href="/relatorios/{{$camp->id}}" class="btn btn-xs btn-info pull-right">Ver Detalhes</a></th>
+                                    <th><a href="{{url('/relatorios/'.$camp->id )}}" class="btn btn-xs btn-info pull-right">Ver Detalhes</a></th>
                                 </tr>
                                 @endforeach
                             </tbody>

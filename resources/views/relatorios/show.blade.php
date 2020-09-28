@@ -28,7 +28,7 @@
                                     <td>{{ $camp->pergunta }}</td>
                                     <td>{{ $camp->total }}</td>
                                     <td>{{ $camp->peso }}%</td>
-                                    <th><a href="/relatorios/{{ $camp->pergunta_id }}/detalhe" class="btn btn-xs btn-info pull-right">Ver Detalhes</a></th>
+                                    <th><a href="{{url('/relatorios/'. $camp->pergunta_id )}}/detalhe" class="btn btn-xs btn-info pull-right">Ver Detalhes</a></th>
                                 </tr>
                                 @endforeach
                             </tbody>
