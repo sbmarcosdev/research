@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class EmpresasDataSeeder extends Seeder
+class OpcaoDataSeeder extends Seeder
 {
     public function run()
     {
@@ -15,7 +15,7 @@ class EmpresasDataSeeder extends Seeder
             $salvar['titulo'] = $obj->titulo;
             $salvar['peso'] = $obj->peso;
             $salvar['ordem'] = $obj->ordem;
-            DB::table('opcoes')->insert($salvar);
+            DB::table('opcao_respostas')->insert($salvar);
         }
     }
 }

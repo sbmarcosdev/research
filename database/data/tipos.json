@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "tipo": "Classificatória",
+        "quantidade": 5,
+        "created_at": "NULL",
+        "updated_at": "NULL"
+    },
+    {
+        "id": 2,
+        "tipo": "Numérica",
+        "quantidade": 5,
+        "created_at": "NULL",
+        "updated_at": "NULL"
+    },
+    {
+        "id": 3,
+        "tipo": "Afirmativa",
+        "quantidade": 2,
+        "created_at": "NULL",
+        "updated_at": "NULL"
+    },
+    {
+        "id": 4,
+        "tipo": "Múltipla",
+        "quantidade": 4,
+        "created_at": "NULL",
+        "updated_at": "NULL"
+    },
+    {
+        "id": 5,
+        "tipo": "Descritiva",
+        "quantidade": 1,
+        "created_at": "NULL",
+        "updated_at": "NULL"
+    },
+    {
+        "id": 6,
+        "tipo": "Personalizada",
+        "quantidade": 0,
+        "created_at": "NULL",
+        "updated_at": "NULL"
+    }
+]
