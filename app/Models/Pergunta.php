@@ -27,4 +27,9 @@ class Pergunta extends Model
     {
         return $this->hasMany(StatusRespondente::class);
     }
+
+    public function opcoes()
+    {
+        return $this->hasMany(OpcaoPergunta::class);
+    }
 }

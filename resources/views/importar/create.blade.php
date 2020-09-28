@@ -25,8 +25,8 @@
 
                             <button class="btn btn-success" onclick="alertaSalvar()">
                                 <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Salvar">
-                                Salvar </button>
-                            <button type="button" class="btn btn-warning" onclick="window.location = '/importar/{{$campanha->id}}'">
+                                Salvar </button>                          
+                            <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/importar/'.$campanha->id)}}'">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar </button>
                             <button type="button" class="btn btn-danger" onclick="confirmaDelete()">

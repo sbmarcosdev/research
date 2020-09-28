@@ -54,7 +54,7 @@
                                     Salvar
                                 </button>
 
-                                <button type="button" class="btn btn-warning" onclick="window.location = '/perguntas/{{$pergunta->campanha->id}}'">
+                                <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/perguntas/'.$pergunta->campanha->id)}}'">
                                     <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                     Voltar </button>
                                 <button type="button" class="btn btn-danger" onclick="jsDelete_Token()">
@@ -62,7 +62,7 @@
                                     Excluir </button>
                                 <hr>
                                 @if($pergunta->ordem == '1')
-                                <input type="button" class="btn btn-outline-success mb-4" value="Escolher Tipo de Resposta" onclick="window.location = '/perguntas/{{ $pergunta->campanha_id }}'">
+                                <input type="button" class="btn btn-outline-success mb-4" value="Escolher Tipo de Resposta" onclick="window.location = '{{url('/perguntas/'.$pergunta->campanha_id )}}'">
                                 @endif
                             </form>
                         </body>

@@ -85,8 +85,7 @@ function alertFim(msg) {
         icon: 'success'
     }).then((result) => {
         if (result.value) {
-              // window.location = "https://embracon.com.br";
-            window.location = "/campanhas";
+              //
         }
     })        
 } 

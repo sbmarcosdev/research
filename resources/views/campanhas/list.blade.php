@@ -37,7 +37,7 @@
                                         @endif
                                     </td>
 
-                                    <td><a href="/campanhas/{{$camp->id}}/edit" class="btn btn-xs btn-info pull-right">Selecionar</a>
+                                    <td><a href="{{url('/campanhas/'.$camp->id.'/edit')}}" class="btn btn-xs btn-info pull-right">Selecionar</a>
                                         <a>
                                             <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -54,8 +54,8 @@
 
                         </table>
                         <hr>
-                        
-                        <button class="btn btn-success" onclick="window.location='/campanhas/create'">
+
+                        <button class="btn btn-success" onclick="window.location='{{url('/campanhas/create')}}'">
                             Incluir </button>
 
 

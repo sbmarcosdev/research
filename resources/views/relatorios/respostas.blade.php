@@ -30,7 +30,7 @@
                                 </tbody>
                             </table>
                             <hr>
-                            <button type="button" class="btn btn-warning" onclick="window.location = '/importar/{{$respondente->first()->campanha_id}}'">
+                            <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/importar/'.$respondente->first()->campanha_id)}}'">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar
                             </button>

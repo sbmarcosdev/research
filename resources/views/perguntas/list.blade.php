@@ -25,7 +25,7 @@
                                 </tr>
 
                                 <th>Pergunta</th>
-                        
+
                                 <th>Tipo</th>
                                 <th>Ordem</th>
                                 <th>Ação</th>
@@ -65,7 +65,7 @@
                         </table>
                         @if($campanha->temPerguntas)
                         <a>
-                            <button type="button" class="btn btn-outline-info mb-4" onclick="window.location = '/importar/{{ $campanha->id }}'">Participantes</button>
+                            <button type="button" class="btn btn-outline-info mb-4" onclick="window.location = '{{url('/importar/'.$campanha->id )}}'">Participantes</button>
                         </a>
                         @endif
                     </div>

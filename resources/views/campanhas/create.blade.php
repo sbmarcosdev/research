@@ -32,7 +32,7 @@
                             <button class="btn btn-success" onclick="alertaSalvar()">
                                 Salvar
                             </button>
-                            <button type="button" class="btn btn-warning" onclick="window.location = '/campanhas'">
+                            <button type="button" class="btn btn-warning" onclick="window.location='{{url('/campanhas')}}'">
                                 Voltar
                             </button>
                         </form>

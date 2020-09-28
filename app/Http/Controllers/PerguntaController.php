@@ -80,7 +80,7 @@ class PerguntaController extends Controller
 
         $pergunta = Pergunta::updateOrCreate(['id' => $request->id], $validatedData );
 
-        if ($pergunta->tipo_id == 6) {
+        if (($pergunta->tipo_id == 4)|| ($pergunta->tipo_id == 6)) {
 
             $opcoes = OpcaoResposta::where('tipo_id', 6)->get();
 
@@ -101,8 +101,9 @@ class PerguntaController extends Controller
         ]);
 
        $pergunta = Pergunta::updateOrCreate(['id' => $request->id], $validatedData );
-        
-        if ($request->tipo_id == 6) {
+
+        if (($pergunta->tipo_id == 4) || ($pergunta->tipo_id == 6)) {
+
 
             $opcoes=OpcaoResposta::where('tipo_id',6)->orderBy('titulo')->get();
 

@@ -53,22 +53,22 @@
                             <button class="btn btn-success" onclick="alertaSalvar()">
                                 Salvar
                             </button>
-                            <button type="button" class="btn btn-warning" onclick="window.location = '/campanhas'">
+                            <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/campanhas')}}' ">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar </button>
-                           
+
                             <hr>
 
                             @if($campanha->status == '1')
-                            <input type="button" class="btn btn-outline-success mb-4" value="Perguntas" onclick="window.location = '/perguntas/{{ $campanha->id }}'">
+                            <input type="button" class="btn btn-outline-success mb-4" value="Perguntas" onclick="window.location = '{{url('/perguntas/'. $campanha->id) }}'">
                             @endif
 
                             @if($campanha->perguntas->first())
-                            <input type="button" class="btn btn-outline-success mb-4" value="Participantes" onclick="window.location = '/importar/{{ $campanha->id }}'">
+                            <input type="button" class="btn btn-outline-success mb-4" value="Participantes" onclick="window.location = '{{url('/importar/'. $campanha->id) }}'">
                             @endif
 
                             @if($campanha->respostas->first())
-                            <input type="button" class="btn btn-outline-success mb-4" value="Relatórios" onclick="window.location = '/relatorios/{{ $campanha->id }}'">
+                            <input type="button" class="btn btn-outline-success mb-4" value="Relatórios" onclick="window.location = '{{url('/relatorios/'. $campanha->id) }}'">
                             @endif
 
                         </form>
