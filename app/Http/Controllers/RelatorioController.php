@@ -21,10 +21,10 @@ class RelatorioController extends Controller
     public function show($campanha_id)
     {  
         $sql = "SELECT pergunta_id,
-                       (SELECT texto from satisfacao.perguntas where id = pergunta_id) as pergunta,
+                       (SELECT texto from perguntas where id = pergunta_id) as pergunta,
                        ROUND(sum( peso_resposta ) / (count(id) * 5) * 100)  as peso,
                        count(id) as total 
-                  FROM satisfacao.respostas 
+                  FROM respostas 
                  WHERE campanha_id = $campanha_id 
                  GROUP BY pergunta_id";
 
