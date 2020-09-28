@@ -10,10 +10,10 @@
                         <a class="mb-4">Perguntas</a> |
                         <a class="mb-4">Campanha {{ $campanha -> descricao }}</a>
                         <hr>
-                        <a href="/campanhas">
+                        <a href="{{url('/campanhas')}}">
                             <button type="button" class="btn btn-outline-info mb-4">Voltar</button>
                         </a>
-                        <a href="/perguntas/{{ $campanha -> id }}/create">
+                        <a href="{{url('/perguntas/'.$campanha->id.'/create')}}">
                             <button type="button" class="btn btn-outline-success mb-4">Incluir Nova Pergunta</button>
                         </a>
 
@@ -41,14 +41,14 @@
                                         <a>{{ $perg->ordem ?? '' }}</a>
                                     </td>
                                     <td>@if ($perg->resposta->first())
-                                        <a href='/relatorios/{{$perg->id}}/detalhe' class="btn btn-xs btn-info" title="Ver Respostas">
+                                        <a href="{{url('/relatorios/'.$perg->id.'/detalhe')}}" class="btn btn-xs btn-info" title="Ver Respostas">
                                             Ver
                                         </a>
                                         @elseif($perg->status->first())
-                                        <a href='/perguntas/{{$perg->id}}/edit' class="btn btn-xs btn-info" title="Editar">
+                                        <a href="{{url('/perguntas/'.$perg->id.'/edit')}}" class="btn btn-xs btn-info" title="Editar">
                                             Editar </a>
                                         @else
-                                        <a href='/perguntas/{{$perg->id}}/edit' class="btn btn-xs btn-info" title="Editar">
+                                        <a href="{{url('/perguntas/'.$perg->id.'/edit')}}" class="btn btn-xs btn-info" title="Editar">
                                             Editar </a>
 
                                         <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">

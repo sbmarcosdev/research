@@ -17,7 +17,7 @@
 
                         <body onload="jsOption('{{$pergunta->tipo_id}}')">
 
-                            <form action="/perguntas/{{$pergunta->id}}" method="POST">
+                            <form action="{{url('/perguntas/'.$pergunta->id)}}" method="POST">
                                 @csrf
                                 @method('patch')
 
@@ -57,9 +57,7 @@
                                 <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/perguntas/'.$pergunta->campanha->id)}}'">
                                     <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                     Voltar </button>
-                                <button type="button" class="btn btn-danger" onclick="jsDelete_Token()">
-                                    <img src=" {{ asset('img/007-excluir.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Excluir">
-                                    Excluir </button>
+        
                                 <hr>
                                 @if($pergunta->ordem == '1')
                                 <input type="button" class="btn btn-outline-success mb-4" value="Escolher Tipo de Resposta" onclick="window.location = '{{url('/perguntas/'.$pergunta->campanha_id )}}'">

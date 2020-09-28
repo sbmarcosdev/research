@@ -10,7 +10,7 @@
                         <div class="col-sm-12">
                             <h4 class="tituloPrincipal">Dados da Empresa</h4>
                         </div>
-                        <form action="/empresas/{{$empresa->id}}" method="POST">
+                        <form action="{{url('/empresas/'.$empresa->id)}}" method="POST">
                             @csrf
                             @method('patch')
                             <div class="form-group">

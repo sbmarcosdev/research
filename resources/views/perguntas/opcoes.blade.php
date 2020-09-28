@@ -11,7 +11,7 @@
                             <hr>
                             <a>{{ $pergunta->campanha->descricao }}</a> | Pergunta | <a>{{ $pergunta->texto }} </a>
                             <hr>
-                            <form action="/salvar_opcoes" method="POST">
+                            <form action="{{url('/salvar_opcoes')}}" method="POST">
                                 @csrf
                                 @method('post')
 

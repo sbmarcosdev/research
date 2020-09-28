@@ -10,7 +10,7 @@
                         <div class="col-sm-12">
                             <h4 class="tituloPrincipal">Dados da Campanha</h4>
                         </div>
-                        <form action="/campanhas" method="POST">
+                        <form action="{{url('/campanhas')}}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="nome">Descrição</label>

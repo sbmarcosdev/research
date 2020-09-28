@@ -12,7 +12,7 @@
                             <a>Campanha {{ $campanha -> descricao }}</a>
                             <hr>
                         </div>
-                        <form action="/perguntas" method="POST">
+                        <form action="{{url('/perguntas')" method="POST">
                             @csrf
                             @method('post')
 

@@ -10,7 +10,7 @@
                         <div class="col-sm-12">
                             <h4 class="tituloPrincipal">Dados da Empresa</h4>
                         </div>
-                            <form action="/dados" method="POST">
+                            <form action="{{url('/dados')}} method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nome">Nome</label>

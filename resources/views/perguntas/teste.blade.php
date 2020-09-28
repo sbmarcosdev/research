@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="container espacamento">
-        <form action="/salvar_opcoes" method="POST">
+        <form action="{{url('/salvar_opcoes')}}" method="POST">
             @csrf
             @method('post')
 

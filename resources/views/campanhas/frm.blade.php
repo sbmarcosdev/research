@@ -12,7 +12,7 @@
                             <hr>
 
                         </div>
-                        <form action="/campanhas/{{$campanha->id}}" method="POST">
+                        <form action="{{url('/campanhas/'.$campanha->id)}}" method="POST">
                             @csrf
                             @method('patch')
 
