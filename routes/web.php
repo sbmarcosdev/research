@@ -15,6 +15,9 @@ Auth::routes();
 
 Route::resource('empresas', 'EmpresasController');
 
+Route::resource('usuarios', 'LoginController');
+Route::delete('exclusao-usuarios', 'LoginController@destroy');
+
 Route::get('home', 'ControllerCampanha@index')->name('admin.home');
 Route::get('sair', 'HomeController@Sair')->name('sair');
 
@@ -46,7 +49,7 @@ Route::get('relatorios/{pergunta_id}/{respodente_id}', 'RelatorioController@resp
 
 Route::patch('resposta', 'RespostaController@update');
 
-Route::get('login/{campanha_id}/{respondente_id}', 'RespostaController@login');
+Route::get('responder/{campanha_id}/{respondente_id}', 'RespostaController@login');
 
 
 

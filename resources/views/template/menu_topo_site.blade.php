@@ -50,7 +50,11 @@
                         Relatórios
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link li_menu_topo" href="{{url('usuarios')}}">
+                        Admin
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link li_menu_topo" href="{{url('sair')}}">
                         Sair
