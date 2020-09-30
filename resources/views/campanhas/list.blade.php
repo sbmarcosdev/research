@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <h4>Campanhas - Pesquisa de Satisfação</h4>
+                            <h4 class="tituloPrincipal">Campanhas - Pesquisa de Satisfação</h4>
                         </div>
 
 
@@ -37,27 +37,31 @@
                                         @endif
                                     </td>
 
-                                    <td><a href="{{url('/campanhas/'.$camp->id.'/edit')}}" class="btn btn-xs btn-info pull-right">Selecionar</a>
-                                        <a>
-                                            <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="campanha_id" value="{{ $camp->id ?? '' }}">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="btn btn-xs btn-danger" value="X" title="Excluir">
-                                            </form>
-                                        </a>
+                                    <td>
+                                        <button type="button" class="btn btn-info" onclick="window.location='{{url('/campanhas/'.$camp->id.'/edit')}}'">
+                                            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Editar">
+                                        </button>
+                                        <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="campanha_id" value="{{ $camp->id ?? '' }}">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button type="submit" class="btn btn-danger">
+                                                <img src="{{ asset('img/007-excluir.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Excluir">
+                                            </button>
+                                        </form>
                                     </td>
-
                                 </tr>
                                 @endforeach
                             </tbody>
-
                         </table>
                         <hr>
 
                         <button class="btn btn-success" onclick="window.location='{{url('/campanhas/create')}}'">
+                            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Nova">
                             Incluir </button>
-
+                        <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
+                            Voltar </button>
 
                     </div>
                 </div>

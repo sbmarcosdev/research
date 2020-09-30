@@ -12,7 +12,6 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-
 Route::resource('empresas', 'EmpresasController');
 
 Route::resource('usuarios', 'LoginController');

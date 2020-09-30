@@ -6,29 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateEmpresaTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('empresas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome')->nullable();
-            $table->string('link_acesso')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('banner')->nullable();
-            $table->string('cor_primaria', 50)->nullable();
-            $table->string('cor_secundaria', 50)->nullable();
+            $table->id()->comment('auto increment');
+            $table->string('nome')->nullable()->comment('Nome da Empresa');
+            $table->string('link_acesso')->nullable()->comment('Validacao da origem do acesso do cliente');
+            $table->string('logo')->nullable()->comment('Logotipo da Empresa');
+            $table->string('banner')->nullable()->comment('Banner identidade visual Empresa');
+            $table->string('cor_primaria', 50)->nullable()->comment('Cor identidade visual Empresa');
+            $table->string('cor_secundaria', 50)->nullable()->comment('Cor identidade visual Empresa');
+            $table->string('cor_topo_rodape', 50)->nullable()->comment('Cor identidade visual Empresa');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('empresa');
