@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <h4 class="tituloPrincipal">Campanhas - Pesquisa de Satisfação</h4>
+                            <h4 class="tituloPrincipal">Campanhas</h4>
                         </div>
 
 

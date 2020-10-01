@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campanha;
-use App\Models\CampanhaRespondente;
-use App\Models\Pergunta;
-use App\Models\Resposta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class ControllerCampanha extends Controller
+class CampanhaController extends Controller
 {
     public function __construct()
     {
-      //$this->middleware('auth');
+        $this->middleware('ad_checked');
     }
-    
+
     public function index()
-    {
+    {      
         $campanhas = Campanha::all();
         return view('campanhas.list', compact('campanhas'));
     }
@@ -36,7 +34,7 @@ class ControllerCampanha extends Controller
 
         $insert = Campanha::create($validatedData);
 
-        return redirect('/perguntas/'.$insert->id);
+        return redirect('/perguntas/' . $insert->id);
     }
 
     public function edit($campanha_id)
@@ -57,13 +55,13 @@ class ControllerCampanha extends Controller
 
         $update = $campanha->update($validatedData);
 
-        return redirect('/perguntas/'. $campanha->id);
+        return redirect('/perguntas/' . $campanha->id);
     }
 
 
     public function destroy(Request $request)
     {
-        $campanha=Campanha::find($request->campanha_id);
+        $campanha = Campanha::find($request->campanha_id);
         $campanha->delete();
         return redirect('campanhas');
     }

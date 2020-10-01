@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <h4> Administradores </h4>
-                            <hr>
+                            <h4 class="tituloPrincipal"> Administradores </h4>
+
                             <table class="table table-striped" style="width: 100%; margin: 0 auto;">
                                 <thead>
                                     <tr>
@@ -25,7 +25,9 @@
                                                 @method('DELETE')
                                                 <input type="hidden" name="id" value="{{ $login->id ?? '' }}">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="btn btn-xs btn-danger" value="X" title="Excluir">
+                                                <button type="submit" class="btn btn-xs btn-danger">
+                                                    <img src="{{ asset('img/007-excluir.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Excluir">
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>
@@ -36,7 +38,7 @@
                             <hr>
 
                             <button class="btn btn-success" onclick="window.location = '{{url('/usuarios/create')}}'">
-                                <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Salvar">
+                                <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Novo">
                                 Incluir </button>
                             <button type="button" class="btn btn-warning" onclick="window.history.back()">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">

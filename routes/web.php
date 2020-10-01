@@ -3,24 +3,22 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('login.ad');
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+Route::get('login-laravel', 'HomeController@index')->name('admin-login');
 
-Auth::routes();
+Route::get('login', 'LoginADController@index');
+Route::post('login-ad', 'LoginADController@auth_ad');
 
 Route::resource('empresas', 'EmpresasController');
 
 Route::resource('usuarios', 'LoginController');
 Route::delete('exclusao-usuarios', 'LoginController@destroy');
 
-Route::get('home', 'ControllerCampanha@index')->name('admin.home');
-Route::get('sair', 'HomeController@Sair')->name('sair');
+Route::get('sair', 'SairController@sair');
 
-Route::resource('campanhas', 'ControllerCampanha');
+Route::resource('campanhas', 'CampanhaController');
 
 Route::get('opcoes', 'OpcoesController@index');
 Route::post('opcoes', 'OpcoesController@store')->name('opcoes');

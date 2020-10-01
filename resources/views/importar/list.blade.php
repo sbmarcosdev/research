@@ -26,7 +26,7 @@
                     <td>{{ $resp->respondente->nome }}</td>
                     <td>{{ $resp->respondente->email }}</td>
                     <td>{{ count($resp->status->where('respondida','S')) }} / {{ count($resp->status) }}</td>
-                    <td><a href="{{url('/login/'.$pesq->first()->campanha->id) }}/{{ $resp->respondente->id}}"> Link </a></td>
+                    <td><a href="{{url('/responder/'.$pesq->first()->campanha->id) }}/{{ $resp->respondente->id}}"> Link </a></td>
                     <td>
                         @if($resp->status->where('respondida','S')->first())
                         <a href="{{url('/relatorios/'.$pesq->first()->campanha->id )}}/{{ $resp->respondente->id}}" title="Visualizar Respostas"> Ver </a>

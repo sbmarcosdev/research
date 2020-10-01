@@ -29,7 +29,16 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        @if(Auth::check() === true)
+
+        <a class="nav-link li_menu_topo" href="{{url('empresas')}}">
+
+            @foreach(Session::get('login_admin') as $user)
+            {{$user}}
+            @endforeach
+        </a>
+
+
+        @if(isset($user))
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
             </ul>
@@ -60,10 +69,10 @@
                         Sair
                     </a>
                 </li>
-
             </ul>
-        </div>
-        @endif
 
+            
+            @endif
+        </div>
     </div>
 </nav>
