@@ -6,7 +6,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        $this->call(EmpresasDataSeeder::class);
+        $this->call(LoginAdminSeeder::class);
         $this->call(TipoDataSeeder::class); 
         $this->call(OpcaoDataSeeder::class); 
     }
