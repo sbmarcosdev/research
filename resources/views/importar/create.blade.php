@@ -12,6 +12,9 @@
                             <hr>
                             <a>Atenção! Cadastre todas as Perguntas antes de realizar a importação de Participantes</a>
                             <hr>
+                            <a>Layout do Arquivo: Nome Completo | E-mail</a>
+                            <hr>
+
                         </div>
                         <form id="uploadForm" action="{{url('/import/'.$campanha->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -25,7 +28,7 @@
 
                             <button class="btn btn-success" onclick="alertaSalvar()">
                                 <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Salvar">
-                                Salvar </button>                          
+                                Salvar </button>
                             <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/importar/'.$campanha->id)}}'">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar </button>

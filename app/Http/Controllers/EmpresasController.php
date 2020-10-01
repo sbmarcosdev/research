@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 class EmpresasController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('ad_checked');
+    }
+    
     public function index()
     {
         $empresas = Empresa::all();

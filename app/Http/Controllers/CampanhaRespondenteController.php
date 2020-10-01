@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\DB;
 
 class CampanhaRespondenteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ad_checked');
+    }
+    
     public function show($campanha_id)
     {
         $campanha = Campanha::find($campanha_id);

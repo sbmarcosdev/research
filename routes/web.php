@@ -12,6 +12,7 @@ Route::get('login', 'LoginADController@index');
 Route::post('login-ad', 'LoginADController@auth_ad');
 
 Route::resource('empresas', 'EmpresasController');
+Route::resource('mensagens', 'EmpresasController');
 
 Route::resource('usuarios', 'LoginController');
 Route::delete('exclusao-usuarios', 'LoginController@destroy');

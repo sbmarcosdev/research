@@ -16,6 +16,14 @@
                                 <label for="nome">Descrição</label>
                                 <input type="text" name="descricao" class="form-control" id="descricao" required>
                             </div>
+                            <div class="form-group">
+                                <label for="nome">Empresa</label>
+                                <select class="form-control" name="empresa_id" required>
+                                    @foreach($empresas as $empresa)
+                                    <option value="{{$empresa->id}}">{{ $empresa->nome }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-row mb-3">
                                 <div class="col-sm">
                                     <label>Data de Início</label>

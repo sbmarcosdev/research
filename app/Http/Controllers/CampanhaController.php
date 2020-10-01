@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campanha;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CampanhaController extends Controller
 {
@@ -20,8 +20,9 @@ class CampanhaController extends Controller
     }
 
     public function create()
-    {
-        return view('campanhas.create');
+    {   
+        $empresas = Empresa::all();
+        return view('campanhas.create', compact('empresas'));
     }
 
     public function store(Request $request)
@@ -29,7 +30,8 @@ class CampanhaController extends Controller
         $validatedData = $request->validate([
             'descricao' => 'required',
             'data_inicio' => 'required',
-            'data_termino' => 'required'
+            'data_termino' => 'required',
+            'empresa_id' => 'required'
         ]);
 
         $insert = Campanha::create($validatedData);
@@ -41,7 +43,9 @@ class CampanhaController extends Controller
     {
         $campanha = Campanha::find($campanha_id);
 
-        return view('campanhas.frm', compact('campanha'));
+        $empresas = Empresa::all();
+
+        return view('campanhas.frm', compact('campanha','empresas'));
     }
 
     public function update(Request $request, Campanha $campanha)
@@ -50,7 +54,8 @@ class CampanhaController extends Controller
             'descricao' => 'required',
             'data_inicio' => 'required',
             'data_termino' => 'required',
-            'status' => 'integer|min:0|max:1'
+            'status' => 'integer|min:0|max:1',
+            'empresa_id' => 'required'
         ]);
 
         $update = $campanha->update($validatedData);

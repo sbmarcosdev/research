@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class OpcoesController extends Controller
-{  
+{
+    public function __construct()
+    {
+        $this->middleware('ad_checked');
+    }
+    
     public function store(Request $request)
     {
         $validatedData = $request->validate([

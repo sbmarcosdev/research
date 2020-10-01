@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ad_checked');
+    }
+    
     public function index()
     {
         $logins = Login::all();

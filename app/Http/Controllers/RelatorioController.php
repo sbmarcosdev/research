@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class RelatorioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ad_checked');
+    }
+    
     public function index()
     {
         $rel = Campanha::all();

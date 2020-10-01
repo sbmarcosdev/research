@@ -22,6 +22,14 @@
                                 <label for="descricao">Descrição</label>
                                 <input type="text" name="descricao" class="form-control" id="descricao" value="{{ $campanha->descricao }}" required>
                             </div>
+                            <div class="form-group">
+                                <label for="nome">Empresa</label>
+                                <select class="form-control" name="empresa_id" required>
+                                    @foreach($empresas as $empresa)
+                                    <option value="{{$empresa->id}}">{{ $empresa->nome }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-row mb-3">
                                 <div class="col-sm">
                                     <label>Data de Início</label>
@@ -58,7 +66,7 @@
                                 Voltar </button>
 
                             <hr>
-
+                            <input type="button" class="btn btn-outline-success mb-4" value="Mensagens" onclick="window.location = '{{url('/mensagens/'.$campanha->mensagens->id.'/edit') }}'">
                             @if($campanha->status == '1')
                             <input type="button" class="btn btn-outline-success mb-4" value="Perguntas" onclick="window.location = '{{url('/perguntas/'. $campanha->id) }}'">
                             @endif

@@ -31,10 +31,12 @@
         </button>
 
         <a class="nav-link li_menu_topo" href="{{url('empresas')}}">
-
+            @if(Session::get('login_admin'))
             @foreach(Session::get('login_admin') as $user)
             {{$user}}
+
             @endforeach
+            @endif
         </a>
 
 
@@ -71,7 +73,7 @@
                 </li>
             </ul>
 
-            
+
             @endif
         </div>
     </div>

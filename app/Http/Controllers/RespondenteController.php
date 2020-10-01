@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class RespondenteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('ad_checked');
+    }
     
     public function create()
     {

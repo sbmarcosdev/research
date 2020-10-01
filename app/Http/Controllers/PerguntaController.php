@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
 class PerguntaController extends Controller
-{    
+{
+    public function __construct()
+    {
+        $this->middleware('ad_checked');
+    }
+    
     public function reorder(Request $request)
     {
         $request->validate([

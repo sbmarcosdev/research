@@ -16,7 +16,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Empresa</th>
                                     <th scope="col">Descrição</th>
                                     <th scope="col">Validade</th>
                                     <th scope="col">Status</th>
@@ -26,7 +26,7 @@
                             <tbody>
                                 @foreach($campanhas as $camp)
                                 <tr>
-                                    <td>{{$camp->id}}</td>
+                                    <td>{{$camp->empresa->nome}}</td>
                                     <td>{{$camp->descricao}}</td>
                                     <td>{{date('d/m/Y', strtotime($camp->data_termino)) }}</td>
                                     <td>
