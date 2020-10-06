@@ -1,4 +1,4 @@
-@extends('template.template_login')
+@extends('template.template')
 @section('content')
 
 <div class="container">
@@ -20,21 +20,13 @@
                                     <label for="descricao">E-mail</label>
                                     <input type="email" name="email" class="form-control" required>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="descricao">Senha</label>
                                     <input type="password" name="senha" class="form-control" required>
                                 </div>
-
-                                <button type="submit" class="btn btn-success">
-
-                                    Login </button>
-                            </form>
+                                <button type="submit" class="btn btn-success">Login</button>                           </form>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>

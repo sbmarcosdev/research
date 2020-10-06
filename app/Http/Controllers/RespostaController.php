@@ -24,22 +24,30 @@ class RespostaController extends Controller
 
         if ($resp = CampanhaRespondente::where('respondente_id', $respondente_id)
             ->where('campanha_id', $campanha_id)
-            ->first()
-        ) {
+            ->first()) 
+            {
             if (($resp->campanha->data_inicio <= date('Y-m-d'))
-                && ($resp->campanha->data_termino >= date('Y-m-d'))
-            ) {
+                && ($resp->campanha->data_termino >= date('Y-m-d'))) {
                 $request->session()->put(['login_respondente' => $varSessao]);
 
                 return redirect('resposta');
-            } else {
 
+            } elseif ($resp->campanha->data_termino <= date('Y-m-d')) {
                 // data invalida, exibe msg de campanha Expirada     
-                $request->session()->flush();
-
+                
                 $msg = Mensagem::where('campanha_id', $campanha_id)->where('tipo_mensagem_id', 5)->first();
                 $msg->primeiro_acesso = false;
+                $request->session()->flush();
 
+                return view('respostas.msg', compact('msg'));
+
+            } elseif ($resp->campanha->data_inicio >= date('Y-m-d')){
+                // data invalida, exibe msg de campanha Não  Iniciada     
+                
+                $msg = Mensagem::where('campanha_id', $campanha_id)->where('tipo_mensagem_id', 3)->first();
+                $msg->primeiro_acesso = false;
+                $request->session()->flush();
+                
                 return view('respostas.msg', compact('msg'));
             }
         } else {

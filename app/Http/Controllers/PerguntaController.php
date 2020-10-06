@@ -73,7 +73,7 @@ class PerguntaController extends Controller
         return view('perguntas.frm', compact('pergunta'));
     }
 
-      public function store(Request $request)
+    public function store(Request $request)
     {
 
         $validatedData = $request->validate([

@@ -60,6 +60,9 @@
     @if(Session::get('status_campanha'))
     <a href="{{url(Session::get('link_status'))}}"> <img src="{{asset(Session::get('status_campanha'))}}" class="fases" title="{{Session::get('titulo_status')}}">
     </a>
-        @endif
+    @else
+    <a href="{{url('campanhas')}}"> <img src="{{asset('img/vazio.png')}}" class="fases" title="Página Inicial">
+    </a>
+    @endif
 
 </div>
