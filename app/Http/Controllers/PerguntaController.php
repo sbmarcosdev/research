@@ -91,8 +91,15 @@ class PerguntaController extends Controller
 
             return view('perguntas.opcoes', compact('opcoes', 'pergunta'));
         } else
+        
+        session()->put([
+            'status_campanha' => 'img/status2.png',
+            'titulo_status' => 'Realize a Importação dos Participantes',
+            'link_status' => 'importar/' . $pergunta->campanha_id
+        ]);
 
-            return redirect('/perguntas/' . $pergunta->campanha_id);
+        return redirect('/perguntas/' . $pergunta->campanha_id);
+
     }
 
     public function update(Request $request)
@@ -118,6 +125,11 @@ class PerguntaController extends Controller
          
         } else
 
+        session()->put(['status_campanha' => 'img/status2.png',
+                        'titulo_status' => 'Realize a Importação dos Participantes',
+                        'link_status' => 'importar/' . $campanha_id
+                        ]);
+        
         return redirect('/perguntas/' . $request->campanha_id);
     }
 

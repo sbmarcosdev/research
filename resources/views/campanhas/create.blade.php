@@ -37,10 +37,10 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-success" onclick="alertaSalvar()">
+                            <button class="btn btn-success">
                                 Salvar
                             </button>
-                            <button type="button" class="btn btn-warning" onclick="window.location='{{url('/campanhas')}}'">
+                            <button type="button" class="btn btn-warning" onclick="window.location='{{url('campanhas')}}'">
                                 Voltar
                             </button>
                         </form>
@@ -50,4 +50,25 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $('form').on("submit", function(event) {
+
+        if (($('#descricao').val().length == 0)) {
+            event.preventDefault();
+            $('#descricao').tooltip('show');
+
+
+        } else if ($('#descricao').val().length == 0) {
+            event.stopPropagation();
+            $('#descricao').tooltip('show');
+
+        } else if ($('#descricao').val().length == 0) {
+            event.stopPropagation();
+            $('#descricao').tooltip('show');
+        }
+    });
+</script>
 @endsection

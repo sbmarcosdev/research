@@ -30,7 +30,7 @@ class EmpresasController extends Controller
         if ($request->file('logo')) {
             $fileNameLogo = time() . '_' . $request->logo->getClientOriginalName();
 
-            $filePathLogo = $request->logo->storeAs('public', $fileNameLogo);
+            $filePathLogo = $request->logo->storeAs('uploads', $fileNameLogo);
         }
 
         if ($request->file('banner')) {
@@ -66,7 +66,7 @@ class EmpresasController extends Controller
         if ($request->file('logo')) {
             $fileNameLogo = time() . '_' . $request->logo->getClientOriginalName();
 
-            $filePathLogo = $request->logo->storeAs('public', $fileNameLogo);
+            $filePathLogo = $request->logo->storeAs('img', $fileNameLogo);
         }
 
         if ($request->file('banner')) {

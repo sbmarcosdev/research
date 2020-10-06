@@ -8,6 +8,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(LoginAdminSeeder::class);
         $this->call(TipoDataSeeder::class); 
-        $this->call(OpcaoDataSeeder::class); 
+        $this->call(OpcaoDataSeeder::class);
+        $this->call(TipoMensagemDataSeeder::class); 
     }
 }

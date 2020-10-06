@@ -10,15 +10,7 @@
                         <a class="mb-4">Perguntas</a> |
                         <a class="mb-4">Campanha {{ $campanha -> descricao }}</a>
                         <hr>
-                        <a href="{{url('/campanhas')}}">
-                            <button type="button" class="btn btn-outline-info mb-4">Voltar</button>
-                        </a>
-                        <a href="{{url('/perguntas/'.$campanha->id.'/create')}}">
-                            <button type="button" class="btn btn-outline-success mb-4">Incluir Nova Pergunta</button>
-                        </a>
-
                         <table id="table" name="table" class="table table-striped table-bordered">
-
                             <tbody data-id="{{ $campanha->id }}" class="sortable">
                                 <tr>
                                     <td colspan="8" style="background-color:#ddd;">{{ $campanha->descricao }}</td>
@@ -68,6 +60,15 @@
                             <button type="button" class="btn btn-outline-info mb-4" onclick="window.location = '{{url('/importar/'.$campanha->id )}}'">Participantes</button>
                         </a>
                         @endif
+                        <hr>
+
+                        <button class="btn btn-success" onclick="window.location='{{url('/perguntas/'.$campanha->id.'/create')}}'">
+                            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Nova">
+                            Incluir </button>
+
+                        <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
+                            Voltar </button>
                     </div>
                 </div>
             </div>

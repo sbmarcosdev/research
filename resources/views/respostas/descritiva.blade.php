@@ -21,7 +21,7 @@
             <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
             <hr>
             <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: {{$resp->progresso}}%;" aria-valuenow="{{$resp->progresso}}" aria-valuemin="0" aria-valuemax="100">{{$resp->qtd}}</div>
+                <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
             </div>
     </div>
 

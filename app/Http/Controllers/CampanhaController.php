@@ -15,6 +15,12 @@ class CampanhaController extends Controller
 
     public function index()
     {      
+        session()->put([
+            'status_campanha' => 'img/inicio.png',
+            'titulo_status' => 'Selecione ou Inclua Nova uma Campanha',
+            'link_status' => 'campanhas'
+        ]);
+
         $campanhas = Campanha::all();
         return view('campanhas.list', compact('campanhas'));
     }
@@ -35,6 +41,12 @@ class CampanhaController extends Controller
         ]);
 
         $insert = Campanha::create($validatedData);
+        
+        session()->put([
+                    'status_campanha' => 'img/status1.png',
+                    'titulo_status' => 'Configure as mensagens da Pesquisa',
+                    'link_status' => "url('campanhas')"
+                     ]);
 
         return redirect('/perguntas/' . $insert->id);
     }
@@ -44,6 +56,13 @@ class CampanhaController extends Controller
         $campanha = Campanha::find($campanha_id);
 
         $empresas = Empresa::all();
+
+        session()->put([
+            'status_campanha' => 'img/status1.png',
+            'titulo_status' => 'Configure as Mensagens da Campanha',
+            'link_status' => 'mensagens/'.$campanha_id
+        ]);
+
 
         return view('campanhas.frm', compact('campanha','empresas'));
     }
@@ -59,6 +78,12 @@ class CampanhaController extends Controller
         ]);
 
         $update = $campanha->update($validatedData);
+
+        session()->put([
+            'status_campanha' => 'img/status1.png',
+            'titulo_status' => 'Configure as mensagens da Pesquisa',
+            'link_status' => 'campanhas'
+        ]);
 
         return redirect('/perguntas/' . $campanha->id);
     }

@@ -43,6 +43,10 @@ class LoginADController extends Controller
                 $varSessao = [];
                 $varSessao['login_admin'] = $body['username'];
                 $request->session()->put(['login_admin' => $varSessao]);
+                session()->put([
+                    'status_campanha' => '',
+                    'titulo_status' => ''
+                ]);
 
                 return redirect()->intended('campanhas');
             } else {

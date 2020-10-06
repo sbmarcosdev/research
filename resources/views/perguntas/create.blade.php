@@ -42,7 +42,8 @@
                                     <input type="text" name="ordem" id="ordem" class="form-control" value="{{$campanha->numNova}}">
                                 </div>
                             </div>
-                            <button class="btn btn-success" onclick="alertaSalvar()">
+                            <button class="btn btn-success">
+                                <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Salvar">
                                 Salvar
                             </button>
 

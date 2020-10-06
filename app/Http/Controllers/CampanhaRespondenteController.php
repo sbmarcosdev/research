@@ -74,6 +74,9 @@ class CampanhaRespondenteController extends Controller
                       ]);
            }
         }
+        session()->put(['status_campanha' => 'img/status3.png',
+                        'titulo_status' => 'Pesquisa Pronta para Envio aos Respondentes'
+        ]);
 
         return redirect('/importar/'. $id);
     }

@@ -1,34 +1,14 @@
 function jsOption(opt) {
-    
-    if (opt =='1'){
-        $('#op1').prop("selected", true);
-    }
-    else if (opt == '2'){
-        $('#op2').prop("selected", true);
-    }
-    else if (opt == '3'){
-        $('#op3').prop('selected', true);
-    }
-    else if (opt == '4'){
-        $('#op4').prop("selected", true);
-    }
-    else if (opt == '5') {
-        $('#op5').prop("selected", true);
-    } else if (opt == '6') {
-        $('#op6').prop("selected", true);
-    }                        
+        
+        $('#op'+opt).prop("selected", true);
+                            
 }
 
-function jsSelect() {
-
-    if ($('#op4').prop("selected")) {
-
-        $('#modalOpcoes').modal('show');
-    }
-}
+$(window).load(function () {
+    alert("hi 2");
+});
 
 function jsSimNao(v){
-
     $('#sim_nao').val(v);
 }
 
@@ -76,4 +56,14 @@ function jsBannerPreview(objFileInput) {
         fileReader.readAsDataURL(objFileInput.files[0]);
     }
     $("#div_arquivo_banner").html(objFileInput.files[0].name);
+}
+
+function jsEditor(){
+    
+ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+
 }

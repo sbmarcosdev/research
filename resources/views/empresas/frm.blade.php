@@ -11,7 +11,7 @@
                             <h4 class="tituloPrincipal">Dados da Empresa</h4>
                             <div id="targetLayer" style="position: absolute; top: 0; right: 0; ">
                                 @if ($empresa->logo)
-                                <img src="{{ url('../storage/app/'.$empresa->logo) }}" style="height: 60px">
+                                <img src="{{asset($empresa->logo)}}" style="height: 60px">
                                 @endif
                             </div>
                             <hr>
