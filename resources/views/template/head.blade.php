@@ -28,11 +28,11 @@
 
     <script src="{{ asset('js/main.js') }}"></script>
 
-    <script src="{{url("assets/popper.min.js")}}"></script>
-    <script src="{{url("assets/bootstrap.min.js")}}"></script>
-    <script src="{{url("assets/script.js")}}"></script>
-    <script src="{{url("assets/sbmscript.js")}}"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+    <script src="{{asset('assets/popper.min.js')}}"></script>
+    <script src="{{asset('assets/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/script.js')}}"></script>
+    <script src="{{asset('assets/sbmscript.js')}}"></script>
+    <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
 
     @yield('styles')
 
@@ -51,13 +51,25 @@
     }
 
     .espacamento {
+        margin-top: 150px;
+        position: absolute;
         padding: 0px;
     }
 
     .fases {
-        margin-top: 80px;
-        margin-left: 200px;
+        position: absolute;
+        margin-top: 90px;
+        margin-left: 160px;
         width: 25%;
+
+    }
+
+    .fasesTitulo {
+        margin-top: 105px;
+        position: absolute;
+        margin-left: 520px;
+        color: #735294 !important;
+        font-weight: bold;
     }
 
     .quebraLinha {
@@ -82,8 +94,9 @@
         text-align: center;
         /* color: #ac2228; */
         color: #735294 !important;
-        padding: 20px;
+        padding: 0px;
         font-weight: bold;
+
     }
 
     .titulosub {

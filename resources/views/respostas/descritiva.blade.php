@@ -16,16 +16,13 @@
             <p> {{ $pergunta->texto }} </p>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="texto_resposta"></textarea>
 
-            <hr>
 
-            <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
-            <hr>
-            <div class="progress">
+            <button type="submit" class="btn btn-outline-success mt-3 mb-4">Enviar Respostas</button>
+        
+            <div class="progress mt-4">
                 <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
             </div>
     </div>
-
-
 </div>
 
 @endsection

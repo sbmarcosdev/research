@@ -4,10 +4,6 @@ function jsOption(opt) {
                             
 }
 
-$(window).load(function () {
-    alert("hi 2");
-});
-
 function jsSimNao(v){
     $('#sim_nao').val(v);
 }
@@ -56,14 +52,4 @@ function jsBannerPreview(objFileInput) {
         fileReader.readAsDataURL(objFileInput.files[0]);
     }
     $("#div_arquivo_banner").html(objFileInput.files[0].name);
-}
-
-function jsEditor(){
-    
-ClassicEditor
-    .create(document.querySelector('#editor'))
-    .catch(error => {
-        console.error(error);
-    });
-
 }

@@ -1,7 +1,7 @@
 @extends('template.template')
 @section('content')
 
-<body onload="jsEditor()">
+<body>
     <div class="container">
         <div class="container espacamento">
             <form id="uploadForm" action="{{url('mensagens')}}" method="POST" enctype="form-data">
@@ -34,4 +34,12 @@
         </div>
     </div>
 </body>
+@endsection
+
+@section('scripts')
+<script>
+    window.onload = function() {
+        CKEDITOR.replace('editor')
+    }
+</script>
 @endsection

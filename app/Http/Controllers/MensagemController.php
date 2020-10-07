@@ -24,6 +24,7 @@ class MensagemController extends Controller
         session()->put([
             'status_campanha' => 'img/status2.png',
             'titulo_status' => 'Cadastre as Perguntas da Pesquisa'
+            
         ]);
         
         return redirect('mensagens/' . $request->campanha_id);

@@ -5,13 +5,12 @@
     <div class="container espacamento">
         <a class="mb-4">Campanha {{ $resp->campanha->descricao }}</a> |
         <a class="mb-4"> {{ $resp->respondente->nome }}</a>
-        <hr>
-        <form action="{{url('/resposta')}}" method="POST">
+            <form action="{{url('/resposta')}}" method="POST">
             <input type="hidden" name="tipo_id" value="3">
             @csrf
             @method('patch')
 
-            <table id="rtable" name="table" class="table table-striped table-bordered" style="width:100%">
+            <table id="rtable" name="table" class="table table-striped table-bordered mt-4" style="width:100%">
                 <thead>
                     <tr>
                         <th>Perguntas</th>
@@ -40,11 +39,11 @@
             </div>
             <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
     </div>
-    <hr>
-    <div class="progress">
+    
+    <div class="progress mt-4">
         <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
     </div>
-    <hr>
+    
 </div>
 
 @endsection

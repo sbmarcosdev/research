@@ -34,18 +34,18 @@ class RespostaController extends Controller
 
             } elseif ($resp->campanha->data_termino <= date('Y-m-d')) {
                 // data invalida, exibe msg de campanha Expirada     
-                
+                $msg = ['primeiro_acesso' => false];
                 $msg = Mensagem::where('campanha_id', $campanha_id)->where('tipo_mensagem_id', 5)->first();
-                $msg->primeiro_acesso = false;
+               // $msg->primeiro_acesso = false;
                 $request->session()->flush();
 
                 return view('respostas.msg', compact('msg'));
 
             } elseif ($resp->campanha->data_inicio >= date('Y-m-d')){
                 // data invalida, exibe msg de campanha Não  Iniciada     
-                
+                $msg=['primeiro_acesso'=>false];
                 $msg = Mensagem::where('campanha_id', $campanha_id)->where('tipo_mensagem_id', 3)->first();
-                $msg->primeiro_acesso = false;
+                //
                 $request->session()->flush();
                 
                 return view('respostas.msg', compact('msg'));
@@ -218,7 +218,7 @@ class RespostaController extends Controller
             }
         }
 
-        session()->put(['status_campanha' => 1 ]);
+        //session()->put(['status_campanha' => 1 ]);
         
         return back();
     }

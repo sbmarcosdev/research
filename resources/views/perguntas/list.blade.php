@@ -7,13 +7,11 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body" style="min-height: 490px">
-                        <a class="mb-4">Perguntas</a> |
-                        <a class="mb-4">Campanha {{ $campanha -> descricao }}</a>
-                        <hr>
+                        <h4 class="tituloPrincipal">Perguntas</h4>
                         <table id="table" name="table" class="table table-striped table-bordered">
                             <tbody data-id="{{ $campanha->id }}" class="sortable">
                                 <tr>
-                                    <td colspan="8" style="background-color:#ddd;">{{ $campanha->descricao }}</td>
+                                    <th colspan="8" style="background-color:#ddd; ">{{ $campanha->descricao }}</th>
                                 </tr>
 
                                 <th>Pergunta</th>

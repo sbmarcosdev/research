@@ -11,8 +11,6 @@
                         <div class="col-sm-12">
                             <h4 class="tituloPrincipal">Campanhas</h4>
                         </div>
-
-
                         <table class="table table-striped">
                             <thead>
                                 <tr>

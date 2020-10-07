@@ -18,7 +18,8 @@ class CampanhaController extends Controller
         session()->put([
             'status_campanha' => 'img/inicio.png',
             'titulo_status' => 'Selecione ou Inclua Nova uma Campanha',
-            'link_status' => 'campanhas'
+            'link_status' => 'campanhas',
+            'titulo_fase' => ''
         ]);
 
         $campanhas = Campanha::all();
@@ -60,7 +61,8 @@ class CampanhaController extends Controller
         session()->put([
             'status_campanha' => 'img/status1.png',
             'titulo_status' => 'Configure as Mensagens da Campanha',
-            'link_status' => 'mensagens/'.$campanha_id
+            'link_status' => 'mensagens/'.$campanha_id,
+            'titulo_fase' => $campanha->descricao,
         ]);
 
 

@@ -127,7 +127,7 @@ class PerguntaController extends Controller
 
         session()->put(['status_campanha' => 'img/status2.png',
                         'titulo_status' => 'Realize a Importação dos Participantes',
-                        'link_status' => 'importar/' . $campanha_id
+                        'link_status' => 'importar/' . $request->campanha_id
                         ]);
         
         return redirect('/perguntas/' . $request->campanha_id);

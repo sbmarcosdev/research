@@ -7,12 +7,9 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
-                        <div class="col-sm-12">
-                            <h5>Campanha</h5>
-                            <hr>
-
-                        </div>
-
+            
+                            <h4 class="tituloPrincipal">Campanha</h4>
+            
                         <body onload="jsOption('{{$campanha->empresa_id}}')">
                             <form action="{{url('/campanhas/'.$campanha->id)}}" method="POST">
                                 @csrf
@@ -61,6 +58,7 @@
 
 
                                 <button class="btn btn-success" onclick="alertaSalvar()">
+                                    <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                                     Salvar
                                 </button>
                                 <button type="button" class="btn btn-warning" onclick="window.location = '{{url('campanhas')}}' ">

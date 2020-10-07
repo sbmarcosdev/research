@@ -38,9 +38,11 @@
                             </div>
 
                             <button class="btn btn-success">
+                                <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Incluir">
                                 Salvar
                             </button>
                             <button type="button" class="btn btn-warning" onclick="window.location='{{url('campanhas')}}'">
+                                <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                                 Voltar
                             </button>
                         </form>
