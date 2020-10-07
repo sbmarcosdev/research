@@ -10,7 +10,7 @@ class CreateCampanhasRespondentesTable extends Migration
     {
         Schema::create('campanha_respondentes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('campanha_id')->constrained();
+            $table->foreignId('campanha_id')->constrained()->onDelete('cascade');
             $table->char('respondente_id',36);
             $table->foreign('respondente_id')->references('id')->on('respondentes')->onDelete('cascade');
             $table->char('respondida', 1)->default('N');

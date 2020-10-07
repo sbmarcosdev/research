@@ -1,4 +1,4 @@
-@extends('template.template')
+@extends('template.resp_template')
 @section('content')
 <div class="container">
     <div class="container espacamento">

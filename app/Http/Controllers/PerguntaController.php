@@ -78,7 +78,8 @@ class PerguntaController extends Controller
 
         $validatedData = $request->validate([
             'campanha_id' => 'required',
-            'texto' => 'required|string|max:191',
+            'texto' => 'required',
+            'texto_ajuda' => 'sometimes|nullable|max:191',
             'tipo_id' => 'required|int',
             'ordem' => 'sometimes|int'
         ]);
@@ -107,7 +108,8 @@ class PerguntaController extends Controller
 
         $validatedData = $request->validate([
             'campanha_id' => 'required',
-            'texto' => 'required|string|max:191',
+            'texto' => 'required', 
+            'texto_ajuda' => 'sometimes|nullable|max:191',
             'tipo_id' => 'required|int',
             'ordem' => 'sometimes|int'
         ]);

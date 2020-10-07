@@ -32,16 +32,8 @@
                             <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/importar/'.$campanha->id)}}'">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar </button>
-                            <button type="button" class="btn btn-danger" onclick="confirmaDelete()">
-                                <img src=" {{ asset('img/007-excluir.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Excluir">
-                                Excluir </button>
-
                         </form>
-
                     </div>
-
-
-
                 </div>
             </div>
         </div>

@@ -30,13 +30,13 @@ class EmpresasController extends Controller
         if ($request->file('logo')) {
             $fileNameLogo = time() . '_' . $request->logo->getClientOriginalName();
 
-            $filePathLogo = $request->logo->storeAs('uploads', $fileNameLogo);
+            $filePathLogo = $request->logo->storeAs('images', $fileNameLogo);
         }
 
         if ($request->file('banner')) {
             $fileNameBanner = time() . '_' . $request->banner->getClientOriginalName();
 
-            $filePathBanner = $request->banner->storeAs('public', $fileNameBanner);
+            $filePathBanner = $request->banner->storeAs('images', $fileNameBanner);
         }
 
         Empresa::create([
@@ -66,13 +66,13 @@ class EmpresasController extends Controller
         if ($request->file('logo')) {
             $fileNameLogo = time() . '_' . $request->logo->getClientOriginalName();
 
-            $filePathLogo = $request->logo->storeAs('img', $fileNameLogo);
+            $filePathLogo = $request->logo->storeAs('images', $fileNameLogo);
         }
 
         if ($request->file('banner')) {
             $fileNameBanner = time() . '_' . $request->banner->getClientOriginalName();
 
-            $filePathBanner = $request->banner->storeAs('public', $fileNameBanner);
+            $filePathBanner = $request->banner->storeAs('images', $fileNameBanner);
         }
 
         $dados = [];

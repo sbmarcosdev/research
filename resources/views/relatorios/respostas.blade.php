@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <a>{{$respondente->first()->respondente->nome}} </a>
-                            <hr>
+                            <h5>{{$respondente->first()->respondente->nome}} </h5>
+                      
                             <table class="table table-striped" style="width: 100%; margin: 0 auto;">
                                 <thead>
                                     <tr>
@@ -22,7 +22,7 @@
 
                                     @foreach( $perguntas as $pergunta )
                                     <tr>
-                                        <td>{{$pergunta->texto ?? ''}}</td>
+                                        <td>{!! $pergunta->texto ?? '' !!}</td>
                                         <td>{{$resposta[$pergunta->id]->opcaoResposta->titulo ?? ''}}</td>
                                         <td>{{$resposta[$pergunta->id]->texto_resposta ?? ''}}</td>
                                     </tr>

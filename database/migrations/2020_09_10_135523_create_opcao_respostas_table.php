@@ -15,7 +15,7 @@ class CreateOpcaoRespostasTable extends Migration
     {
         Schema::create('opcao_respostas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tipo_id')->constrained();
+            $table->foreignId('tipo_id')->constrained()->onDelete('cascade');
             $table->string('titulo');
             $table->integer('peso');
             $table->integer('ordem');

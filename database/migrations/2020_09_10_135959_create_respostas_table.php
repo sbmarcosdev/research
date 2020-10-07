@@ -11,10 +11,10 @@ class CreateRespostasTable extends Migration
         Schema::create('respostas', function (Blueprint $table) {
             $table->id();
             $table->char('respondente_id', 36)->nullable()->index('FK_campanha_respondente');
-            $table->foreignId('campanha_id')->constrained();
-            $table->foreignId('pergunta_id')->constrained();
-            $table->foreignId('tipo_id')->constrained();
-            $table->foreignId('opcao_resposta_id')->nullable()->constrained();
+            $table->foreignId('campanha_id')->constrained()->onDelete('cascade');
+            $table->foreignId('pergunta_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tipo_id')->constrained()->onDelete('cascade');
+            $table->foreignId('opcao_resposta_id')->nullable()->constrained()->onDelete('cascade');
             $table->text('texto_resposta')->nullable();
             $table->integer('peso_resposta')->nullable();
             $table->char('sim_nao', 1)->nullable();

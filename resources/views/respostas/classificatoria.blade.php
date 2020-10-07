@@ -1,4 +1,4 @@
-@extends('template.template')
+@extends('template.resp_template')
 @section('content')
 
 <div class="container">
@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $pergunta->texto }}</td>
+                        <td>{!! $pergunta->texto !!}</td>
                         <td>
                             <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="5" required></div>
                         </td>

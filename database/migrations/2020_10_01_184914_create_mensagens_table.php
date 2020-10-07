@@ -10,9 +10,9 @@ class CreateMensagensTable extends Migration
     {
         Schema::create('mensagens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('campanha_id')->constrained()->comment('relacionamento tabela campanhas');
-            $table->foreignId('tipo_mensagem_id')->constrained()->comment('relacionamento tabela tipo_mensagem');
-            $table->text('texto_mensagem')->nullable()->comment('Descricao interna sobre a campanha');
+            $table->foreignId('campanha_id')->constrained()->onDelete('cascade')->comment('relacionamento tabela campanhas');
+            $table->foreignId('tipo_mensagem_id')->constrained()->onDelete('cascade')->comment('relacionamento tabela tipo_mensagem');
+            $table->text('texto_mensagem')->nullable()->onDelete('cascade')->comment('Descricao interna sobre a campanha');
             $table->timestamps();
         });
     }

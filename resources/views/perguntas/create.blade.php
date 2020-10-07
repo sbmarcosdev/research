@@ -7,10 +7,8 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <a>Cadastrar Perguntas | </a>
+                            <h5 class="mb-2">Cadastrar Perguntas </h5>
 
-                            <a>Campanha {{ $campanha -> descricao }}</a>
-                            <hr>
                         </div>
                         <form action="{{url('/perguntas')}}" method="POST">
                             @csrf
@@ -18,13 +16,14 @@
 
                             <input type="hidden" name="campanha_id" id="campanha_id" value="{{ $campanha->id }}">
 
-                            <div class="form-group">
-                                <label for="descricao">Pergunta</label>
-                                <input type="text" name="texto" class="form-control" id="texto" required>
-                            </div>
+                            <textarea name="texto" id="editor"></textarea>
 
                             <div class="form-row mb-3">
-                                <div class="col-sm">
+                                <div class="col form-group mt-2 mr-2">
+                                    <label for="descricao">Texto de Ajuda</label>
+                                    <input type="text" name="texto_ajuda" class="form-control" id="texto">
+                                </div>
+                                <div class="col form-group mt-2 mr-2">
                                     <label>Tipo de Resposta</label>
                                     <select class="form-control" name="tipo_id" id="status" required>
                                         <option id="op1" value="1">Classificatória | Ótimo | Bom | Regular | Ruim | Péssimo | </option>
@@ -35,9 +34,7 @@
                                         <option id="op6" value="6">Opções Personalizadas </option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="form-row mb-3">
-                                <div class="col-sm">
+                                <div class="col form-group mt-2 mr-2">
                                     <label>Ordem</label>
                                     <input type="text" name="ordem" id="ordem" class="form-control" value="{{$campanha->numNova}}">
                                 </div>
@@ -59,4 +56,11 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script>
+    window.onload = function() {
+        CKEDITOR.replace('editor')
+    }
+</script>
 @endsection

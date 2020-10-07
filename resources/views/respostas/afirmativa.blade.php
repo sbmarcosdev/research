@@ -1,11 +1,11 @@
-@extends('template.template')
+@extends('template.resp_template')
 @section('content')
 
 <div class="container">
     <div class="container espacamento">
         <a class="mb-4">Campanha {{ $resp->campanha->descricao }}</a> |
         <a class="mb-4"> {{ $resp->respondente->nome }}</a>
-            <form action="{{url('/resposta')}}" method="POST">
+        <form action="{{url('/resposta')}}" method="POST">
             <input type="hidden" name="tipo_id" value="3">
             @csrf
             @method('patch')
@@ -22,7 +22,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $pergunta->texto }}</td>
+                        <td>{!! $pergunta->texto !!}</td>
+                        <td>{{ $pergunta->texto_ajuda }}</td>
                         <td>
                             <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="5" onclick="jsSimNao('S')" required></div>
                         </td>
@@ -39,11 +40,11 @@
             </div>
             <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
     </div>
-    
+
     <div class="progress mt-4">
         <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
     </div>
-    
+
 </div>
 
 @endsection

@@ -11,8 +11,8 @@ class CreateStatusRespondentesTable extends Migration
     {
         Schema::create('status_respondentes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('campanha_respondente_id')->constrained();
-            $table->foreignId('pergunta_id')->constrained();
+            $table->foreignId('campanha_respondente_id')->constrained()->onDelete('cascade');
+            $table->foreignId('pergunta_id')->constrained()->onDelete('cascade');
             $table->char('respondida',1)->default('N');
             $table->timestamps();
         });

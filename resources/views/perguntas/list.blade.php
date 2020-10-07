@@ -22,7 +22,7 @@
                                 @foreach($perguntas as $perg)
                                 <tr data-id="{{ $perg->id ?? '' }}" class="pergunta" title="Arraste para ordenar">
                                     <td>
-                                        {{ $perg->texto ?? '' }}
+                                        {!! $perg->texto ?? '' !!}
                                     </td>
                                     <td>
                                         {{ $perg->tipo->tipo ?? '' }}
@@ -34,13 +34,9 @@
                                         <a href="{{url('/relatorios/'.$perg->id.'/detalhe')}}" class="btn btn-xs btn-info" title="Ver Respostas">
                                             Ver
                                         </a>
-                                        @elseif($perg->status->first())
+                                        @endif
                                         <a href="{{url('/perguntas/'.$perg->id.'/edit')}}" class="btn btn-xs btn-info" title="Editar">
                                             Editar </a>
-                                        @else
-                                        <a href="{{url('/perguntas/'.$perg->id.'/edit')}}" class="btn btn-xs btn-info" title="Editar">
-                                            Editar </a>
-
                                         <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="pergunta_id" value="{{ $perg->id ?? '' }}">
@@ -48,7 +44,7 @@
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="submit" class="btn btn-xs btn-danger" value="X" title="Excluir">
                                         </form>
-                                        @endif
+
                                     </td>
                                 </tr>
                                 @endforeach
@@ -58,13 +54,12 @@
                             <button type="button" class="btn btn-outline-info mb-4" onclick="window.location = '{{url('/importar/'.$campanha->id )}}'">Participantes</button>
                         </a>
                         @endif
-                        <hr>
-
-                        <button class="btn btn-success" onclick="window.location='{{url('/perguntas/'.$campanha->id.'/create')}}'">
+   
+                        <button class="btn btn-success mt-4" onclick="window.location='{{url('/perguntas/'.$campanha->id.'/create')}}'">
                             <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Nova">
                             Incluir </button>
 
-                        <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                        <button type="button" class="btn btn-warning mt-4" onclick="window.history.back()">
                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
                     </div>

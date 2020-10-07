@@ -9,18 +9,18 @@
                     <div class="card-body" style="min-height: 480px">
                         <div class="col-sm-12">
                             <h4 class="tituloPrincipal">Dados da Empresa</h4>
-                            <div id="targetLayer" style="position: absolute; top: 0; right: 0; ">
+                            <div id="targetLayer" style="position: absolute; top: 0; right: 0; margin-right:15px;">
                                 @if ($empresa->logo)
                                 <img src="{{asset($empresa->logo)}}" style="height: 60px">
                                 @endif
                             </div>
-                            <hr>
+
 
                             <form id="uploadForm" action="{{url('/empresas/'.$empresa->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mt-5 mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Razão Social</span>
                                         </div>
@@ -76,13 +76,13 @@
 
                                     </div>
                                     <div class="input-group mb-3">
-                                        <div id="div_banner" style="position: absolute; right: 0; height: 40px">
+                                        <div id="div_banner">
                                             @if ($empresa->banner)
-                                            <img src="{{ url('../storage/app/'.$empresa->banner) }}" style="height: 60px">
+                                            <img src="{{asset( $empresa->banner ?? '') }}" width="100%">
                                             @endif
                                         </div>
                                     </div>
-                                    <button class="btn btn-success" onclick="">
+                                    <button class=" btn btn-success" onclick="">
                                         <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Salvar">
                                         Salvar </button>
                                     <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/empresas')}}'">

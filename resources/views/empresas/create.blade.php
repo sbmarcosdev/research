@@ -9,15 +9,15 @@
                     <div class="card-body" style="min-height: 480px">
                         <div class="col-sm-12">
                             <h4 class="tituloPrincipal">Dados da Empresa</h4>
-                            <div id="targetLayer" style="position: absolute; top: 0; right: 0; height: 60px"></div>
-                            <hr>
+                            <div id="targetLayer" style="position: absolute; top: 0; margin-right:15px; right: 0; height: 60px"></div>
+
 
                             <form id="uploadForm" action="{{url('/empresas')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('POST')
                                 <div class="form-group">
 
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mt-5 mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Razão Social</span>
                                         </div>

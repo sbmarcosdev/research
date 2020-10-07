@@ -23,8 +23,8 @@ class MensagemController extends Controller
 
         session()->put([
             'status_campanha' => 'img/status2.png',
-            'titulo_status' => 'Cadastre as Perguntas da Pesquisa'
-            
+            'titulo_status' => 'Cadastre as Perguntas da Pesquisa',
+            'link_status' => 'perguntas/'.$request->campanha_id
         ]);
         
         return redirect('mensagens/' . $request->campanha_id);
@@ -54,7 +54,9 @@ class MensagemController extends Controller
         $mensagem->update(['texto_mensagem' => $request->texto_mensagem]);
 
         session()->put(['status_campanha' => 'img/status2.png',
-                        'titulo_status' => 'Cadastre as Perguntas da Pesquisa']);
+                        'titulo_status' => 'Cadastre as Perguntas da Pesquisa',
+                        'link_status' => 'perguntas/' . $request->campanha_id
+                        ]);
 
         return redirect('mensagens/'. $request->campanha_id);
     }

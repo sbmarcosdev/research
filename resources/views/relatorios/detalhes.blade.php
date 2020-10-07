@@ -7,10 +7,9 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <a> {{ $pergunta->texto }} </a>
+                            <h5> {!! $pergunta->texto !!} </h5>
 
-                            <input type="button" value="Go Back" onClick='window.history.back()'>
-                            <hr>
+
                             <table class="table table-striped" style="width: 100%; margin: 0 auto;">
                                 <thead>
                                     <tr>@foreach($opcoes as $opcao)
@@ -25,6 +24,10 @@
                                     </tr>
                                 </tbody>
                             </table>
+
+                            <button type="button" class="btn btn-warning mt-5" onclick="window.history.back()">
+                                <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
+                                Voltar </button>
                         </div>
                     </div>
 

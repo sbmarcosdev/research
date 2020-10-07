@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Campanha;
 use App\Models\Empresa;
+use App\Models\Mensagem;
+use App\Models\TipoMensagem;
 use Illuminate\Http\Request;
 
 class CampanhaController extends Controller
@@ -46,10 +48,20 @@ class CampanhaController extends Controller
         session()->put([
                     'status_campanha' => 'img/status1.png',
                     'titulo_status' => 'Configure as mensagens da Pesquisa',
-                    'link_status' => "url('campanhas')"
+                    'link_status' => 'mensagens/'. $insert->id
                      ]);
 
-        return redirect('/perguntas/' . $insert->id);
+        $tipoMensagem = TipoMensagem::all();             
+        foreach($tipoMensagem as $tipo)
+        {
+            $mensagens = Mensagem::create([
+                'campanha_id' => $insert->id,
+                'tipo_mensagem_id' => $tipo->id,
+                'texto_mensagem' => '<h2>'.$tipo->tipo.'</h2>'
+            ]);             
+        } 
+        
+        return redirect('/mensagens/' . $insert->id);
     }
 
     public function edit($campanha_id)

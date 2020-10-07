@@ -14,9 +14,9 @@ class CreateRespostasOpcoesTable extends Migration
     public function up()
     {
         Schema::create('respostas_opcoes', function (Blueprint $table) {
-            $table->foreignId('pergunta_id')->constrained();
-            $table->foreignId('opcao_resposta_id')->constrained();
-            $table->foreignId('resposta_id')->constrained();
+            $table->foreignId('pergunta_id')->constrained()->onDelete('cascade');
+            $table->foreignId('opcao_resposta_id')->constrained()->onDelete('cascade');
+            $table->foreignId('resposta_id')->constrained()->onDelete('cascade');
             $table->char('resposta',3)->nullable();
             $table->integer('peso_resposta')->nullable();
             $table->timestamps();

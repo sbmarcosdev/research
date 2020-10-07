@@ -10,10 +10,7 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-
                             <h4 class="tituloPrincipal">Relatórios Respostas</h4>
-
-
                         </div>
                         <table class="table table-striped" style="width: 100%; margin: 0 auto;">
                             <thead>
@@ -38,7 +35,7 @@
                             </tbody>
 
                         </table>
-                        <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                        <button type="button" class="btn btn-warning mt-4" onclick="window.history.back()">
                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
 

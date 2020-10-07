@@ -19,8 +19,16 @@ class RelatorioController extends Controller
     public function index()
     {
         $rel = Campanha::all();
+        
+        session()->put([
+            'status_campanha' => 'img/relatorio.png',
+            'titulo_status' => 'Confira os Reslutados das Pesquisas',
+            'link_status' => 'relatorios'
+        ]);
 
         return view('relatorios.index', compact('rel'));
+
+       
     }
 
     public function show($campanha_id)
@@ -36,6 +44,13 @@ class RelatorioController extends Controller
         $rel = DB::select($sql);
 
         $campanha = Campanha::find($campanha_id);
+
+        session()->put([
+            'status_campanha' => 'img/relatorio.png',
+            'titulo_status' => 'Selecione ou Inclua Nova uma Campanha',
+            'link_status' => 'relatorios/'.$campanha_id ,
+            'titulo_fase' => $campanha->descricao
+        ]);
 
         return view('relatorios.show', compact('rel', 'campanha'));
     }

@@ -44,10 +44,7 @@ function jsBannerPreview(objFileInput) {
     if (objFileInput.files[0]) {
         var fileReader = new FileReader();
         fileReader.onload = function (e) {
-
-            $("#div_banner").html('<img src="' + e.target.result + '" >');
-
-
+            $("#div_banner").html('<img src="' + e.target.result + '" width="500px" >');
         }
         fileReader.readAsDataURL(objFileInput.files[0]);
     }
