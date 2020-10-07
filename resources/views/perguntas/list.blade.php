@@ -35,33 +35,39 @@
                                             Ver
                                         </a>
                                         @endif
-                                        <a href="{{url('/perguntas/'.$perg->id.'/edit')}}" class="btn btn-xs btn-info" title="Editar">
-                                            Editar </a>
+                                        <button type="button" class="btn btn-info" onclick="window.location='{{url('/perguntas/'.$perg->id.'/edit')}}'">
+                                            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Editar">
+                                        </button>
+
                                         <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="pergunta_id" value="{{ $perg->id ?? '' }}">
                                             <input type="hidden" name="campanha_id" value="{{ $perg->campanha->id ?? '' }}">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <input type="submit" class="btn btn-xs btn-danger" value="X" title="Excluir">
+                                            <button type="submit" class="btn btn-danger" value="X" title="Excluir">
+                                                <img src="{{ asset('img/007-excluir.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Excluir">
+                                            </button>
                                         </form>
 
                                     </td>
                                 </tr>
                                 @endforeach
                         </table>
-                        @if($campanha->temPerguntas)
-                        <a>
-                            <button type="button" class="btn btn-outline-info mb-4" onclick="window.location = '{{url('/importar/'.$campanha->id )}}'">Participantes</button>
-                        </a>
-                        @endif
-   
+
                         <button class="btn btn-success mt-4" onclick="window.location='{{url('/perguntas/'.$campanha->id.'/create')}}'">
-                            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Nova">
+                            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Inlcuir Pergunta">
                             Incluir </button>
 
                         <button type="button" class="btn btn-warning mt-4" onclick="window.history.back()">
                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
+
+                        @if($campanha->temPerguntas)
+
+                        <button type="button" class="btn btn-info mt-4" onclick="window.location = '{{url('/importar/'.$campanha->id )}}'">
+                            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Incluir Respondentes">
+                            Participantes</button>
+                        @endif
                     </div>
                 </div>
             </div>
