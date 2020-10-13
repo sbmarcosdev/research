@@ -14,6 +14,11 @@ class CreateCampanhasRespondentesTable extends Migration
             $table->char('respondente_id',36);
             $table->foreign('respondente_id')->references('id')->on('respondentes')->onDelete('cascade');
             $table->char('respondida', 1)->default('N');
+            $table->string('HTTP_USER_AGENT')->nullable();
+            $table->string('REMOTE_ADDR')->nullable();
+            $table->string('HTTP_REFERER')->nullable();
+            $table->dateTime('inicio_resposta')->nullable();
+            $table->dateTime('termino_resposta')->nullable();
             $table->timestamps();
         });
     }

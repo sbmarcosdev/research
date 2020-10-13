@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CampanhaRespondente;
-use App\Models\Empresa;
+use hisorange\BrowserDetect\Parser;
 use App\Models\Mensagem;
 use App\Models\OpcaoPergunta;
 use App\Models\OpcaoResposta;
@@ -11,6 +11,7 @@ use App\Models\Pergunta;
 use App\Models\Resposta;
 use App\Models\RespostaOpcao;
 use App\Models\StatusRespondente;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -83,7 +84,22 @@ class RespostaController extends Controller
 
                 $msg = Mensagem::where('campanha_id', $campanha_id)->where('tipo_mensagem_id', 2)->first();
                 $msg->primeiro_acesso = true;
-                $resp->update(['respondida' => 'A']);
+
+                $inicio_resposta = Carbon::now();
+
+                if (isset($_SERVER["HTTP_REFERER"]))
+                        $refer = $_SERVER["HTTP_REFERER"];
+                    else
+                        $refer =null;
+               
+                $resp->update(['respondida' => 'A', 
+                               'inicio_resposta' => $inicio_resposta,
+                               'HTTP_USER_AGENT' => $_SERVER["HTTP_USER_AGENT"],
+                               'REMOTE_ADDR' => $_SERVER["REMOTE_ADDR"],
+                               'HTTP_REFERER' =>  $refer
+                               ]);
+
+                    
                 // primeiro acesso, marca como Acessada, proximo acesso não exibe boas vindas     
                 return view('respostas.msg', compact('msg'));
             }
@@ -159,6 +175,10 @@ class RespostaController extends Controller
             } else {
                 // Finalizada com Sucesso
                 $request->session()->forget('login_respondente');
+
+                $fimResp = Carbon::now();
+                $resp->update(['termino_resposta' => $fimResp]);
+
                 $msg = Mensagem::where('campanha_id', $campanha_id)->where('tipo_mensagem_id', 4)->first();
                 return view('respostas.msg', compact('msg'));
             }
@@ -184,13 +204,15 @@ class RespostaController extends Controller
 
         $status->update(['respondida' => 'S']);
 
+
+
         $statusResposta = StatusRespondente::where('campanha_respondente_id', $status->id)
             ->where('pergunta_id', $request->pergunta_id)
             ->first();
 
         $statusResposta->update(['respondida' => 'S']);
 
-        if($request->tipo_id == 4 ){
+        if ($request->tipo_id == 4) {
 
             $resp = Resposta::updateOrCreate(
                 [
@@ -214,10 +236,8 @@ class RespostaController extends Controller
                     'resposta' => $resposta,
                     'peso_resposta' => $request->peso_opcao
                 ]);
-                }
             }
-
-        else{
+        } else {
             $opcao = OpcaoResposta::where('tipo_id', $request->tipo_id)
                 ->where('peso', $request->peso_resposta)
                 ->first();
@@ -243,7 +263,7 @@ class RespostaController extends Controller
                 'resposta' => $request->peso_resposta,
                 'peso_resposta' => $request->peso_resposta
             ]);
-    }
+        }
 
         return back();
     }

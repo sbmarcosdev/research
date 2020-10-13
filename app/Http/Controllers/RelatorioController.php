@@ -54,7 +54,21 @@ class RelatorioController extends Controller
             'titulo_fase' => $campanha->descricao
         ]);
 
-        return view('relatorios.show', compact('rel', 'campanha'));
+        $mobile = CampanhaRespondente::where('campanha_id', $campanha_id)
+                                        ->where('HTTP_USER_AGENT','like','%Mobile%')
+                                        ->count();
+
+        $desktop = CampanhaRespondente::where('campanha_id', $campanha_id)
+            ->where('HTTP_USER_AGENT', 'not like', '%Mobile%')
+            ->count();
+
+        $sqltempo = "SELECT avg(termino_resposta - inicio_resposta) as tempo FROM campanha_respondentes";
+        
+        $tempoResp = DB::select($sqltempo);
+
+        $tempo = $tempoResp[0]->tempo;
+        
+        return view('relatorios.show', compact('rel', 'campanha', 'mobile', 'desktop','tempo'));
     }
 
     public function detalhe($pergunta_id)
@@ -102,5 +116,11 @@ class RelatorioController extends Controller
         }
 
         return view('relatorios.respostas', compact('respostas', 'respostasOpcao'));
+    }
+
+    public function relatorioDevices(){
+
+        $respostas = CampanhaRespondente::all();
+        return view('relatorios.devices', compact('respostas'));
     }
 }

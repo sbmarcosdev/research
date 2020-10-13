@@ -40,6 +40,8 @@ Route::get('relatorios', 'RelatorioController@index');
 Route::get('relatorios/{campanha_id}', 'RelatorioController@show');
 Route::get('relatorios/{pergunta_id}/detalhe','RelatorioController@detalhe');
 Route::get('relatorios/{pergunta_id}/{respodente_id}', 'RelatorioController@respostas');
+Route::get('relatorios/dispositivos/{campanha_id}', 'RelatorioController@devices');
+
 
 Route::resource('usuarios', 'LoginController');
 Route::delete('exclusao-usuarios', 'LoginController@destroy');
