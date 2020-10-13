@@ -14,6 +14,7 @@ class CreateOpcaoPerguntasTable extends Migration
     public function up()
     {
         Schema::create('opcao_perguntas', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('pergunta_id')->constrained()->onDelete('cascade');
             $table->foreignId('opcao_resposta_id')->constrained()->onDelete('cascade');
         });

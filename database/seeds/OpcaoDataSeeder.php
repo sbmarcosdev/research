@@ -15,6 +15,7 @@ class OpcaoDataSeeder extends Seeder
             $salvar['titulo'] = $obj->titulo;
             $salvar['peso'] = $obj->peso;
             $salvar['ordem'] = $obj->ordem;
+            $salvar['padrao'] = $obj->padrao;
             DB::table('opcao_respostas')->insert($salvar);
         }
     }

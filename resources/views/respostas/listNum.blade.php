@@ -18,14 +18,14 @@
                     <tr>
                         <th>Perguntas</th>
                         @forelse($opcoesNum as $opcao)
-                        <th>{{ $opcao->titulo }} </th>
+                        <th>{!! $opcao->titulo !!} </th>
                         @empty
                         @endforelse
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $pergunta->texto }}</td>
+                        <td>{!! $pergunta->texto !!}</td>
                         <td>
                             <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="5" required></div>
                         </td>

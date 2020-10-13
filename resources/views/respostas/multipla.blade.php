@@ -3,9 +3,10 @@
 
 <div class="container">
     <div class="container espacamento">
-        <a class="mb-4">Campanha {{ $resp->campanha->descricao }}</a> |
-        <a class="mb-4"> {{ $resp->respondente->nome }}</a>
-        <hr>
+        <h4 class="tituloPrincipal">{{ $resp->campanha->descricao }}</h4>
+
+        <h5 class="mb-4"> {{ $resp->respondente->nome }}</h5>
+
         <form action="{{url('/resposta')}}" method="POST">
             @csrf
             @method('patch')
@@ -14,12 +15,13 @@
             <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
             <input type="hidden" name="tipo_id" value="{{$pergunta->tipo_id}}">
 
+            <h4> {!! $pergunta->texto !!} </h4>
+
             <table id="rtable" name="table" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Pergunta</th>
                         @forelse($multipla as $opcao)
-                        <th>{{ $opcao->titulo }} </th>
+                        <th>{!! $opcao->titulo !!} </th>
                         @empty
                         @endforelse
                     </tr>
@@ -27,7 +29,6 @@
 
                 <tbody>
                     <tr>
-                        <td>{{ $pergunta->texto }}</td>
                         @forelse($multipla as $opcao)
                         <td><input type="checkbox" name="opcao_id[{{ $opcao->id }}]"> </td>
                         <input type="hidden" name="peso_opcao" value="{{$opcao->peso}}">

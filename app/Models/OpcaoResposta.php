@@ -16,11 +16,5 @@ class OpcaoResposta extends Model
     public function resposta()
     {
         return $this->hasMany(Resposta::class);
-    }
-
-    public function opcaoPergunta()
-    {
-        return $this->belongsTo(OpcaoPergunta::class);
-    }
-    
+    }    
 }

@@ -86,12 +86,25 @@ class PerguntaController extends Controller
 
         $pergunta = Pergunta::updateOrCreate(['id' => $request->id], $validatedData );
 
-        if (($pergunta->tipo_id == 4)|| ($pergunta->tipo_id == 6)) {
+        if (($pergunta->tipo_id == 1) || ($pergunta->tipo_id == 2) || ($pergunta->tipo_id == 3) || ($pergunta->tipo_id == 7)) {
+            $opcoes = OpcaoResposta::where('tipo_id', $pergunta->tipo_id )->where('padrao','S')->get();
+            
+            foreach($opcoes as $opcao){
+                OpcaoPergunta::create([
+                    'pergunta_id'=>$pergunta->id,
+                    'opcao_resposta_id' => $opcao->id
+                ]);
+            }
+        }
 
+        if ($pergunta->tipo_id == 4) {
+            $opcoes = OpcaoResposta::where('tipo_id', 4)->get();
+            return view('opcoes.list', compact('opcoes', 'pergunta'));
+        }
+        if ($pergunta->tipo_id == 6) {
             $opcoes = OpcaoResposta::where('tipo_id', 6)->get();
-
-            return view('perguntas.opcoes', compact('opcoes', 'pergunta'));
-        } else
+            return view('opcoes.list', compact('opcoes', 'pergunta'));
+        } 
         
         session()->put([
             'status_campanha' => 'img/status2.png',
@@ -116,16 +129,8 @@ class PerguntaController extends Controller
 
        $pergunta = Pergunta::updateOrCreate(['id' => $request->id], $validatedData );
 
-        if (($pergunta->tipo_id == 4) || ($pergunta->tipo_id == 6)) {
-
-
-            $opcoes=OpcaoResposta::where('tipo_id',6)->orderBy('titulo')->get();
-
-            $opcoes->pergunta_id = $request->id;
-
-            return view('perguntas.opcoes', compact('opcoes', 'pergunta'));
-         
-        } else
+            $opcoes = OpcaoPergunta::where('pergunta_id', $pergunta->id)->get();
+            return view('opcoes.list', compact('pergunta','opcoes'));
 
         session()->put(['status_campanha' => 'img/status2.png',
                         'titulo_status' => 'Realize a Importação dos Participantes',

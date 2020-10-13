@@ -16,7 +16,11 @@
                                     <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                                     Importar </button>
 
-                                <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                                <button type="button" class="btn btn-info" onclick="window.location='{{ url('/arquivo/' .$campanha->id )}}' ">
+                                    <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Arquivo">
+                                    Gerar Arquivo </button>
+
+                                <button type="button" class="btn btn-warning" onclick="window.location='{{ url('/campanhas/' .$campanha->id. '/edit/' )}}' ">
                                     <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                                     Voltar </button>
 
@@ -28,7 +32,6 @@
                                         <th>Name</th>
                                         <th>E-Mail</th>
                                         <th>Respostas</th>
-                                        <th>Link</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
@@ -38,22 +41,21 @@
                                         <td>{{ $resp->respondente->nome }}</td>
                                         <td>{{ $resp->respondente->email }}</td>
                                         <td>{{ count($resp->status->where('respondida','S')) }} / {{ count($resp->status) }}</td>
-                                        <td><a href="{{url('/responder/'.$pesq->first()->campanha->id) }}/{{ $resp->respondente->id}}"> Link </a></td>
                                         <td>
                                             @if($resp->status->where('respondida','S')->first())
-                                            <a href="{{url('/relatorios/'.$pesq->first()->campanha->id )}}/{{ $resp->respondente->id}}" title="Visualizar Respostas"> Ver </a>
-                                            @else
-                                            <a href="" title="Excluir Participante"> </a>
-
+                                            <button type="button" class="btn btn-info" onclick="window.location='{{url('/relatorios/'.$pesq->first()->campanha->id )}}/{{ $resp->respondente->id}}'">
+                                                <img src="{{ asset('img/grafico.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Ver Respostas">
+                                            </button>
+                                            @endif    
                                             <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="campanha_respondente_id" value="{{ $resp->id ?? '' }}">
                                                 <input type="hidden" name="campanha_id" value="{{ $pesq->first()->campanha->id ?? '' }}">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="btn btn-xs btn-danger" value="X" title="Excluir">
+                                                <button class="btn btn-danger">
+                                                    <img src="{{ asset('img/007-excluir.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Excluir">
+                                                </button>
                                             </form>
-
-                                            @endif
                                         </td>
                                     </tr>
                                     @empty

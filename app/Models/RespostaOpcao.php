@@ -14,4 +14,9 @@ class RespostaOpcao extends Model
     {
         return $this->belongsTo(Resposta::class);
     }
+
+    public function opcaoResposta()
+    {
+        return $this->belongsTo(OpcaoResposta::class);
+    }
 }

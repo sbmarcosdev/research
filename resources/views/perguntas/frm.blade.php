@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <h5>Editar Perguntas </h5>
+                            <h5 class="tituloPrincipal">Editar Perguntas </h5>
                         </div>
 
                         <body>
@@ -36,9 +36,10 @@
                                             <option id="op1" value="1">Classificatória | Ótimo | Bom | Regular | Ruim | Péssimo | </option>
                                             <option id="op2" value="2">Opção Numérica | 1 | 2 | 3 | 4 | 5 |</option>
                                             <option id="op3" value="3">Afirmativa | Sim | Não |</option>
-                                            <option id="op4" value="4">Múltipla Escolha | Check Box |</option>
+                                            <option id="op4" value="4">Múltipla Escolha | Check Box | </option>
                                             <option id="op5" value="5">Descritiva | Texto |</option>
-                                            <option id="op6" value="6">Opções Personalizadas </option>
+                                            <option id="op6" value="6">Opções Personalizadas | Radio | </option>
+                                            <option id="op7" value="7">5 Estrelas </option>
                                         </select>
                                     </div>
 

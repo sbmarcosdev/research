@@ -7,44 +7,43 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body" style="min-height: 490px">
-                        <h4 class="tituloPrincipal">Perguntas</h4>
+                        <h4 class="tituloPrincipal">Opções Respostas</h4>
                         <table id="table" name="table" class="table table-striped table-bordered">
-                            <tbody data-id="{{ $campanha->id }}" class="sortable">
+                            <tbody data-id="{{ $pergunta->id ?? '' }}" class="sortable">
                                 <tr>
-                                    <th colspan="8" style="background-color:#ddd; ">{{ $campanha->descricao }}</th>
+                                    <th colspan="8" style="background-color:#ddd; ">{!! $pergunta->texto !!}</th>
                                 </tr>
 
-                                <th>Pergunta</th>
-
+                                <th>Opções Respostas</th>
                                 <th>Tipo</th>
+                                <th>Peso</th>
                                 <th>Ordem</th>
                                 <th>Ação</th>
-                                @foreach($perguntas as $perg)
+
+                                @foreach($opcoes as $opcao)
                                 <tr data-id="{{ $perg->id ?? '' }}" class="pergunta" title="Arraste para ordenar">
                                     <td>
-                                        {!! $perg->texto ?? '' !!}
+                                        {!! $opcao->opcaoResposta->titulo ?? '' !!}
                                     </td>
                                     <td>
-                                        {{ $perg->tipo->tipo ?? '' }}
+                                        {!! $opcao->opcaoResposta->tipo->tipo ?? '' !!}
+                                    </td>
+                                    <td>
+                                        {{ $opcao->opcaoResposta->peso ?? '' }}
                                     </td>
                                     <td class="position">
-                                        <a>{{ $perg->ordem ?? '' }}</a>
+                                        <a>{{ $opcao->opcaoResposta->ordem ?? '' }}</a>
                                     </td>
-                                    <td>@if ($perg->resposta->first())
-
-                                        <button type="button" class="btn btn-info" onclick="window.location='{{url('/relatorios/'.$perg->id.'/detalhe')}}'">
-                                            <img src="{{ asset('img/grafico.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Ver Respostas">
-                                        </button>
-
-                                        @endif
-                                        <button type="button" class="btn btn-warning" onclick="window.location='{{url('/perguntas/'.$perg->id.'/edit')}}'">
+                                    <td>
+                                        <button type="button" class="btn btn-warning" onclick="window.location='{{url('/opcoes/'.$opcao->opcaoResposta->id.'/edit')}}'">
                                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Editar">
                                         </button>
 
-                                        <form action="" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
+                                        <form action="{{url('/opcoes/'.$opcao->id)}}" method="POST" onsubmit="return confirm('{{ trans('Confirma Exclusão?') }}');" style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="pergunta_id" value="{{ $perg->id ?? '' }}">
-                                            <input type="hidden" name="campanha_id" value="{{ $perg->campanha->id ?? '' }}">
+                                            <input type="hidden" name="pergunta_id" value="{{ $pergunta->id ?? '' }}">
+                                            <input type="hidden" name="opcao_pergunta_id" value="{{ $opcao->id ?? '' }}">
+                                            <input type="hidden" name="opcao_resposta_id" value="{{ $opcao->opcaoResposta->id ?? '' }}">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <button type="submit" class="btn btn-danger" value="X" title="Excluir">
                                                 <img src="{{ asset('img/007-excluir.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Excluir">
@@ -56,20 +55,13 @@
                                 @endforeach
                         </table>
 
-                        <button class="btn btn-success mt-4" onclick="window.location='{{url('/perguntas/'.$campanha->id.'/create')}}'">
-                            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Inlcuir Pergunta">
+                        <button class="btn btn-success mt-4" onclick="window.location='{{url('/inserir-opcoes/'. $pergunta->id.'/create')}}'">
+                            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Inlcuir Resposta">
                             Incluir </button>
 
-                        <button type="button" class="btn btn-warning mt-4" onclick="window.location='{{url('/campanhas/'.$campanha->id.'/edit/' )}}'">
+                        <button type="button" class="btn btn-warning mt-4" onclick="window.location='{{url('/perguntas/'. $pergunta->campanha->id )}}'">
                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
-
-                        @if($campanha->temPerguntas)
-
-                        <button type="button" class="btn btn-info mt-4" onclick="window.location = '{{url('/importar/'.$campanha->id )}}'">
-                            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Incluir Respondentes">
-                            Participantes</button>
-                        @endif
                     </div>
                 </div>
             </div>

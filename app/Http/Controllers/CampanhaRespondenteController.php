@@ -30,6 +30,15 @@ class CampanhaRespondenteController extends Controller
         return view('importar.list', compact('pesq','campanha'));
     }
 
+    public function export($campanha_id)
+    {
+        $campanha = Campanha::find($campanha_id);
+
+        $pesq = CampanhaRespondente::where('campanha_id', $campanha_id)->get();
+
+        return view('importar.show', compact('pesq', 'campanha'));
+    }
+
     public function edit($campanha_id)
     {
         $campanha = Campanha::find($campanha_id);
@@ -39,7 +48,7 @@ class CampanhaRespondenteController extends Controller
 
     private function limparTexto($texto)
     {
-        $texto = htmlentities($texto, null, 'utf-8');
+        //$texto = htmlentities($texto, null, 'utf-8');
         $texto = str_replace("&nbsp;", " ", $texto);
         $texto = str_replace("\n", "", $texto);
         $texto = str_replace("\r", "", $texto);
@@ -54,7 +63,8 @@ class CampanhaRespondenteController extends Controller
         unset($dados[0]);
         foreach ($dados as $dad) {
             $partes = explode('|', $dad);
-            
+
+            //$salvar['nome'] = $this->limparTexto($partes[0]);
             $salvar['nome'] = $this->limparTexto($partes[0]);
             $salvar['email'] = $this->limparTexto($partes[1]);
 

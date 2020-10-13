@@ -7,9 +7,9 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
-            
-                            <h4 class="tituloPrincipal">Campanha</h4>
-            
+
+                        <h4 class="tituloPrincipal">Campanha</h4>
+
                         <body onload="jsOption('{{$campanha->empresa_id}}')">
                             <form action="{{url('/campanhas/'.$campanha->id)}}" method="POST">
                                 @csrf
@@ -58,7 +58,7 @@
 
 
                                 <button class="btn btn-success" onclick="alertaSalvar()">
-                                    <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
+                                    <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Atualizar Campanha">
                                     Salvar
                                 </button>
                                 <button type="button" class="btn btn-warning" onclick="window.location = '{{url('campanhas')}}' ">
@@ -66,17 +66,17 @@
                                     Voltar </button>
 
                                 <hr>
-                                <input type="button" class="btn btn-outline-success mb-4" value="Mensagens" onclick="window.location='{{url('/mensagens/'.$campanha->id )}}'">
+                                <input type="button" class="btn btn-info mb-4" value="1 | Mensagens" onclick="window.location='{{url('/mensagens/'.$campanha->id )}}'">
                                 @if($campanha->status == '1')
-                                <input type="button" class="btn btn-outline-success mb-4" value="Perguntas" onclick="window.location = '{{url('/perguntas/'. $campanha->id) }}'">
+                                <input type="button" class="btn btn-info mb-4" value="2 | Perguntas" onclick="window.location = '{{url('/perguntas/'. $campanha->id) }}'">
                                 @endif
 
                                 @if($campanha->perguntas->first())
-                                <input type="button" class="btn btn-outline-success mb-4" value="Participantes" onclick="window.location = '{{url('/importar/'. $campanha->id) }}'">
+                                <input type="button" class="btn btn-info mb-4" value="3 | Participantes" onclick="window.location = '{{url('/importar/'. $campanha->id) }}'">
                                 @endif
 
                                 @if($campanha->respostas->first())
-                                <input type="button" class="btn btn-outline-success mb-4" value="Relatórios" onclick="window.location = '{{url('/relatorios/'. $campanha->id) }}'">
+                                <input type="button" class="btn btn-info mb-4" value="4 | Relatórios" onclick="window.location = '{{url('/relatorios/'. $campanha->id) }}'">
                                 @endif
 
                             </form>

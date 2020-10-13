@@ -11,7 +11,7 @@
                         <div class="col-sm-12">
                             <h4 class="tituloPrincipal">Campanhas</h4>
                         </div>
-                        <table class="table table-striped">
+                        <table class="table table-striped ">
                             <thead>
                                 <tr>
                                     <th scope="col">Empresa</th>
@@ -52,12 +52,12 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <hr>
 
-                        <button class="btn btn-success" onclick="window.location='{{url('/campanhas/create')}}'">
+
+                        <button class="btn btn-success mt-3" onclick="window.location='{{url('/campanhas/create')}}'">
                             <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Nova">
                             Incluir </button>
-                        <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                        <button type="button" class="btn btn-warning mt-3" onclick="window.history.back()">
                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
 

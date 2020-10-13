@@ -5,17 +5,15 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-body" style="min-height: 500px">
-                        <div class="col-sm-12">
-                            <h5 class="modal-title">Opções de Respostas Personalizadas</h5>
-                            <hr>
-                            <a>{{ $pergunta->campanha->descricao }}</a> | Pergunta | <a>{{ $pergunta->texto }} </a>
-                            <hr>
-                            <form action="{{url('/salvar_opcoes')}}" method="POST">
-                                @csrf
-                                @method('post')
+                    <div class="card-body" style="min-height: 480px">
+                        <h5 class="tituloPrincipal">Opções de Respostas Personalizadas</h5>
+                        <a>{!! $pergunta->texto !!}</a>
+                        <form action="{{url('/salvar_opcoes')}}" method="POST">
+                            @csrf
+                            @method('post')
+                            <div class="form-group mb-3">
+                                <div class="input-group mb-3 col">
 
-                                <div class="input-group mb-3">
                                     <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Opção Personalizada">
 
                                     <input type="hidden" name="pergunta_id" value="{{ $pergunta->id }}">
@@ -27,7 +25,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="form-row mb-3">
+                                <div class="form-row mb-3 ml-3">
                                     <div class="checkbox-group required" onclick="check()">
                                         <table id="tabelaOpcao" name="table" class="table table-striped table-bordered" style="width:100%">
                                             <thead>
@@ -37,71 +35,69 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-
-                                                @forelse($opcoes as $opcao)
+                                                @foreach($opcoes as $opcao)
                                                 <tr>
                                                     <td>{{$opcao->titulo}}</td>
                                                     <td><input type="checkbox" name="opcao_resposta_id[{{$opcao->id}}]" value="{{$opcao->id}}"> </td>
                                                 </tr>
-                                                @empty
-                                                @endforelse
-
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
+                        </form>
 
-                                <div>
-                                    <input type="submit" id="btnSelect" class="btn btn-outline-secondary" value="Selecionar" disabled>
-                            </form>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal" onClick='window.history.back()'>Voltar</button>
-                        </div>
+                        <input type="submit" id="btnSelect" class="btn btn-outline-secondary ml-3" value="Selecionar" disabled>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location='{{url('/perguntas/'.$pergunta->id .'/edit')}}'">Voltar</button>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+</div>
 
-    @section('scripts')
-    <script>
-        function check() {
-            if ($('div.checkbox-group.required :checkbox:checked').length > 0) {
-                $("#btnSelect")
-                    .removeClass("btn btn-outline-secondary")
-                    .addClass("btn btn-info")
-                    .prop("disabled", false);
-            } else {
-                $("#btnSelect")
-                    .removeClass("btn btn-info")
-                    .addClass("btn btn-outline-secondary")
-                    .prop("disabled", true);
-            }
+@endsection
 
+@section('scripts')
+<script>
+    function check() {
+        if ($('div.checkbox-group.required :checkbox:checked').length > 0) {
+            $("#btnSelect")
+                .removeClass("btn btn-outline-secondary")
+                .addClass("btn btn-info")
+                .prop("disabled", false);
+        } else {
+            $("#btnSelect")
+                .removeClass("btn btn-info")
+                .addClass("btn btn-outline-secondary")
+                .prop("disabled", true);
         }
 
-        function salvaOpcao() {
+    }
 
-            var titulo = $('#titulo').val();
-            var tipo_id = 6;
-            var peso = 1;
-            var ordem = 99;
+    function salvaOpcao() {
 
-            $.post("{{ route('opcoes') }}", {
-                    _token,
-                    titulo,
-                    tipo_id,
-                    peso,
-                    ordem
-                })
-                .done(function(response) {
+        var titulo = $('#titulo').val();
+        var tipo_id = 6;
+        var peso = 1;
+        var ordem = 99;
 
-                    location.reload();
-                })
-                .fail(function(response) {
-                    alert('Error occured while sending reorder request');
-                    location.reload();
-                });
-        }
-    </script>
-    @endsection
+        $.post("{{ route('opcoes') }}", {
+                _token,
+                titulo,
+                tipo_id,
+                peso,
+                ordem
+            })
+            .done(function(response) {
+
+                location.reload();
+            })
+            .fail(function(response) {
+                alert('Error occured while sending reorder request');
+                location.reload();
+            });
+    }
+</script>
+@endsection

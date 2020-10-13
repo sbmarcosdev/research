@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Campanha;
 use App\Models\CampanhaRespondente;
+use App\Models\OpcaoPergunta;
 use App\Models\OpcaoResposta;
 use App\Models\Pergunta;
 use App\Models\Resposta;
+use App\Models\RespostaOpcao;
 use Illuminate\Support\Facades\DB;
 
 class RelatorioController extends Controller
@@ -66,7 +68,12 @@ class RelatorioController extends Controller
             return view('relatorios.descritiva', compact('respostas', 'pergunta'));
 
         } else {
-            $opcoes = OpcaoResposta::where('tipo_id', $pergunta->tipo_id)->get();
+
+            $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
+                ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
+                ->where('perguntas.id', $pergunta->id)
+                ->where('opcao_respostas.tipo_id', $pergunta->tipo_id )->get();
+            //$opcoes = OpcaoResposta::where('tipo_id', $pergunta->tipo_id)->get();
             
             foreach ($opcoes as $opcao) {
                 $detalhes = Resposta::where('pergunta_id', $pergunta_id)
@@ -82,21 +89,18 @@ class RelatorioController extends Controller
 
     public function respostas($campanha_id, $respondente_id)
     {
-        $respondente = CampanhaRespondente::where('respondente_id', $respondente_id)
+        $respostas = Resposta::where('respondente_id', $respondente_id)
             ->where('campanha_id', $campanha_id)
             ->get();
-
-        $perguntas = Pergunta::where('campanha_id', $campanha_id)->get();
-
-        $opcoes = OpcaoResposta::where('tipo_id', 1)->get();
-
-        foreach ($perguntas  as $pergunta) {
-
-            $resposta[$pergunta->id] = $pergunta->resposta->where('respondente_id', $respondente_id)
-                ->where('campanha_id', $campanha_id)->first();
+        
+        $respostasOpcao = null;
+        
+        foreach ($respostas as $resposta ){
+            if ($resposta->tipo_id == 4 ){
+               $respostasOpcao = RespostaOpcao::where('resposta_id',$resposta->id)->get();
+            }
         }
 
-
-        return view('relatorios.respostas', compact('respondente', 'opcoes', 'resposta', 'perguntas'));
+        return view('relatorios.respostas', compact('respostas', 'respostasOpcao'));
     }
 }

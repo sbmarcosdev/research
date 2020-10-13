@@ -3,46 +3,43 @@
 
 <div class="container">
     <div class="container espacamento">
-        <a class="mb-4">Campanha {{ $resp->campanha->descricao }}</a> |
-        <a class="mb-4"> {{ $resp->respondente->nome }}</a>
-        <hr>
+        <h4 class="tituloPrincipal">{{ $resp->campanha->descricao }}</h4>
+
+        <h5 class="mb-4"> {{ $resp->respondente->nome }}</h5>
         <form action="{{url('/resposta')}}" method="POST">
             @csrf
             @method('patch')
 
             <input type="hidden" name="sim_nao">
             <input type="hidden" name="tipo_id" value="1">
+            <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
 
-            <table id="rtable" name="table" class="table table-striped table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Perguntas</th>
-                        @forelse($opcoes as $opcao)
-                        <th>{{ $opcao->titulo }} </th>
-                        @empty
-                        @endforelse
-                    </tr>
-                </thead>
-                <tbody>
+            <table id=" rtable" name="table" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Perguntas</th>
+                    @forelse($opcoes as $opcao)
+                    <th>{!! $opcao->titulo !!} </th>
+                    @empty
+                    @endforelse
+                </tr>
+            </thead>
+            <tbody>
+                <div class="radio">
                     <tr>
                         <td>{!! $pergunta->texto !!}</td>
-                        <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="5" required></div>
-                        </td>
-                        <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="4" required></div>
-                        </td>
-                        <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="3" required></div>
-                        </td>
-                        <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="2" required></div>
-                        </td>
-                        <td>
+                        @forelse($opcoes as $opcao)
+                        <th>
+                            <input type="radio" name="peso_resposta" value="{{$opcao->peso}}" required>
+                        </th>
+                        @empty
+                        @endforelse
+                        <!-- <td>
                             <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="1" required></div>
-                        </td>
+                        </td> -->
                     </tr>
-                </tbody>
+                </div>
+            </tbody>
             </table>
             <div class="form-group">
                 <label for="descricao">Comentários</label>

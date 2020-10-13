@@ -43,7 +43,7 @@
                             <button class="btn btn-success" onclick="window.location='{{url('mensagens/incluir/'.$campanha_id)}}'">
                                 <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Novo">
                                 Incluir </button>
-                            <button type="button" class="btn btn-warning" onclick="window.location='{{url('campanhas')}}'">
+                            <button type="button" class="btn btn-warning" onclick="window.location='{{url('/campanhas/'.$campanha_id.'/edit/' )}}'">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar </button>
                         </div>

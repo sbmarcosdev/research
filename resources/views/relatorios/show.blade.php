@@ -32,7 +32,9 @@
                             </tbody>
 
                         </table>
-
+                        <button type="button" class="btn btn-warning mt-4" onclick="window.location='{{url('/campanhas/'.$campanha->id.'/edit/' )}}'">
+                            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
+                            Voltar </button>
                     </div>
                 </div>
             </div>

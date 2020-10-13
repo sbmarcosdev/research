@@ -17,12 +17,14 @@ Route::delete('campanhas', 'CampanhaController@destroy');
 Route::resource('mensagens', 'MensagemController');
 Route::get('mensagens/incluir/{campanha_id}', 'MensagemController@create');
 
-Route::get('opcoes', 'OpcoesController@index');
-Route::post('opcoes', 'OpcoesController@store')->name('opcoes');
-Route::post('salvar_opcoes', 'OpcoesController@salvar');
-
+Route::get('inserir-opcoes/{id}/create', 'OpcoesController@create');
+Route::resource('opcoes', 'OpcoesController');
 
 Route::resource('importar', 'CampanhaRespondenteController');
+
+Route::get('arquivo/{campanha_id}', 'CampanhaRespondenteController@export');
+
+
 Route::resource('perguntas', 'PerguntaController');
 Route::get('perguntas/{campanha_id}/create', 'PerguntaController@create');
 Route::post('perguntas/reorder', 'PerguntaController@reorder')->name('admin.perguntas.reorder');

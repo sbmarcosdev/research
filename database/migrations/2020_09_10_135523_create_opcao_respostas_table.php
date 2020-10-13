@@ -6,28 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateOpcaoRespostasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('opcao_respostas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tipo_id')->constrained()->onDelete('cascade');
-            $table->string('titulo');
+            $table->text('titulo');
             $table->integer('peso');
             $table->integer('ordem');
+            $table->char('padrao')->default('N');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('opcao_respostas');

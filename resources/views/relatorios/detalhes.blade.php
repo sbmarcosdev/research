@@ -13,7 +13,7 @@
                             <table class="table table-striped" style="width: 100%; margin: 0 auto;">
                                 <thead>
                                     <tr>@foreach($opcoes as $opcao)
-                                        <th scope="col">{{$opcao->titulo}}</th>
+                                        <th scope="col">{!! $opcao->titulo !!}</th>
                                         @endforeach
                                     </tr>
                                 </thead>

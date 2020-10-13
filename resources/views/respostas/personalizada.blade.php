@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $pergunta->texto }}</td>
+                        <td>{!! $pergunta->texto !!}</td>
                         @forelse($opcoes as $opcao)
                         <td>
                             <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="5" required>
