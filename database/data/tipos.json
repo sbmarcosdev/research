@@ -40,5 +40,12 @@
         "quantidade": 0,
         "created_at": "NULL",
         "updated_at": "NULL"
+    },
+    {
+        "id": 7,
+        "tipo": "5 Estrelas",
+        "quantidade": 6,
+        "created_at": "NULL",
+        "updated_at": "NULL"
     }
 ]

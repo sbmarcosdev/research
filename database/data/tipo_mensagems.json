@@ -6,12 +6,12 @@
     "tipo": "Boas Vindas"
   },
   {
-    "tipo": "Campanha Não Iniciada"
+    "tipo": "Pesquisa Não Iniciada"
   },
   {
-    "tipo": "Campanha Finalizada com Sucesso"
+    "tipo": "Pesquisa Finalizada com Sucesso"
   },
   {
-    "tipo": "Campanha Expirada"
+    "tipo": "Pesquisa Expirada"
   }
 ]

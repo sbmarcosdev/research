@@ -77,7 +77,10 @@ class RespostaController extends Controller
 
             session()->put([
                 'logo_empresa' => $resp->campanha->empresa->logo,
-                'banner_empresa' => $resp->campanha->empresa->banner
+                'banner_empresa' => $resp->campanha->empresa->banner,
+                'cor_topo_rodape' => $resp->campanha->empresa->cor_topo_rodape,
+                'cor_primaria' => $resp->campanha->empresa->cor_primaria,
+                'cor_secundaria' => $resp->campanha->empresa->cor_secundaria
             ]);
 
             if (($resta == $total) && ($resp->respondida == 'N')) {

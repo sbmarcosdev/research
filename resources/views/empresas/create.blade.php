@@ -35,15 +35,18 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Cor Primária</span>
                                         </div>
-                                        <input type="text" name="cor_primaria" class="form-control">
+                                        <input type='color' value="#735294" id="inputcolor" class='form-control' onchange="jsCorPrimaria()" />
+                                        <input type="text" id="cor1" name="cor_primaria" class="form-control" value="#735294">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Cor Secundária</span>
                                         </div>
-                                        <input type="text" name="cor_secundaria" class="form-control">
+                                        <input type='color' value="#735294" id="inputcolor2" class='form-control' onchange="jsCorSecundaria()" />
+                                        <input type="text" id="cor2" name="cor_secundaria" class="form-control" value="#735294">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Cor Topo Rodapé</span>
                                         </div>
-                                        <input type="text" name="cor_topo_rodape" class="form-control">
+                                        <input type='color' value='#ac2228' id="inputcolor3" class='form-control' onchange="jsCorTopoRodape()" />
+                                        <input type="text" id="cor3" name="cor_topo_rodape" class="form-control" value="#ea0437">
                                     </div>
 
                                     <div class="input-group mb-3">
@@ -89,4 +92,22 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('scripts')
+
+<script>
+    function jsCorPrimaria() {
+        $('#cor1').val($('#inputcolor').val());
+    }
+
+    function jsCorSecundaria() {
+        $('#cor2').val($('#inputcolor2').val());
+    }
+
+    function jsCorTopoRodape() {
+        $('#cor3').val($('#inputcolor3').val());
+    }
+</script>
 @endsection

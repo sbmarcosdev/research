@@ -1,7 +1,7 @@
 <style>
     .rodape {
-        color: white;
         padding: 20px;
+        background: {{ Session::get('cor_topo_rodape')}} !important;
     }
 
     .box_rodape {
@@ -9,14 +9,6 @@
         text-align: center;
     }
 </style>
-
-<nav class="navbar fixed-bottom navbar-light bg-light">
-    <div class="container">
-        <div class="row rodape">
-            <!-- <img src="{{asset('img\status1.png')}}" width="20%"> -->
-        </div>
-    </div>
-
-</nav>
+<nav class="navbar fixed-bottom navbar-light bg-light rodape "></nav>
 
 </html>

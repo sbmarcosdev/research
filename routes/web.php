@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('login.ad');
 });
 
+Route::get('/color', function () {
+    return view('empresas.color');
+});
+
 Route::get('login', 'LoginADController@index');
 Route::post('login-ad', 'LoginADController@auth_ad');
 
