@@ -10,7 +10,6 @@ class OpcaoDataSeeder extends Seeder
         $json = File::get('database/data/opcoes.json');
         $data = json_decode($json);
         foreach ($data as $obj) {
-            $salvar['id'] = $obj->id;
             $salvar['tipo_id'] = $obj->tipo_id;
             $salvar['titulo'] = $obj->titulo;
             $salvar['peso'] = $obj->peso;

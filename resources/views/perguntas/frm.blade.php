@@ -32,7 +32,7 @@
 
                                     <div class="col form-group mt-2 mr-2">
                                         <label>Tipo de Resposta</label>
-                                        <select class="form-control" name="tipo_id" id="status" required>
+                                        <select class="form-control" name="tipo_id" id="status" disabled>
                                             <option id="op1" value="1">Classificatória | Ótimo | Bom | Regular | Ruim | Péssimo | </option>
                                             <option id="op2" value="2">Opção Numérica | 1 | 2 | 3 | 4 | 5 |</option>
                                             <option id="op3" value="3">Afirmativa | Sim | Não |</option>
