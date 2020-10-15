@@ -129,8 +129,14 @@ class PerguntaController extends Controller
 
        $pergunta = Pergunta::updateOrCreate(['id' => $request->id], $validatedData );
 
-            $opcoes = OpcaoPergunta::where('pergunta_id', $pergunta->id)->get();
-            return view('opcoes.list', compact('pergunta','opcoes'));
+        if ($pergunta->tipo_id == 4) {
+            $opcoes = OpcaoResposta::where('tipo_id', 4)->get();
+            return view('opcoes.list', compact('opcoes', 'pergunta'));
+        }
+        if ($pergunta->tipo_id == 6) {
+            $opcoes = OpcaoResposta::where('tipo_id', 6)->get();
+            return view('opcoes.list', compact('opcoes', 'pergunta'));
+        } 
 
         session()->put(['status_campanha' => 'img/status2.png',
                         'titulo_status' => 'Realize a Importação dos Participantes',
