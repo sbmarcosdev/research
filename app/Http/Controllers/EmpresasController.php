@@ -66,13 +66,13 @@ class EmpresasController extends Controller
         if ($request->file('logo')) {
             $fileNameLogo = time() . '_' . $request->logo->getClientOriginalName();
 
-            $filePathLogo = $request->logo->storeAs('images', $fileNameLogo);
+            $filePathLogo = $request->logo->storeAs('public', $fileNameLogo);
         }
 
         if ($request->file('banner')) {
             $fileNameBanner = time() . '_' . $request->banner->getClientOriginalName();
 
-            $filePathBanner = $request->banner->storeAs('images', $fileNameBanner);
+            $filePathBanner = $request->banner->storeAs('public', $fileNameBanner);
         }
 
         $dados = [];
