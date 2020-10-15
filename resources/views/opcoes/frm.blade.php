@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <h5> {!! $pergunta->texto !!} </h5>
+                            <h5> {!! $pergunta->texto ?? '' !!} </h5>
 
                         </div>
                         <form action="{{url('/opcoes/'.$opcao->id )}}" method="POST" enctype="form-data">

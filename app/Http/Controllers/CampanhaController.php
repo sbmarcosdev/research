@@ -70,12 +70,14 @@ class CampanhaController extends Controller
 
         $empresas = Empresa::all();
 
-        // session()->put([
-        //     'status_campanha' => 'img/status1.png',
-        //     'titulo_status' => 'Configure as Mensagens da Campanha',
-        //     'link_status' => 'mensagens/'.$campanha_id,
-        //     'titulo_fase' => $campanha->descricao,
-        // ]);
+        
+        session()->put([
+            'step' => 1,
+            'status_campanha' => 'img/status1.png',
+            'titulo_status' => 'Configure as Mensagens da Campanha',
+            'link_status' => 'mensagens/'.$campanha_id,
+            'titulo_fase' => $campanha->descricao,
+        ]);
 
 
         return view('campanhas.frm', compact('campanha','empresas'));

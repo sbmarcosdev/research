@@ -35,7 +35,7 @@
                                         <a>{{ $opcao->opcaoResposta->ordem ?? '' }}</a>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-warning" onclick="window.location='{{url('/opcoes/'.$opcao->opcaoResposta->id.'/edit')}}'">
+                                        <button type="button" class="btn btn-warning" onclick="window.location='{{url('/opcoes/'.$opcao->id.'/edit')}}'">
                                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Editar">
                                         </button>
 
