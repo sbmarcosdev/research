@@ -109,6 +109,15 @@
     "updated_at": "NULL"
   },
   {
+    "tipo_id": 5,
+    "titulo": "Descritiva",
+    "peso": 1,
+    "ordem": 1,
+    "padrao": "S",
+    "created_at": "NULL",
+    "updated_at": "NULL"
+  },
+  {
     "tipo_id": 7,
     "titulo": "0 Estrelas",
     "peso": 0,

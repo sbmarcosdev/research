@@ -3,15 +3,17 @@
 
 <div class="container">
     <div class="container espacamento">
-        <a class="mb-4">Campanha {{ $resp->campanha->descricao }}</a> |
-        <a class="mb-4"> {{ $resp->respondente->nome }}</a>
-  
+        <h4 class="tituloPrincipal"> {{ $resp->campanha->descricao }} </h4>
+
+        <h5 class="titulosub"> {{ $resp->respondente->nome }} </h5>
+
         <form action="{{url('/resposta')}}" method="POST">
             @csrf
             @method('patch')
 
             <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
             <input type="hidden" name="tipo_id" value="{{$pergunta->tipo_id}}">
+            <input type="hidden" name="peso_resposta" value="1">
 
             <td>{!! $pergunta->texto !!}</td>
             <td>{{ $pergunta->texto_ajuda }}</td>
