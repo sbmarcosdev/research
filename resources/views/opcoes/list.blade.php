@@ -21,7 +21,7 @@
                                 <th>Ação</th>
 
                                 @foreach($opcoes as $opcao)
-                                <tr data-id="{{ $perg->id ?? '' }}" class="pergunta" title="Arraste para ordenar">
+                                <tr data-id="{{ $perg->id ?? '' }}" class="pergunta" >
                                     <td>
                                         {!! $opcao->opcaoResposta->titulo ?? '' !!}
                                     </td>

@@ -98,8 +98,8 @@ class PerguntaController extends Controller
         }
 
         if ($pergunta->tipo_id == 4) {
-            $opcoes = OpcaoResposta::where('tipo_id', 4)->get();
-            return view('opcoes.list', compact('opcoes', 'pergunta'));
+
+            return redirect('/inserir-opcoes/' . $pergunta->id . '/create');
         }
         if ($pergunta->tipo_id == 6) {
             $opcoes = OpcaoResposta::where('tipo_id', 6)->get();

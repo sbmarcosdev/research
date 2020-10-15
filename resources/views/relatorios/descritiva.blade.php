@@ -11,11 +11,11 @@
                                 <button type="button" class="btn-info" onClick='window.history.back()'>Voltar</button>
                             </div>
                           
-                            <hr>
+            
                             <table class="table table-striped" style="width: 100%; margin: 0 auto;">
                                 <thead>
                                     <tr>
-                                        <th> {{ $pergunta->texto }} </th>
+                                        <th> {!! $pergunta->texto !!} </th>
                                     </tr>
                                 </thead>
                                 <tbody>

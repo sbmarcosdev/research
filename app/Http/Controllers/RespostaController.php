@@ -174,6 +174,8 @@ class RespostaController extends Controller
 
                         return view('respostas.estrela', compact('resp', 'pergunta', 'opcoes', 'qtd', 'progresso'));
                     }
+                    $fimResp = Carbon::now();
+                    $resp->update(['termino_resposta' => $fimResp]);
                 }
             } else {
                 // Finalizada com Sucesso
@@ -225,7 +227,7 @@ class RespostaController extends Controller
                 ],
                 [
                     'opcao_resposta_id' => null,
-                    'peso_resposta' => null,
+                    'peso_resposta' => $request->peso_resposta,
                     'tipo_id' => $request->tipo_id,
                     'texto_resposta' => $request->texto_resposta,
                 ]
