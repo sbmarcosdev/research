@@ -34,7 +34,7 @@
                                 Salvar
                             </button>
 
-                            <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/perguntas/'.$pergunta->id)}}'">
+                            <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/opcoes/'.$pergunta->id)}}'">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar
                             </button>
