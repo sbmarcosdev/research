@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 
 class MensagemController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('ad_checked');
+    }
+
     public function create($campanha_id)
     {
        return view('mensagens.create', compact('campanha_id'));
     }
-
 
     public function store(Request $request)
     {

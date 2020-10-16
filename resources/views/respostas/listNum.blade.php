@@ -12,6 +12,7 @@
 
             <input type="hidden" name="sim_nao">
             <input type="hidden" name="tipo_id" value="2">
+            <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
 
             <table id="rtable" name="table" class="table table-striped table-bordered" style="width:100%">
                 <thead>
@@ -27,19 +28,19 @@
                     <tr>
                         <td>{!! $pergunta->texto !!}</td>
                         <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="5" required></div>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="5" required></div>
                         </td>
                         <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="4" required></div>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="4" required></div>
                         </td>
                         <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="3" required></div>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="3" required></div>
                         </td>
                         <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="2" required></div>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="2" required></div>
                         </td>
                         <td>
-                            <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="1" required></div>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="1" required></div>
                         </td>
                     </tr>
                 </tbody>

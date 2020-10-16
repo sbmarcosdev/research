@@ -91,18 +91,19 @@ class RespostaController extends Controller
                 $inicio_resposta = Carbon::now();
 
                 if (isset($_SERVER["HTTP_REFERER"]))
-                        $refer = $_SERVER["HTTP_REFERER"];
-                    else
-                        $refer =null;
-               
-                $resp->update(['respondida' => 'A', 
-                               'inicio_resposta' => $inicio_resposta,
-                               'HTTP_USER_AGENT' => $_SERVER["HTTP_USER_AGENT"],
-                               'REMOTE_ADDR' => $_SERVER["REMOTE_ADDR"],
-                               'HTTP_REFERER' =>  $refer
-                               ]);
+                    $refer = $_SERVER["HTTP_REFERER"];
+                else
+                    $refer = null;
 
-                    
+                $resp->update([
+                    'respondida' => 'A',
+                    'inicio_resposta' => $inicio_resposta,
+                    'HTTP_USER_AGENT' => $_SERVER["HTTP_USER_AGENT"],
+                    'REMOTE_ADDR' => $_SERVER["REMOTE_ADDR"],
+                    'HTTP_REFERER' =>  $refer
+                ]);
+
+
                 // primeiro acesso, marca como Acessada, proximo acesso não exibe boas vindas     
                 return view('respostas.msg', compact('msg'));
             }
@@ -209,8 +210,6 @@ class RespostaController extends Controller
 
         $status->update(['respondida' => 'S']);
 
-
-
         $statusResposta = StatusRespondente::where('campanha_respondente_id', $status->id)
             ->where('pergunta_id', $request->pergunta_id)
             ->first();
@@ -218,7 +217,6 @@ class RespostaController extends Controller
         $statusResposta->update(['respondida' => 'S']);
 
         if ($request->tipo_id == 4) {
-
             $resp = Resposta::updateOrCreate(
                 [
                     'respondente_id' => $respondente_id,
@@ -234,13 +232,15 @@ class RespostaController extends Controller
             );
 
             foreach ($request->opcao_id as $key => $resposta) {
-                $opcaoResp = RespostaOpcao::updateOrCreate([
-                    'pergunta_id' => $request->pergunta_id,
-                    'opcao_resposta_id' => $key,
-                    'resposta_id' => $resp->id,
-                    'resposta' => $resposta,
-                    'peso_resposta' => $request->peso_opcao
-                ]);
+                $opcaoResp = RespostaOpcao::updateOrCreate(
+                    [
+                        'pergunta_id' => $request->pergunta_id,
+                        'opcao_resposta_id' => $key,
+                        'resposta_id' => $resp->id,
+                        'resposta' => $resposta,
+                        'peso_resposta' => $request->peso_opcao
+                    ]
+                );
             }
         } else {
             $opcao = OpcaoResposta::where('tipo_id', $request->tipo_id)
@@ -261,15 +261,16 @@ class RespostaController extends Controller
                 ]
             );
 
-            $opcaoResp = RespostaOpcao::updateOrCreate([
-                'pergunta_id' => $request->pergunta_id,
-                'opcao_resposta_id' => $opcao->id,
-                'resposta_id' => $resp->id,
-                'resposta' => $request->peso_resposta,
-                'peso_resposta' => $request->peso_resposta
-            ]);
+            $opcaoResp = RespostaOpcao::updateOrCreate(
+                [
+                    'pergunta_id' => $request->pergunta_id,
+                    'opcao_resposta_id' => $opcao->id,
+                    'resposta_id' => $resp->id,
+                    'resposta' => $request->peso_resposta,
+                    'peso_resposta' => $request->peso_resposta
+                ]
+            );
         }
-
         return back();
     }
 }
