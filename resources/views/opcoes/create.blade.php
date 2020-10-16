@@ -22,11 +22,11 @@
                             <div class="form-row mb-3">
                                 <div class="col form-group mt-2 mr-2">
                                     <label>Peso Resposta</label>
-                                    <input type="number" min="0" max="99" name="peso" id="ordem" class="form-control" value="1" required>
+                                    <input type="number" min="0" max="99" name="peso" id="ordem" class="form-control" value="{{$peso ?? ''}}" required>
                                 </div>
                                 <div class="col form-group mt-2 mr-2">
                                     <label>Ordem</label>
-                                    <input type="number" min="0" max="99" name="ordem" id="ordem" class="form-control" value="{{$maxValue ?? ''}}">
+                                    <input type="number" min="0" max="99" name="ordem" id="ordem" class="form-control" value="{{$ordem ?? ''}}">
                                 </div>
                             </div>
                             <button class="btn btn-success">

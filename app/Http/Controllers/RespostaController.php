@@ -86,6 +86,7 @@ class RespostaController extends Controller
             if (($resta == $total) && ($resp->respondida == 'N')) {
 
                 $msg = Mensagem::where('campanha_id', $campanha_id)->where('tipo_mensagem_id', 2)->first();
+                
                 $msg->primeiro_acesso = true;
 
                 $inicio_resposta = Carbon::now();
@@ -103,8 +104,7 @@ class RespostaController extends Controller
                     'HTTP_REFERER' =>  $refer
                 ]);
 
-
-                // primeiro acesso, marca como Acessada, proximo acesso não exibe boas vindas     
+                // primeiro acesso, marca como Acessada, proximo acesso não exibe Mensagem de Introducao   
                 return view('respostas.msg', compact('msg'));
             }
 
@@ -130,26 +130,32 @@ class RespostaController extends Controller
                     $pergunta = Pergunta::find($listaPergunta->pergunta_id);
 
                     if ($pergunta->tipo_id == 1) {
+
                         $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
                             ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
                             ->where('perguntas.id', $pergunta->id)
                             ->where('opcao_respostas.tipo_id', 1)->get();
 
                         return view('respostas.classificatoria', compact('resp', 'pergunta', 'opcoes', 'qtd', 'progresso'));
+
                     } elseif ($pergunta->tipo_id == 2) {
+
                         $opcoesNum = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
                             ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
                             ->where('perguntas.id', $pergunta->id)
                             ->where('opcao_respostas.tipo_id', 2)->get();
 
                         return view('respostas.listNum', compact('resp', 'pergunta', 'opcoesNum', 'qtd', 'progresso'));
+
                     } elseif ($pergunta->tipo_id == 3) {
+
                         $afirmativa = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
                             ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
                             ->where('perguntas.id', $pergunta->id)
                             ->where('opcao_respostas.tipo_id', 3)->get();
 
                         return view('respostas.afirmativa', compact('resp', 'pergunta', 'afirmativa', 'qtd', 'progresso'));
+
                     } elseif ($pergunta->tipo_id == 4) {
 
                         $multipla = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
@@ -158,16 +164,22 @@ class RespostaController extends Controller
                             ->where('opcao_respostas.tipo_id', 4)->get();
 
                         return view('respostas.multipla', compact('resp', 'pergunta', 'multipla', 'qtd', 'progresso'));
+
                     } elseif ($pergunta->tipo_id == 5) {
+
                         return view('respostas.descritiva', compact('resp', 'pergunta', 'qtd', 'progresso'));
+
                     } elseif ($pergunta->tipo_id == 6) {
+
                         $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
                             ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
                             ->where('perguntas.id', $pergunta->id)
                             ->where('opcao_respostas.tipo_id', 6)->get();
 
                         return view('respostas.personalizada', compact('resp', 'pergunta', 'opcoes', 'qtd', 'progresso'));
+
                     } elseif ($pergunta->tipo_id == 7) {
+
                         $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
                             ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
                             ->where('perguntas.id', $pergunta->id)
@@ -175,10 +187,13 @@ class RespostaController extends Controller
 
                         return view('respostas.estrela', compact('resp', 'pergunta', 'opcoes', 'qtd', 'progresso'));
                     }
+                    
                     $fimResp = Carbon::now();
+
                     $resp->update(['termino_resposta' => $fimResp]);
                 }
-            } else {
+            } 
+            else {
                 // Finalizada com Sucesso
                 $request->session()->forget('login_respondente');
 
@@ -199,7 +214,6 @@ class RespostaController extends Controller
 
     public function update(Request $request)
     {
-
         $session = $request->session()->get('login_respondente');
         $respondente_id = $session['respondente_id'];
         $campanha_id = $session['campanha_id'];
@@ -230,17 +244,18 @@ class RespostaController extends Controller
                     'texto_resposta' => $request->texto_resposta,
                 ]
             );
-
-            foreach ($request->opcao_id as $key => $resposta) {
-                $opcaoResp = RespostaOpcao::updateOrCreate(
-                    [
-                        'pergunta_id' => $request->pergunta_id,
-                        'opcao_resposta_id' => $key,
-                        'resposta_id' => $resp->id,
-                        'resposta' => $resposta,
-                        'peso_resposta' => $request->peso_opcao
-                    ]
-                );
+            if ($request->opcao_id) {
+                foreach ($request->opcao_id as $key => $resposta) {
+                    $opcaoResp = RespostaOpcao::updateOrCreate(
+                        [
+                            'pergunta_id' => $request->pergunta_id,
+                            'opcao_resposta_id' => $key,
+                            'resposta_id' => $resp->id,
+                            'resposta' => $resposta,
+                            'peso_resposta' => $request->peso_opcao
+                        ]
+                    );
+                }
             }
         } else {
             $opcao = OpcaoResposta::where('tipo_id', $request->tipo_id)
