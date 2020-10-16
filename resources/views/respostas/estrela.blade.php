@@ -39,7 +39,7 @@
                         <div class="col-sm-12">
                             <h4 class="tituloPrincipal">{{ $resp->campanha->descricao }}</h4>
 
-                            <h5 class="mb-4"> {{ $resp->respondente->nome }}</h5>
+                            <h5 class="titulosub"> {{ $resp->respondente->nome }}</h5>
 
                             <form action="{{url('/resposta')}}" method="POST" autocomplete="off">
                                 @csrf
@@ -52,7 +52,7 @@
 
                                 <h5> {!! $pergunta->texto !!}</h5>
 
-                                <a class="mt-2"> {{ $pergunta->texto_ajuda }} <a>
+                                <a class="mt-2"> {{ $pergunta->texto_ajuda }} </a>
 
                                         <div class="ceu">
 
