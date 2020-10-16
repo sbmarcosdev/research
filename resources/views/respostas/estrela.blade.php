@@ -49,7 +49,7 @@
 
             <a class="mt-2"> {{ $pergunta->texto_ajuda }} <a>
 
-                    <div class="ceu" onclick="jsAtuSelecao()">
+                    <div class="ceu">
 
                         <div class="star" id="div1">
                             <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="1on">
@@ -177,9 +177,5 @@
     });
 
 
-
-    function jsAtuSelecao() {
-        alert(fill);
-    }
 </script>
 @endsection
