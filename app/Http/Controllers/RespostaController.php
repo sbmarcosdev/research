@@ -134,7 +134,7 @@ class RespostaController extends Controller
                         $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
                             ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
                             ->where('perguntas.id', $pergunta->id)
-                            ->where('opcao_respostas.tipo_id', 1)->get();
+                            ->where('opcao_respostas.tipo_id', 1)->orderBy('opcao_respostas.ordem','DESC')->get();
 
                         return view('respostas.classificatoria', compact('resp', 'pergunta', 'opcoes', 'qtd', 'progresso'));
 

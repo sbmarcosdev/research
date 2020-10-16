@@ -65,7 +65,7 @@
     }
 
     .titulosub {
-        text-align: left;
+        text-align: right;
         color: {{ Session::get('cor_secundaria')}} !important;
         padding: 5px;
         font-weight: bold;
