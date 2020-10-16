@@ -3,11 +3,11 @@
 
 <style>
     .star {
-        width: 50px;
-        height: 80px;
+        width: 40px;
+        height: 60px;
         position: relative;
         display: inline-block;
-        margin: 10px;
+        margin: 5px;
     }
 
     .star .img-top {
@@ -32,60 +32,71 @@
 
 <div class="container">
     <div class="container espacamento">
-        <h4 class="tituloPrincipal">{{ $resp->campanha->descricao }}</h4>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-sm-12">
+                            <h4 class="tituloPrincipal">{{ $resp->campanha->descricao }}</h4>
 
-        <h5 class="mb-4"> {{ $resp->respondente->nome }}</h5>
+                            <h5 class="mb-4"> {{ $resp->respondente->nome }}</h5>
 
-        <form action="{{url('/resposta')}}" method="POST" autocomplete="off">
-            @csrf
-            @method('patch')
+                            <form action="{{url('/resposta')}}" method="POST" autocomplete="off">
+                                @csrf
+                                @method('patch')
 
-            <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
-            <input type="hidden" name="tipo_id" value="7">
-            <input type="hidden" name="peso_resposta" id="peso_resposta">
-            <input type="hidden" name="opcao_resposta_id" id="opcao_resposta_id">
+                                <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
+                                <input type="hidden" name="tipo_id" value="7">
+                                <input type="hidden" name="peso_resposta" id="peso_resposta">
+                                <input type="hidden" name="opcao_resposta_id" id="opcao_resposta_id">
 
-            <h5> {!! $pergunta->texto !!}</h5>
+                                <h5> {!! $pergunta->texto !!}</h5>
 
-            <a class="mt-2"> {{ $pergunta->texto_ajuda }} <a>
+                                <a class="mt-2"> {{ $pergunta->texto_ajuda }} <a>
 
-                    <div class="ceu">
+                                        <div class="ceu">
 
-                        <div class="star" id="div1">
-                            <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="1on">
-                            <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="1off">
+                                            <div class="star" id="div1">
+                                                <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="1on">
+                                                <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="1off">
+                                            </div>
+
+                                            <div class="star" id="div2">
+                                                <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="2on">
+                                                <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="2off">
+                                            </div>
+
+                                            <div class="star" id="div3">
+                                                <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="3on">
+                                                <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="3off">
+                                            </div>
+
+                                            <div class="star" id="div4">
+                                                <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="4on">
+                                                <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="4off">
+                                            </div>
+
+                                            <div class="star" id="div5">
+                                                <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="5on">
+                                                <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="5off">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="descricao">Comentários</label>
+                                            <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
+                                        </div>
+                                        <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
+                                        <div class="progress mt-4">
+                                            <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
+                                        </div>
+
                         </div>
-
-                        <div class="star" id="div2">
-                            <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="2on">
-                            <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="2off">
-                        </div>
-
-                        <div class="star" id="div3">
-                            <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="3on">
-                            <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="3off">
-                        </div>
-
-                        <div class="star" id="div4">
-                            <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="4on">
-                            <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="4off">
-                        </div>
-
-                        <div class="star" id="div5">
-                            <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="5on">
-                            <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="5off">
-                        </div>
-
                     </div>
-
-                    <div class="form-group">
-                        <label for="descricao">Comentários</label>
-                        <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
-                    </div>
-                    <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
-                    <div class="progress mt-4">
-                        <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
-                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -175,7 +186,5 @@
         $("#5off").css('display', 'inline');
         $("#peso_resposta").val(fill);
     });
-
-
 </script>
 @endsection

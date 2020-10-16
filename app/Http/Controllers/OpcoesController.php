@@ -35,8 +35,16 @@ class OpcoesController extends Controller
             $maxValue = 1 + $opcaoResposta->ordem;
          else
             $maxValue = 1;
-            
-        return view('opcoes.create',compact('pergunta','maxValue'));
+         
+         if ($pergunta->tipo_id == 4)
+            $peso = 1;
+
+         if ($pergunta->tipo_id == 6)
+            $peso = $maxValue;
+
+        $ordem = $maxValue;
+
+        return view('opcoes.create',compact('pergunta','ordem', 'peso'));
     }
 
     public function show($pergunta_id)
@@ -72,11 +80,7 @@ class OpcoesController extends Controller
         
         $opcaoResposta->update($validatedData);        
 
-        $opcoes = OpcaoPergunta::where('pergunta_id', $request->pergunta_id)->get();
-
-        $pergunta = $opcoes->first()->pergunta;
-
-        return view('opcoes.list', compact('opcoes', 'pergunta'));
+        return redirect('opcoes/' . $request->pergunta_id );    
     }
 
     public function store(Request $request)

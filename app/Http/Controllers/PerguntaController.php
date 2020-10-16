@@ -102,8 +102,7 @@ class PerguntaController extends Controller
             return redirect('/inserir-opcoes/' . $pergunta->id . '/create');
         }
         if ($pergunta->tipo_id == 6) {
-            $opcoes = OpcaoResposta::where('tipo_id', 6)->get();
-            return view('opcoes.list', compact('opcoes', 'pergunta'));
+            return redirect('/inserir-opcoes/' . $pergunta->id . '/create');
         } 
         
         session()->put([
