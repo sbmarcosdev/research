@@ -28,19 +28,19 @@
                     <tr>
                         <td>{!! $pergunta->texto !!}</td>
                         <td>
-                            <div class="radio"><input type="radio" name="peso_resposta" value="5" required></div>
-                        </td>
-                        <td>
-                            <div class="radio"><input type="radio" name="peso_resposta" value="4" required></div>
-                        </td>
-                        <td>
-                            <div class="radio"><input type="radio" name="peso_resposta" value="3" required></div>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="1" required></div>
                         </td>
                         <td>
                             <div class="radio"><input type="radio" name="peso_resposta" value="2" required></div>
                         </td>
                         <td>
-                            <div class="radio"><input type="radio" name="peso_resposta" value="1" required></div>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="3" required></div>
+                        </td>
+                        <td>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="4" required></div>
+                        </td>
+                        <td>
+                            <div class="radio"><input type="radio" name="peso_resposta" value="5" required></div>
                         </td>
                     </tr>
                 </tbody>
