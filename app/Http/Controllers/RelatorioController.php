@@ -62,7 +62,7 @@ class RelatorioController extends Controller
             ->where('HTTP_USER_AGENT', 'not like', '%Mobile%')
             ->count();
 
-        $sqltempo = "SELECT ROUND(avg(termino_resposta - inicio_resposta)) / 60 as tempo FROM campanha_respondentes";
+        $sqltempo = "SELECT ROUND(avg(termino_resposta - inicio_resposta) / 60 ) as tempo FROM campanha_respondentes";
         
         $tempoResp = DB::select($sqltempo);
 
