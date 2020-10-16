@@ -7,7 +7,7 @@
 
         <h5 class="mb-4"> {{ $resp->respondente->nome }}</h5>
 
-        <form action="{{url('/resposta')}}" method="POST">
+        <form action="{{url('/resposta')}}" method="POST" autocomplete="off">
             @csrf
             @method('patch')
 

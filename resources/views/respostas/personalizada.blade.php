@@ -6,7 +6,7 @@
         <a class="mb-4">Campanha {{ $resp->campanha->descricao }}</a> |
         <a class="mb-4"> {{ $resp->respondente->nome }}</a>
         <hr>
-        <form action="{{url('/resposta')}}" method="POST">
+        <form action="{{url('/resposta')}}" method="POST" autocomplete="off">
             @csrf
             @method('patch')
 
@@ -31,13 +31,13 @@
                         <td>
                             <div class="radio"><input type="radio" name="pergunta_id[{{$pergunta->id}}]" value="5" required>
                         </td>
-                        
+
                         @empty
                         @endforelse
                     </tr>
                 </tbody>
             </table>
-            
+
             <div class="form-group">
                 <label for="descricao">Comentários</label>
                 <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">

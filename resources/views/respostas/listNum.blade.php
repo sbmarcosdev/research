@@ -6,7 +6,7 @@
         <a class="mb-4">Campanha {{ $resp->campanha->descricao }}</a> |
         <a class="mb-4"> {{ $resp->respondente->nome }}</a>
         <hr>
-        <form action="{{url('/resposta')}}" method="POST">
+        <form action="{{url('/resposta')}}" method="POST" autocomplete="off">
             @csrf
             @method('patch')
 

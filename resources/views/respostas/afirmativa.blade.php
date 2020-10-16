@@ -10,7 +10,7 @@
 
                         <h4 class="tituloPrincipal">{{ $resp->campanha->descricao }}</h4>
                         <h5 class="mb-4"> {{ $resp->respondente->nome }}</h5>
-                        <form action="{{url('/resposta')}}" method="POST">
+                        <form action="{{url('/resposta')}}" method="POST" autocomplete="off">
                             @csrf
                             @method('patch')
                             <input type="hidden" name="tipo_id" value="3">
