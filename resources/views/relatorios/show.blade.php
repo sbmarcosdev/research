@@ -43,7 +43,7 @@
                                 <tbody>
                                     <tr>
                                         <td>Mobile: {{ $mobile }} | Desktop:{{ $desktop }}</td>
-                                        <td> {{ $tempo }} Segundos </td>
+                                        <td> {{ $tempo }} Minutos </td>
                                     </tr>
                                 </tbody>
                             </table>
