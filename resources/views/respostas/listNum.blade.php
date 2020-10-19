@@ -55,7 +55,7 @@
                         <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
                     </div>
                     <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
-                    <hr>
+            
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
                     </div>

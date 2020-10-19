@@ -19,42 +19,9 @@
 </head>
 
 <style>
-    .li_menu_topo {
-        font-weight: bold;
-        color: #fff !important;
-        font-size: 14px !important;
-    }
 
     .espacamento {
-        margin-top: 150px;
-        position: absolute;
-        padding: 0px;
-    }
-
-    .fases {
-        position: absolute;
-        margin-top: 90px;
-        margin-left: 160px;
-        width: 25%;
-
-    }
-
-    .fasesTitulo {
-        margin-top: 105px;
-        position: absolute;
-        margin-left: 520px;
-        color: #735294 !important;
-        font-weight: bold;
-    }
-
-    .quebraLinha {
-        margin-top: 7px;
-        margin-bottom: 7px;
-    }
-
-    body {
-        font-family: 'Baloo Thambi 2', cursive !important;
-        background-color: white;
+        margin-top: 100px;
     }
 
     .tituloPrincipal {
@@ -66,7 +33,7 @@
 
     .titulosub {
         text-align: right;
-        color: {{ Session::get('cor_secundaria')}} !important;
+        color: {{ Session::get('cor_secundaria') }}!important;
         padding: 5px;
         font-weight: bold;
     }
