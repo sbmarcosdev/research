@@ -42,7 +42,7 @@
             @if($pergunta->opcao_justificativa)
             <div class="form-group">
                 <label for="descricao">{{ $pergunta->titulo_justificativa ?? 'Comentários' }}</label>
-                <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
+                <input type="text" name="texto_resposta" class="form-control" id="texto_resposta" required>
             </div>
             @endif
             <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
