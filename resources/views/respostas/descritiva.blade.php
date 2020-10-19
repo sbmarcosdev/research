@@ -21,8 +21,9 @@
 
             <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="2" name="texto_resposta"></textarea>
 
-
-            <button type="submit" class="btn btn-outline-success mt-3 mb-4">Enviar Respostas</button>
+            <div class="tituloPrincipal mt-3">
+                <button type="submit" class="btn btn-outline-info mb-4">Enviar Respostas</button>
+            </div>
 
             <div class="progress mt-4">
                 <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
