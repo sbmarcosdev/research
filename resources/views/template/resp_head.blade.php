@@ -77,9 +77,9 @@
         var screenWidth = screen.width;
         var screenHeight = screen.height;
         
-        alert(windowHeight);
+        //alert(windowHeight);
 
-        if (windowHeight < 500) {
+        if (windowHeight < 600) {
             $('.rodape').css({
                 "margin-top": "30px",
                 "position": "relative"
