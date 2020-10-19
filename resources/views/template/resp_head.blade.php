@@ -25,22 +25,32 @@
 
     .tituloPrincipal {
         text-align: center;
-        color: {{ Session::get('cor_primaria')}} !important;
+
+        color: {
+                {
+                Session: :get('cor_primaria')
+            }
+        }
+
+         !important;
         padding: 5px;
         font-weight: bold;
     }
 
     .titulosub {
         text-align: right;
+
         color: {
                 {
-                Session::get('cor_secundaria')
+                Session: :get('cor_secundaria')
             }
         }
-        !important;
+
+         !important;
         padding: 5px;
         font-weight: bold;
     }
+
     .asas {}
 </style>
 
@@ -66,6 +76,8 @@
 
         var screenWidth = screen.width;
         var screenHeight = screen.height;
+        
+        alert(windowHeight);
 
         if (windowHeight < 500) {
             $('.rodape').css({
