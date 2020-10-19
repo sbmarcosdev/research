@@ -19,7 +19,7 @@
             <input type="hidden" name="tipo_id" value="{{$pergunta->tipo_id}}">
             <input type="hidden" name="peso_resposta" value="1">
 
-            <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="2" name="texto_resposta"></textarea>
+            <textarea class="form-control mt-3" id="Textarea1" rows="2" name="texto_resposta" required></textarea>
 
             <div class="tituloPrincipal mt-3">
                 <button type="submit" class="btn btn-outline-info mb-4">Enviar Respostas</button>
