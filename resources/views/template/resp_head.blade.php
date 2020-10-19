@@ -25,7 +25,7 @@
 
     .tituloPrincipal {
         text-align: center;
-        color: {{ Session: :get('cor_primaria')}} important;
+        color: {{ Session::get('cor_primaria')}} !important;
         padding: 5px;
         font-weight: bold;
     }
@@ -34,7 +34,7 @@
         text-align: right;
         color: {
                 {
-                Session: :get('cor_secundaria')
+                Session::get('cor_secundaria')
             }
         }
         !important;
