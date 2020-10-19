@@ -3,12 +3,3 @@
 @include("template.resp_footer")
 
 
-<div style='position:fixed; top:0; left:0; right:0;'>
-    @if(Session::get('banner_empresa'))
-    <img src="{{asset(Session::get('banner_empresa'))}}" width="100%" height="100px">
-    <div style='position:absolute; top:0px; left:0px;'>
-        <img src="{{asset(Session::get('logo_empresa'))}}" width="70%" class="ml-5 mt-2">
-    </div>
-    @endif
-</div>
-

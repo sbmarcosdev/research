@@ -19,22 +19,59 @@
 </head>
 
 <style>
-
     .espacamento {
         margin-top: 100px;
     }
 
     .tituloPrincipal {
         text-align: center;
-        color: {{ Session::get('cor_primaria')}} !important;
+        color: {{ Session: :get('cor_primaria')}} important;
         padding: 5px;
         font-weight: bold;
     }
 
     .titulosub {
         text-align: right;
-        color: {{ Session::get('cor_secundaria') }}!important;
+        color: {
+                {
+                Session: :get('cor_secundaria')
+            }
+        }
+        !important;
         padding: 5px;
         font-weight: bold;
     }
+    .asas {}
 </style>
+
+<header>
+    <div style='position:absolute; top:0; left:0; right:0;'>
+        @if(Session::get('banner_empresa'))
+        <img src="{{asset(Session::get('banner_empresa'))}}" width="100%" height="100px">
+        <div style='position:absolute; top:0px; left:0px;'>
+            <img src="{{asset(Session::get('logo_empresa'))}}" width="70%" class="ml-5 mt-2">
+        </div>
+        @endif
+    </div>
+</header>
+
+<script>
+    $(document).ready(function() {
+        sizeOfThings();
+    });
+
+    function sizeOfThings() {
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+
+        var screenWidth = screen.width;
+        var screenHeight = screen.height;
+
+        if (windowHeight < 500) {
+            $('.rodape').css({
+                "margin-top": "30px",
+                "position": "relative"
+            });
+        }
+    }
+</script>
