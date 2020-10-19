@@ -50,10 +50,12 @@
                     </tr>
                 </tbody>
             </table>
+            @if($pergunta->opcao_justificativa)
             <div class="form-group">
-                <label for="descricao">Comentários</label>
+                <label for="descricao">{{ $pergunta->titulo_justificativa ?? 'Comentários' }}</label>
                 <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
             </div>
+            @endif
             <div class="tituloPrincipal mt-3">
                 <button type="submit" class="btn btn-outline-info mb-4">Enviar Respostas</button>
             </div>

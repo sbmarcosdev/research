@@ -18,7 +18,7 @@
             <input type="hidden" name="tipo_id" value="3">
             <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
 
-            <table id="rtable" name="table" class="table table-striped table-bordered mt-2">
+            <table id="rtable" name="table" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
                         @forelse($afirmativa as $opcao)
@@ -39,15 +39,17 @@
                     </tr>
                 </tbody>
             </table>
+            @if($pergunta->opcao_justificativa)
             <div class="form-group">
-                <label for="descricao">Comentários</label>
+                <label for="descricao">{{ $pergunta->titulo_justificativa ?? 'Comentários' }}</label>
                 <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
             </div>
+            @endif
             <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
-    </div>
 
-    <div class="progress mt-4">
-        <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
+            <div class="progress mt-4">
+                <div class="progress-bar" role="progressbar" style="width:{{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
+            </div>
     </div>
 </div>
 @endsection

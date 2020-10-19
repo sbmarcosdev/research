@@ -75,14 +75,19 @@ class PerguntaController extends Controller
 
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'campanha_id' => 'required',
             'texto' => 'required',
             'texto_ajuda' => 'sometimes|nullable|max:191',
             'tipo_id' => 'required|int',
-            'ordem' => 'sometimes|int'
+            'ordem' => 'sometimes|int',
+            'titulo_justificativa' => 'sometimes|nullable|string|max:30',
         ]);
+
+        if (isset($request->opcao_justificativa))
+            $validatedData['opcao_justificativa'] = 'checked';
+        else
+            $validatedData['opcao_justificativa'] = null;
 
         $pergunta = Pergunta::updateOrCreate(['id' => $request->id], $validatedData );
 
@@ -123,8 +128,15 @@ class PerguntaController extends Controller
             'texto' => 'required', 
             'texto_ajuda' => 'sometimes|nullable|max:191',
             'tipo_id' => 'required|int',
-            'ordem' => 'sometimes|int'
+            'ordem' => 'sometimes|int',
+            'titulo_justificativa' => 'sometimes|nullable|string|max:30',
         ]);
+        
+        if (isset($request->opcao_justificativa)) 
+            $validatedData['opcao_justificativa'] = 'checked'; 
+        else
+            $validatedData['opcao_justificativa'] = null;
+
 
        $pergunta = Pergunta::updateOrCreate(['id' => $request->id], $validatedData );
 

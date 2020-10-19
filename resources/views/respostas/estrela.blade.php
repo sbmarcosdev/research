@@ -75,11 +75,13 @@
                     <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="5off">
                 </div>
             </div>
-            
-            <div class="mt-3">
-                <label>Comentários</label>
+
+            @if($pergunta->opcao_justificativa)
+            <div class="form-group">
+                <label for="descricao">{{ $pergunta->titulo_justificativa ?? 'Comentários' }}</label>
                 <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
             </div>
+            @endif
 
             <div class="tituloPrincipal mt-4">
                 <button type="submit" class="btn btn-outline-info mb-4">Enviar Respostas</button>
