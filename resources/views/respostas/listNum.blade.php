@@ -19,7 +19,7 @@
             <input type="hidden" name="tipo_id" value="2">
             <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
 
-            <table id="rtable" name="table" class="table table-striped table-bordered mt-2" style="width:100%">
+            <table id="rtable" name="table" class="table table-striped table-bordered mt-2 text-center">
                 <thead>
                     <tr>
 

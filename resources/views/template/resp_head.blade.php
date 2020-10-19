@@ -24,34 +24,21 @@
     }
 
     .tituloPrincipal {
+    --vCss: {{ Session::get('cor_primaria')}};
         text-align: center;
-
-        color: {
-                {
-                Session: :get('cor_primaria')
-            }
-        }
-
-         !important;
+        color: var(--vCss)!important;
         padding: 5px;
         font-weight: bold;
     }
 
     .titulosub {
+        --vCss2: {{Session::get('cor_secundaria')}};
         text-align: right;
-
-        color: {
-                {
-                Session: :get('cor_secundaria')
-            }
-        }
-
-         !important;
+        color: var(--vCss2)!important;
         padding: 5px;
         font-weight: bold;
     }
-
-    .asas {}
+    
 </style>
 
 <header>
@@ -76,7 +63,7 @@
 
         var screenWidth = screen.width;
         var screenHeight = screen.height;
-        
+
         //alert(windowHeight);
 
         if (windowHeight < 600) {
