@@ -7,17 +7,19 @@
 
         <hr>
         @if (isset($msg))
-        @if ($msg->primeiro_acesso == true)
-        <button type="button" class="btn btn-success" onclick="window.location='{{ url('/resposta') }}'">
-            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom">
-            {{$msg->titulo_opcao_sim ?? 'Iniciar' }}
-        </button>
+            @if ($msg->primeiro_acesso == true)
+            <button type="button" class="btn btn-success" onclick="window.location='{{ url('/resposta') }}'">
+                <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom">
+                {{$msg->titulo_opcao_sim ?? 'Iniciar' }}
+            </button>
+            @endif
 
-        @endif
-        <button type="button" class="btn btn-warning" onclick="window.history.back()">
-            <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom">
-            {{$msg->titulo_opcao_nao ?? 'Encerrar' }}
-        </button>
+            @if ($msg->opcao_nao)
+            <button type="button" class="btn btn-danger" onclick="window.history.back()">
+                <img src="{{ asset('img/008-cancelar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom">
+                {{$msg->titulo_opcao_nao ?? 'Encerrar' }}
+            </button>
+            @endif
         @endif
     </div>
 </div>
