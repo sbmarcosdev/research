@@ -19,7 +19,7 @@
 
             <a class="mt-2"> {{ $pergunta->texto_ajuda }} <a>
 
-                    <table id="rtable" name="table" class="table table-striped table-bordered mt-2" style="width:100%">
+                    <table id="rtable" name="table" class="table table-striped table-bordered mt-2 text-center">
                         <thead>
                             <tr>
                                 @forelse($opcoes as $opcao)
@@ -48,7 +48,7 @@
                         <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
                     </div>
                     @endif
-                    
+
                     <div class="tituloPrincipal mt-3">
                         <button type="submit" class="btn btn-outline-info mb-4">Enviar Respostas</button>
                     </div>
