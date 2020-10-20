@@ -99,6 +99,7 @@ class RespostaController extends Controller
                 $resp->update([
                     'respondida' => 'A',
                     'inicio_resposta' => $inicio_resposta,
+                    'termino_resposta' => $inicio_resposta,
                     'HTTP_USER_AGENT' => $_SERVER["HTTP_USER_AGENT"],
                     'REMOTE_ADDR' => $_SERVER["REMOTE_ADDR"],
                     'HTTP_REFERER' =>  $refer
