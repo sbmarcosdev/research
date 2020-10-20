@@ -62,7 +62,7 @@ class RelatorioController extends Controller
             ->where('HTTP_USER_AGENT', 'not like', '%Mobile%')
             ->count();
 
-        $sqltempo = "SELECT avg(termino_resposta - inicio_resposta) as tempo FROM campanha_respondentes";
+        $sqltempo = "SELECT ROUND(avg(termino_resposta - inicio_resposta) / 60 ) as tempo FROM campanha_respondentes";
         
         $tempoResp = DB::select($sqltempo);
 
@@ -81,13 +81,33 @@ class RelatorioController extends Controller
 
             return view('relatorios.descritiva', compact('respostas', 'pergunta'));
 
-        } else {
+        } 
+        elseif ($pergunta->tipo_id == 4){
+
+            $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
+                ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
+                ->where('perguntas.id', $pergunta->id)
+                ->where('opcao_respostas.tipo_id', $pergunta->tipo_id)->get();
+
+            $detalhes  = RespostaOpcao::where('pergunta_id', $pergunta_id)
+                                 ->groupBy('opcao_resposta_id')
+                                 ->selectRaw('count(peso_resposta) as sub, opcao_resposta_id')
+                                 ->get();
+
+            foreach($detalhes as $detalhe)
+            {
+                $sub[$detalhe->opcao_resposta_id] = $detalhe->sub;
+            }
+
+            return view('relatorios.detalhes', compact('sub', 'opcoes', 'detalhes', 'pergunta'));
+        } 
+        else {
 
             $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
                 ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
                 ->where('perguntas.id', $pergunta->id)
                 ->where('opcao_respostas.tipo_id', $pergunta->tipo_id )->get();
-            //$opcoes = OpcaoResposta::where('tipo_id', $pergunta->tipo_id)->get();
+            
             
             foreach ($opcoes as $opcao) {
                 $detalhes = Resposta::where('pergunta_id', $pergunta_id)

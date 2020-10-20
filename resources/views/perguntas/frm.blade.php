@@ -25,14 +25,11 @@
                                 <textarea name="texto" id="editor" required>{{ $pergunta->texto }}</textarea>
 
                                 <div class="form-row mb-3">
-                                    <div class="col form-group mt-2 mr-2">
-                                        <label for="descricao">Texto de Ajuda</label>
-                                        <input type="text" name="texto_ajuda" class="form-control" id="texto" value="{{ $pergunta->texto_ajuda}}">
-                                    </div>
 
+                                    <input type="hidden" name="tipo_id" value="{{ $pergunta->tipo_id }}">
                                     <div class="col form-group mt-2 mr-2">
                                         <label>Tipo de Resposta</label>
-                                        <select class="form-control" name="tipo_id" id="status" required>
+                                        <select class="form-control" id="status" disabled>
                                             <option id="op1" value="1">Classificatória | Ótimo | Bom | Regular | Ruim | Péssimo | </option>
                                             <option id="op2" value="2">Opção Numérica | 1 | 2 | 3 | 4 | 5 |</option>
                                             <option id="op3" value="3">Afirmativa | Sim | Não |</option>
@@ -41,6 +38,23 @@
                                             <option id="op6" value="6">Opções Personalizadas | Radio | </option>
                                             <option id="op7" value="7">5 Estrelas </option>
                                         </select>
+                                    </div>
+
+                                    <div class="col form-group mt-2">
+                                        <label>Justificativa</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <input type="checkbox" name="opcao_justificativa" @if($pergunta->opcao_justificativa) checked @endif >
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" name="titulo_justificativa" placeholder="Comentário Resposta" value="{{ $pergunta->titulo_justificativa ?? '' }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col form-group mt-2 mr-2">
+                                        <label for="descricao">Texto de Ajuda</label>
+                                        <input type="text" name="texto_ajuda" class="form-control" id="texto" value="{{ $pergunta->texto_ajuda}}">
                                     </div>
 
                                     <div class="col form-group mt-2 mr-2">
@@ -57,6 +71,16 @@
                                 <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/perguntas/'.$pergunta->campanha->id)}}'">
                                     <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                     Voltar </button>
+
+                                @if ($errors->any())
+                                <div class="alert alert-danger m-3">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
 
                             </form>
                         </body>

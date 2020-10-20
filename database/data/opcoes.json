@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "tipo_id": 1,
     "titulo": "Ótimo",
     "peso": 5,
@@ -10,7 +9,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 2,
     "tipo_id": 1,
     "titulo": "Bom",
     "peso": 4,
@@ -20,7 +18,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 3,
     "tipo_id": 1,
     "titulo": "Regular",
     "peso": 3,
@@ -30,7 +27,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 4,
     "tipo_id": 1,
     "titulo": "Ruim",
     "peso": 2,
@@ -40,7 +36,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 5,
     "tipo_id": 1,
     "titulo": "Péssimo",
     "peso": 1,
@@ -49,8 +44,8 @@
     "created_at": "NULL",
     "updated_at": "NULL"
   },
+  
   {
-    "id": 10,
     "tipo_id": 2,
     "titulo": 1,
     "peso": 1,
@@ -60,7 +55,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 11,
     "tipo_id": 2,
     "titulo": 2,
     "peso": 2,
@@ -70,7 +64,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 12,
     "tipo_id": 2,
     "titulo": 3,
     "peso": 3,
@@ -80,7 +73,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 13,
     "tipo_id": 2,
     "titulo": 4,
     "peso": 4,
@@ -90,7 +82,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 14,
     "tipo_id": 2,
     "titulo": 5,
     "peso": 5,
@@ -100,7 +91,6 @@
     "updated_at": "NULL"
   },
   {
-    "id": 15,
     "tipo_id": 3,
     "titulo": "Sim",
     "peso": 5,
@@ -110,11 +100,73 @@
     "updated_at": "NULL"
   },
   {
-    "id": 16,
     "tipo_id": 3,
     "titulo": "Não",
     "peso": 1,
     "ordem": 2,
+    "padrao": "S",
+    "created_at": "NULL",
+    "updated_at": "NULL"
+  },
+  {
+    "tipo_id": 5,
+    "titulo": "Descritiva",
+    "peso": 1,
+    "ordem": 1,
+    "padrao": "S",
+    "created_at": "NULL",
+    "updated_at": "NULL"
+  },
+  {
+    "tipo_id": 7,
+    "titulo": "0 Estrelas",
+    "peso": 0,
+    "ordem": 1,
+    "padrao": "S",
+    "created_at": "NULL",
+    "updated_at": "NULL"
+  },
+  {
+      "tipo_id": 7,
+      "titulo": "1 Estrela",
+      "peso": 1,
+      "ordem": 2,
+      "padrao": "S",
+      "created_at": "NULL",
+      "updated_at": "NULL"
+  },
+  {
+    "tipo_id": 7,
+    "titulo": "2 Estrelas",
+    "peso": 2,
+    "ordem": 3,
+    "padrao": "S",
+    "created_at": "NULL",
+    "updated_at": "NULL"
+  }, 
+  {
+    "tipo_id": 7,
+    "titulo": "3 Estrelas",
+    "peso": 3,
+    "ordem": 4,
+    "padrao": "S",
+    "created_at": "NULL",
+    "updated_at": "NULL"
+  },
+  {
+    "tipo_id": 7,
+    "titulo": "4 Estrelas",
+    "peso": 4,
+    "ordem": 5,
+    "padrao": "S",
+    "created_at": "NULL",
+    "updated_at": "NULL"
+  },
+  {
+    "tipo_id": 7,
+    "titulo": "5 Estrelas",
+    "peso": 5,
+    "ordem": 6,
     "padrao": "S",
     "created_at": "NULL",
     "updated_at": "NULL"

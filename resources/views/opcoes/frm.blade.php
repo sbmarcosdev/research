@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body" style="min-height: 500px">
                         <div class="col-sm-12">
-                            <h5> {!! $pergunta->texto !!} </h5>
+                            <h5> {!! $pergunta->texto ?? '' !!} </h5>
 
                         </div>
                         <form action="{{url('/opcoes/'.$opcao->id )}}" method="POST" enctype="form-data">
@@ -34,7 +34,7 @@
                                 Salvar
                             </button>
 
-                            <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/perguntas/'.$pergunta->id)}}'">
+                            <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/opcoes/'.$pergunta->id)}}'">
                                 <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar
                             </button>

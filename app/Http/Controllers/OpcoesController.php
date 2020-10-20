@@ -35,28 +35,35 @@ class OpcoesController extends Controller
             $maxValue = 1 + $opcaoResposta->ordem;
          else
             $maxValue = 1;
-            
-        return view('opcoes.create',compact('pergunta','maxValue'));
+         
+         if ($pergunta->tipo_id == 4)
+            $peso = 1;
+
+         if ($pergunta->tipo_id == 6)
+            $peso = $maxValue;
+
+        $ordem = $maxValue;
+
+        return view('opcoes.create',compact('pergunta','ordem', 'peso'));
     }
 
-    public function show($pergunta_id){
+    public function show($pergunta_id)
+    {
+        $opcoes = OpcaoPergunta::join('perguntas', 'pergunta_id', '=', 'perguntas.id')
+                                ->join('opcao_respostas', 'opcao_resposta_id', '=', 'opcao_respostas.id')
+                                ->where('perguntas.id', $pergunta_id)
+                                ->get();
 
-        $opcoes = OpcaoPergunta::where('pergunta_id', $pergunta_id)->get();
-    
-        $pergunta = $opcoes->first()->pergunta;
+        $pergunta = Pergunta::find($pergunta_id);
 
         return view('opcoes.list', compact('pergunta','opcoes'));
     }
 
     public function edit($opcao_id)
     {
-
         $opcao = OpcaoResposta::find($opcao_id);
-
-        $opcaoPergunta = OpcaoPergunta::where('opcao_resposta_id',$opcao_id)->first();
-
-        $pergunta = $opcaoPergunta->pergunta;
-
+        $opcaoPergunta = OpcaoPergunta::where('opcao_resposta_id',$opcao->id)->get();
+        $pergunta = $opcaoPergunta->first()->pergunta;
         return view('opcoes.frm', compact('pergunta', 'opcao'));
     }
 
@@ -73,11 +80,7 @@ class OpcoesController extends Controller
         
         $opcaoResposta->update($validatedData);        
 
-        $opcoes = OpcaoPergunta::where('pergunta_id', $request->pergunta_id)->get();
-
-        $pergunta = $opcoes->first()->pergunta;
-
-        return view('opcoes.list', compact('opcoes', 'pergunta'));
+        return redirect('opcoes/' . $request->pergunta_id );    
     }
 
     public function store(Request $request)

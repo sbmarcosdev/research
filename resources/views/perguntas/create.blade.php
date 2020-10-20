@@ -19,10 +19,7 @@
                             <textarea name="texto" id="editor"></textarea>
 
                             <div class="form-row mb-3">
-                                <div class="col form-group mt-2 mr-2">
-                                    <label for="descricao">Texto de Ajuda</label>
-                                    <input type="text" name="texto_ajuda" class="form-control" id="texto">
-                                </div>
+
                                 <div class="col form-group mt-2 mr-2">
                                     <label>Tipo de Resposta</label>
                                     <select class="form-control" name="tipo_id" id="status" required>
@@ -35,6 +32,24 @@
                                         <option id="op7" value="7">5 Estrelas </option>
                                     </select>
                                 </div>
+
+                                <div class="col form-group mt-2">
+                                    <label>Justificativa</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input type="checkbox" name="opcao_justificativa" checked>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="titulo_justificativa" placeholder="Comentário Resposta">
+                                    </div>
+                                </div>
+
+                                <div class="col form-group mt-2 mr-2">
+                                    <label for="descricao">Texto de Ajuda</label>
+                                    <input type="text" name="texto_ajuda" class="form-control" id="texto">
+                                </div>
+
                                 <div class="col form-group mt-2 mr-2">
                                     <label>Ordem</label>
                                     <input type="text" name="ordem" id="ordem" class="form-control" value="{{$campanha->numNova}}">

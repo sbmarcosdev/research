@@ -19,55 +19,58 @@
 </head>
 
 <style>
-    .li_menu_topo {
-        font-weight: bold;
-        color: #fff !important;
-        font-size: 14px !important;
-    }
-
     .espacamento {
-        margin-top: 150px;
-        position: absolute;
-        padding: 0px;
-    }
-
-    .fases {
-        position: absolute;
-        margin-top: 90px;
-        margin-left: 160px;
-        width: 25%;
-
-    }
-
-    .fasesTitulo {
-        margin-top: 105px;
-        position: absolute;
-        margin-left: 520px;
-        color: #735294 !important;
-        font-weight: bold;
-    }
-
-    .quebraLinha {
-        margin-top: 7px;
-        margin-bottom: 7px;
-    }
-
-    body {
-        font-family: 'Baloo Thambi 2', cursive !important;
-        background-color: white;
+        margin-top: 100px;
     }
 
     .tituloPrincipal {
+    --vCss: {{ Session::get('cor_primaria')}};
         text-align: center;
-        color: {{ Session::get('cor_primaria')}} !important;
+        color: var(--vCss)!important;
         padding: 5px;
         font-weight: bold;
     }
 
     .titulosub {
-        text-align: left;
-        color: {{ Session::get('cor_secundaria')}} !important;
+        --vCss2: {{Session::get('cor_secundaria')}};
+        text-align: right;
+        color: var(--vCss2)!important;
         padding: 5px;
         font-weight: bold;
     }
+    
 </style>
+
+<header>
+    <div style='position:absolute; top:0; left:0; right:0;'>
+        @if(Session::get('banner_empresa'))
+        <img src="{{asset(Session::get('banner_empresa'))}}" width="100%" height="100px">
+        <div style='position:absolute; top:0px; left:0px;'>
+            <img src="{{asset(Session::get('logo_empresa'))}}" width="70%" class="ml-5 mt-2">
+        </div>
+        @endif
+    </div>
+</header>
+
+<script>
+    $(document).ready(function() {
+        sizeOfThings();
+    });
+
+    function sizeOfThings() {
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+
+        var screenWidth = screen.width;
+        var screenHeight = screen.height;
+
+        //alert(windowHeight);
+
+        if (windowHeight < 600) {
+            $('.rodape').css({
+                "margin-top": "30px",
+                "position": "relative"
+            });
+        }
+    }
+</script>

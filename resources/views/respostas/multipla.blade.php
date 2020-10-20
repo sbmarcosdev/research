@@ -3,11 +3,16 @@
 
 <div class="container">
     <div class="container espacamento">
+
         <h4 class="tituloPrincipal">{{ $resp->campanha->descricao }}</h4>
 
-        <h5 class="mb-4"> {{ $resp->respondente->nome }}</h5>
+        <h5 class="titulosub"> {{ $resp->respondente->nome }}</h5>
 
-        <form action="{{url('/resposta')}}" method="POST">
+        <h5>{!! $pergunta->texto !!}</h5>
+
+        <a class="mt-2"> {{ $pergunta->texto_ajuda }} </a>
+
+        <form action="{{url('/resposta')}}" method="POST" autocomplete="off">
             @csrf
             @method('patch')
 
@@ -15,9 +20,9 @@
             <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
             <input type="hidden" name="tipo_id" value="{{$pergunta->tipo_id}}">
 
-            <h4> {!! $pergunta->texto !!} </h4>
 
-            <table id="rtable" name="table" class="table table-striped table-bordered" style="width:100%">
+
+            <table id="rtable" name="table" class="table table-striped table-bordered mt-2" style="width:100%">
                 <thead>
                     <tr>
                         @forelse($multipla as $opcao)
@@ -37,17 +42,20 @@
                     </tr>
                 </tbody>
             </table>
+            @if($pergunta->opcao_justificativa)
             <div class="form-group">
-                <label for="descricao">Comentários</label>
-                <input type="text" name="texto_resposta" class="form-control" id="texto_resposta">
+                <label for="descricao">{{ $pergunta->titulo_justificativa ?? 'Comentários' }}</label>
+                <input type="text" name="texto_resposta" class="form-control" id="texto_resposta" required>
             </div>
-            <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
-            <hr>
+            @endif
+            <div class="tituloPrincipal mt-3">
+                <button type="submit" class="btn btn-outline-info mb-4">Enviar Respostas</button>
+            </div>
             <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
             </div>
     </div>
-    <hr>
+
 </div>
 
 @endsection

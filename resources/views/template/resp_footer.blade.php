@@ -1,7 +1,10 @@
 <style>
     .rodape {
-        padding: 20px;
-        background: {{ Session::get('cor_topo_rodape')}} !important;
+        position: absolute;
+        height: 40px;
+        width: 100%;
+        bottom:0px;
+        background: {{ Session::get('cor_topo_rodape')}} !important;;
     }
 
     .box_rodape {
@@ -9,6 +12,7 @@
         text-align: center;
     }
 </style>
-<nav class="navbar fixed-bottom navbar-light bg-light rodape "></nav>
-
+<footer>
+    <div class="rodape"></div>
+</footer>
 </html>

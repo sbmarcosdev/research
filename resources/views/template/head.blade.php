@@ -24,7 +24,7 @@
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-html5-1.6.5/datatables.min.js"></script>
 
-
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{asset('assets/popper.min.js')}}"></script>

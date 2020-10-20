@@ -12,9 +12,9 @@
                             <hr>
                             <h4> {{ $erro['erro'] }}</h4>
                         </div>
-                        <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                        <!-- <button type="button" class="btn btn-warning" onclick="window.history.back()">
                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
-                            Voltar </button>
+                            Voltar </button> -->
                     </div>
                 </div>
             </div>
