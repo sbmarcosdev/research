@@ -31,7 +31,11 @@
     <script src="{{asset('assets/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/script.js')}}"></script>
     <script src="{{asset('assets/sbmscript.js')}}"></script>
+<<<<<<< HEAD
     <script  src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
+=======
+
+>>>>>>> 772b002b8770a6ee4891ac909a990fd41a169ef9
 
     @yield('styles')
 
