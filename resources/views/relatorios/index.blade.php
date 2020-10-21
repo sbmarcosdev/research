@@ -36,7 +36,7 @@
 
                         </table>
                         <button type="button" class="btn btn-warning mt-4" onclick="window.history.back()">
-                            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
+                            <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
 
                     </div>

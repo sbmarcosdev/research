@@ -10,7 +10,7 @@ class SairController extends Controller
     public function sair(Request $request)
     {
         $request->session()->forget('login_admin');
-        session()->flush();
+        //session()->flush();
         return redirect('login');
     }
 }

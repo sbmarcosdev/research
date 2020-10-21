@@ -52,13 +52,13 @@ class LoginADController extends Controller
                 return redirect()->intended('campanhas');
             } else {
 
-                $request->session()->flush();
+                //$request->session()->flush();
                 $erro = ["erro" => "Senha Inválida"];
                 return view('respostas.erro', compact('erro'));
             }
         } else {
 
-            $request->session()->flush();
+            //$request->session()->flush();
             $erro = ["erro" => "Falha no Login. Tente novamente mais tarde ou procure o Administrador"];
             return view('respostas.erro', compact('erro'));
         }

@@ -42,7 +42,7 @@
                                 Salvar
                             </button>
                             <button type="button" class="btn btn-warning" onclick="window.location='{{url('campanhas')}}'">
-                                <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
+                                <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                                 Voltar
                             </button>
                         </form>
