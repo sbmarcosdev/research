@@ -11,7 +11,7 @@ class LoginADController extends Controller
 {
     public function index()
     {
-        session()->flush();
+        //session()->flush();
         return view('login.ad');
     }
 
