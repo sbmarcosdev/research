@@ -63,9 +63,5 @@
                 <div class="progress-bar" role="progressbar" style="width: {{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
             </div>
     </div>
-
-
-    <hr>
 </div>
-
 @endsection

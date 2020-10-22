@@ -44,11 +44,11 @@
             <input type="hidden" name="peso_resposta" id="peso_resposta">
             <input type="hidden" name="opcao_resposta_id" id="opcao_resposta_id">
 
-            <h5 class="mt-3"> {!! $pergunta->texto !!}</h5>
+            <h5 class="mt-2"> {!! $pergunta->texto !!}</h5>
 
-            <a class="mt-3"> {{ $pergunta->texto_ajuda }} </a>
+            <a class="mt-2"> {{ $pergunta->texto_ajuda }} </a>
 
-            <div class="ceu m-3">
+            <div class="ceu m-2">
 
                 <div class="star" id="div1">
                     <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="1on">
@@ -84,8 +84,8 @@
             </div>
             @endif
 
-            <div class="tituloPrincipal mt-4">
-                <button type="submit" class="btn btn-outline-info mb-4">Enviar Respostas</button>
+            <div class="tituloPrincipal mt-2">
+                <button type="submit" class="btn btn-outline-info mb-2">Enviar Respostas</button>
             </div>
 
             <div class="progress">

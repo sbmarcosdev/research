@@ -83,7 +83,7 @@ class RespostaController extends Controller
                 'cor_secundaria' => $resp->campanha->empresa->cor_secundaria
             ]);
 
-            if (($resta == $total) && ($resp->respondida == 'N')) {
+            if ( ($resta == $total) && ( ($resp->respondida == 'N') || ($resp->respondida == 'A')) ) {
 
                 $msg = Mensagem::where('campanha_id', $campanha_id)->where('tipo_mensagem_id', 2)->first();
                 
@@ -126,7 +126,7 @@ class RespostaController extends Controller
             if ($resta) {
                 
                 $resp->update(['respondida' => 'A']); // atualiza status campanha acessada
-                
+
                 // falta alguma pergunta a ser respondida ?
                 foreach ($preguntasOrdenadas as $listaPergunta) {
 
