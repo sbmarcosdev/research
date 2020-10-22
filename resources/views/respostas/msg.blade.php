@@ -2,6 +2,7 @@
 @section('content')
 <div class="container">
     <div class="container espacamento">
+        <hr>
 
         {!! $msg->texto_mensagem ?? '' !!}
 
