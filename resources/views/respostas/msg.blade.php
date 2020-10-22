@@ -6,6 +6,8 @@
         {!! $msg->texto_mensagem ?? '' !!}
 
         <hr>
+
+        <div class="mb-5">
         @if (isset($msg))
             @if ($msg->primeiro_acesso == true)
             <button type="button" class="btn btn-success" onclick="window.location='{{ url('/resposta') }}'">
@@ -22,6 +24,7 @@
             <hr>
             @endif
         @endif
+        </div>
     </div>
 </div>
 @endsection

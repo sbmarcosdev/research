@@ -97,7 +97,6 @@ class RespostaController extends Controller
                     $refer = null;
 
                 $resp->update([
-                    'respondida' => 'A',
                     'inicio_resposta' => $inicio_resposta,
                     'termino_resposta' => $inicio_resposta,
                     'HTTP_USER_AGENT' => $_SERVER["HTTP_USER_AGENT"],
@@ -125,6 +124,9 @@ class RespostaController extends Controller
             $progresso =  $respondidas / $total * 100;
 
             if ($resta) {
+                
+                $resp->update(['respondida' => 'A']); // atualiza status campanha acessada
+                
                 // falta alguma pergunta a ser respondida ?
                 foreach ($preguntasOrdenadas as $listaPergunta) {
 
