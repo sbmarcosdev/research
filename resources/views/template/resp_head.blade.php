@@ -69,8 +69,7 @@
 
         if (windowHeight < 600) {
             $('.rodape').css({
-                "margin-top": "30px",
-                "position": "relative"
+                "visibility": "hidden"
             });
         }
     }
