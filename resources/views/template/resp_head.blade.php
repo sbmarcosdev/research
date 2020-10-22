@@ -33,7 +33,7 @@
 
     .titulosub {
         --vCss2: {{Session::get('cor_secundaria')}};
-        text-align: right;
+        text-align: left;
         color: var(--vCss2)!important;
         padding: 5px;
         font-weight: bold;
