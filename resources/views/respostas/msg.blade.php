@@ -19,6 +19,7 @@
                 <img src="{{ asset('img/008-cancelar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom">
                 {{$msg->titulo_opcao_nao ?? 'Encerrar' }}
             </button>
+            <hr>
             @endif
         @endif
     </div>
