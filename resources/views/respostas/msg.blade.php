@@ -24,3 +24,14 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+            $('.rodape').css({
+                "visibility": "hidden"
+            });
+    });
+  
+</script>
+@endsection
