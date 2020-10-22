@@ -34,7 +34,7 @@
                                 </tbody>
                             </table>
                             <hr>
-                            <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/importar/'.$respostas->first()->campanha_id)}}'">
+                            <button type="button" class="btn btn-secondary" onclick="window.location = '{{url('/importar/'.$respostas->first()->campanha_id)}}'">
                                 <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar
                             </button>

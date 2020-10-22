@@ -74,6 +74,7 @@
                     <img src="{{asset('img/star_on_1.png')}}" class="img-botton" alt="star Back" id="5on">
                     <img src="{{asset('img/star_off_1.png')}}" class="img-top" alt="star Front" id="5off">
                 </div>
+                <div id="starText"></div>
             </div>
 
             @if($pergunta->opcao_justificativa)
@@ -102,6 +103,7 @@
             fill = 1;
             $("#1off").css('display', 'none');
             $("#peso_resposta").val(fill);
+            $("#starText").html("Péssimo");
         });
 
         $("#div2").mouseover(function() {
@@ -109,6 +111,7 @@
             $("#1off").css('display', 'none');
             $("#2off").css('display', 'none');
             $("#peso_resposta").val(fill);
+            $("#starText").html("Ruim");
         });
         $("#div3").mouseover(function() {
             fill = 3;
@@ -116,6 +119,7 @@
             $("#2off").css('display', 'none');
             $("#3off").css('display', 'none');
             $("#peso_resposta").val(fill);
+            $("#starText").html("Regular");
         });
         $("#div4").mouseover(function() {
             fill = 4;
@@ -124,6 +128,7 @@
             $("#3off").css('display', 'none');
             $("#4off").css('display', 'none');
             $("#peso_resposta").val(fill);
+            $("#starText").html("Bom");
         });
         $("#div5").mouseover(function() {
             fill = 5;
@@ -133,6 +138,7 @@
             $("#4off").css('display', 'none');
             $("#5off").css('display', 'none');
             $("#peso_resposta").val(fill);
+            $("#starText").html("Ótimo");
         });
 
         $("#div6").mouseover(function() {
@@ -144,16 +150,7 @@
             $("#5off").css('display', 'none');
             $("#peso_resposta").val(fill);
         });
-        $("#div1").mouseleave(function() {
-            fill = 0;
-            $("#1off").css('display', 'inline');
-            $("#2off").css('display', 'inline');
-            $("#3off").css('display', 'inline');
-            $("#4off").css('display', 'inline');
-            $("#5off").css('display', 'inline');
-            $("#peso_resposta").val(fill);
-        });
-
+       
         $("#div1").mouseover(function() {
             fill = 1;
             $("#2off").css('display', 'inline');

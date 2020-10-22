@@ -45,8 +45,11 @@
                 <input type="text" name="texto_resposta" class="form-control" id="texto_resposta" required>
             </div>
             @endif
-            <button type="submit" class="btn btn-outline-success mb-4">Enviar Respostas</button>
 
+            <div class="tituloPrincipal mt-3">
+                <button type="submit" class="btn btn-outline-info mb-4">Enviar Respostas</button>
+            </div>
+            
             <div class="progress mt-4">
                 <div class="progress-bar" role="progressbar" style="width:{{$progresso}}%;" aria-valuenow="{{$progresso}}" aria-valuemin="0" aria-valuemax="100">{{$qtd}}</div>
             </div>

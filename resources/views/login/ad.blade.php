@@ -18,7 +18,7 @@
                                 @method('POST')
                                 <div class="form-group">
                                     <label for="descricao">E-mail</label>
-                                    <input type="email" name="email" class="form-control" required>
+                                <input type="email" name="email" class="form-control" value="{{ $email ?? '' }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="descricao">Senha</label>
@@ -26,6 +26,15 @@
                                 </div>
                                 <button type="submit" class="btn btn-success">Login</button>                           </form>
                         </div>
+                         @if ($erro)
+                                <div class="alert alert-danger m-3">
+                                    <ul>
+                                        
+                                        <li>{{ $erro['erro'] }}</li>
+                                        
+                                    </ul>
+                                </div>
+                                @endif
                     </div>
                 </div>
             </div>

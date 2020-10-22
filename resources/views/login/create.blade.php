@@ -26,7 +26,7 @@
                                 <button class="btn btn-success" onclick="">
                                     <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Salvar">
                                     Salvar </button>
-                                <button type="button" class="btn btn-warning" onclick="window.location = '{{url('/usuarios')}}'">
+                                <button type="button" class="btn btn-secondary" onclick="window.location = '{{url('/usuarios')}}'">
                                     <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                     Voltar </button>
 

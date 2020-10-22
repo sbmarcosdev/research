@@ -48,7 +48,7 @@
                                 </tbody>
                             </table>
 
-                            <button type="button" class="btn btn-warning mt-4" onclick="window.location='{{url('/campanhas/'.$campanha->id.'/edit/' )}}'">
+                            <button type="button" class="btn btn-secondary mt-4" onclick="window.location='{{url('/campanhas/'.$campanha->id.'/edit/' )}}'">
                                 <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar </button>
                         </div>

@@ -35,7 +35,7 @@
                                         <a>{{ $opcao->opcaoResposta->ordem ?? '' }}</a>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-warning" onclick="window.location='{{url('/opcoes/'.$opcao->id.'/edit')}}'">
+                                        <button type="button" class="btn btn-secondary" onclick="window.location='{{url('/opcoes/'.$opcao->id.'/edit')}}'">
                                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Editar">
                                         </button>
 
@@ -59,7 +59,7 @@
                             <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Inlcuir Resposta">
                             Incluir </button>
 
-                        <button type="button" class="btn btn-warning mt-4" onclick="window.location='{{url('/perguntas/'. $pergunta->campanha->id )}}'">
+                        <button type="button" class="btn btn-secondary mt-4" onclick="window.location='{{url('/perguntas/'. $pergunta->campanha->id )}}'">
                             <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
                     </div>

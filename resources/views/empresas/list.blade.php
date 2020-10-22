@@ -51,7 +51,7 @@
                         <button class="btn btn-success" onclick="window.location='{{url('empresas/create')}}' ">
                             <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Nova">
                             Incluir </button>
-                        <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">
                             <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
                     </div>

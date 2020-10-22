@@ -57,9 +57,9 @@
                         <button class="btn btn-success mt-3" onclick="window.location='{{url('/campanhas/create')}}'">
                             <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Nova">
                             Incluir </button>
-                        <button type="button" class="btn btn-warning mt-3" onclick="window.history.back()">
-                            <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
-                            Voltar </button>
+                        <button type="button" class="btn btn-secondary mt-3" onclick="window.location='{{url('empresas')}}'">
+                            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Configurar Empresa">
+                            Empresas </button>
 
                     </div>
                 </div>

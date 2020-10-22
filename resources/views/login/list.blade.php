@@ -40,7 +40,7 @@
                             <button class="btn btn-success" onclick="window.location = '{{url('/usuarios/create')}}'">
                                 <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Novo">
                                 Incluir </button>
-                            <button type="button" class="btn btn-warning" onclick="window.history.back()">
+                            <button type="button" class="btn btn-secondary" onclick="window.history.back()">
                                 <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Voltar">
                                 Voltar </button>
                         </div>

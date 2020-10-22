@@ -11,8 +11,8 @@ class LoginADController extends Controller
 {
     public function index()
     {
-        //session()->flush();
-        return view('login.ad');
+        $erro = null;
+        return view('login.ad', compact('erro'));
     }
 
     public function auth_ad(Request $request)
@@ -50,17 +50,19 @@ class LoginADController extends Controller
                 ]);
 
                 return redirect()->intended('campanhas');
-            } else {
 
-                //$request->session()->flush();
+            } else {
                 $erro = ["erro" => "Senha Inválida"];
-                return view('respostas.erro', compact('erro'));
+                
+                $email = $request->email;
+
+                return view('login.ad', compact('erro','email'));
             }
         } else {
 
             //$request->session()->flush();
             $erro = ["erro" => "Falha no Login. Tente novamente mais tarde ou procure o Administrador"];
-            return view('respostas.erro', compact('erro'));
+            return view('login.ad', compact('erro'));
         }
     }
 }

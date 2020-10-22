@@ -41,7 +41,7 @@
                                 <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Incluir">
                                 Salvar
                             </button>
-                            <button type="button" class="btn btn-warning" onclick="window.location='{{url('campanhas')}}'">
+                            <button type="button" class="btn btn-secondary" onclick="window.location='{{url('campanhas')}}'">
                                 <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                                 Voltar
                             </button>

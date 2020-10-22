@@ -2,14 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('login.ad');
-});
-
-Route::get('/color', function () {
-    return view('empresas.color');
-});
-
+Route::get('/','LoginADController@index');
 Route::get('login', 'LoginADController@index');
 Route::post('login-ad', 'LoginADController@auth_ad');
 

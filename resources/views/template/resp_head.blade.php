@@ -27,7 +27,7 @@
     --vCss: {{ Session::get('cor_primaria')}};
         text-align: center;
         color: var(--vCss)!important;
-        padding: 5px;
+        padding: 10px;
         font-weight: bold;
     }
 
@@ -35,7 +35,7 @@
         --vCss2: {{Session::get('cor_secundaria')}};
         text-align: left;
         color: var(--vCss2)!important;
-        padding: 5px;
+        margin-bottom: 20px;
         font-weight: bold;
     }
     
