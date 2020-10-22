@@ -19,6 +19,8 @@
 </head>
 
 <style>
+
+    
     .espacamento {
         margin-top: 100px;
     }
@@ -38,6 +40,18 @@
         margin-bottom: 20px;
         font-weight: bold;
     }
+
+@media all and (max-width: 800px) and (orientation:landscape) {
+   .rodape {
+       visibility: hidden;
+   }
+}
+
+@media all and (max-width: 800px) and  (orientation:portrait) {
+   .rodape {
+       visibility: visible;
+   }
+}
     
 </style>
 
@@ -52,25 +66,3 @@
         @endif
     </div>
 </header>
-
-<script>
-    $(document).ready(function() {
-        sizeOfThings();
-    });
-
-    function sizeOfThings() {
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
-
-        var screenWidth = screen.width;
-        var screenHeight = screen.height;
-
-        //alert(windowHeight);
-
-        if (windowHeight < 600) {
-            $('.rodape').css({
-                "visibility": "hidden"
-            });
-        }
-    }
-</script>
