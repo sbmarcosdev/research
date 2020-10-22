@@ -29,7 +29,7 @@
             <input type="hidden" name="tipo_id" value="1">
             <input type="hidden" name="pergunta_id" value="{{$pergunta->id}}">
 
-            <table id="rtable" name="table" class="table table-striped table-bordered mt-2 text-center">
+            <table id="rtable" name="table" class="table table-striped table-bordered mt-3 text-center">
                 <thead>
                     <tr>
                         @forelse($opcoes as $opcao)
@@ -58,7 +58,7 @@
                 <input type="text" name="texto_resposta" class="form-control" id="texto_resposta" required>
             </div>
             @endif
-            <div class="tituloPrincipal my-auto">
+            <div class="tituloPrincipal mt-3">
                 <button type="submit" class="btn btn-outline-info">Enviar Respostas</button>
             </div>
             <div class="progress mt-3">
