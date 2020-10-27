@@ -1,6 +1,5 @@
 <style>
     .rodape {
-        position: absolute;
         height: 40px;
         width: 100%;
         bottom:0px;
@@ -13,6 +12,6 @@
     }
 </style>
 <footer>
-    <div class="rodape"></div>
+    <div class="rodape fixed-bottom"></div>
 </footer>
 </html>

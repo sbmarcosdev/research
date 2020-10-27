@@ -60,7 +60,7 @@
                             Incluir </button>
 
                         <button type="button" class="btn btn-secondary mt-4" onclick="window.location='{{url('/perguntas/'. $pergunta->campanha->id )}}'">
-                            <img src="{{ asset('img/001-editar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
+                            <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                             Voltar </button>
                     </div>
                 </div>
