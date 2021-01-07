@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
-set_time_limit(0);
-ini_set('max_execution_time', 300);
-set_time_limit(8000000);
-ini_set("memory_limit", "10056M");
+// set_time_limit(0);
+// ini_set('max_execution_time', 300);
+// set_time_limit(8000000);
+// ini_set("memory_limit", "10056M");
+
+ini_set('max_execution_time', 0);
+set_time_limit(1800);
+ini_set('memory_limit', '-1');
+ini_set("memory_limit", "512M");
 
 use App\Models\Campanha;
 use App\Models\CampanhaRespondente;

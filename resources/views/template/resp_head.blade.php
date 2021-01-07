@@ -28,7 +28,7 @@
     .tituloPrincipal {
     --vCss: {{ Session::get('cor_primaria')}};
         text-align: center;
-        color: var(--vCss)!important;
+        text-color: var(--vCss) !important;
         padding: 10px;
         font-weight: bold;
     }
@@ -36,7 +36,7 @@
     .titulosub {
         --vCss2: {{Session::get('cor_secundaria')}};
         text-align: left;
-        color: var(--vCss2)!important;
+        text-color: var(--vCss2)!important;
         margin-bottom: 20px;
         font-weight: bold;
     }
