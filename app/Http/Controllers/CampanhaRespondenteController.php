@@ -139,7 +139,7 @@ class CampanhaRespondenteController extends Controller
     {
 
         $sql_delete = "DELETE from respondentes where id in 
-        (select respondente_id from campanha_respondentes where campanha_id = 1)";
+        (select respondente_id from campanha_respondentes where campanha_id = $campanha_id)";
 
         DB::delete($sql_delete);
         return redirect('/importar/' . $campanha_id)->with(['msg' => 'Registros Excluídos']);
