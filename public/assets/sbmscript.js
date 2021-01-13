@@ -50,3 +50,28 @@ function jsBannerPreview(objFileInput) {
     }
     $("#div_arquivo_banner").html(objFileInput.files[0].name);
 }
+
+
+function jsExcluiImportacao(url) {
+    swal.fire({
+        title: 'Tem Certeza que deseja excluir os dados importados para esta campanha ?',
+        text: "Esta ação não pode ser desfeita!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sim, Excluir!',
+        cancelButtonText: 'Cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+            swal.fire(
+                'Exclusão efetuada'
+            )
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swal.fire('Exclusão Cancelada')
+        }
+    })
+}

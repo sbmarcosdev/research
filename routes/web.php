@@ -18,6 +18,7 @@ Route::get('inserir-opcoes/{id}/create', 'OpcoesController@create');
 Route::resource('opcoes', 'OpcoesController');
 
 Route::resource('importar', 'CampanhaRespondenteController');
+Route::get('excluir-importacao/{campanha_id}', 'CampanhaRespondenteController@excluiImportacao');
 
 Route::get('arquivo/{campanha_id}', 'CampanhaRespondenteController@export');
 

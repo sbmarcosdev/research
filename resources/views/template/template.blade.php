@@ -1,4 +1,5 @@
 @include("template.head")
 @include("template.menu_topo_site")
+@include("template.msg_erros")
 @yield('content')
 @include("template.footer")

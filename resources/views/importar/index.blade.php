@@ -11,7 +11,9 @@
                             <h4 class="tituloPrincipal">Participantes</h4>
 
                             <div class="form group mt-3">
-
+                                <button type="button" class="btn btn-secondary" onclick="window.location='{{ url('/campanhas/' .$campanha->id. '/edit/' )}}' ">
+                                    <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
+                                    Voltar </button>
                                 <button type="button" class="btn btn-info" onclick="window.location='{{ url('/importar/' .$campanha->id. '/edit/' )}}' ">
                                     <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
                                     Importar </button>
@@ -20,20 +22,14 @@
                                     <img src="{{ asset('img/mais.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Arquivo">
                                     Gerar Arquivo </button>
 
-                             
-
+                                <button type="button" class="btn btn-danger" onclick="jsExcluiImportacao('{{url('/excluir-importacao/'.$campanha->id ) }}')">
+                                    <img src="{{ asset('img/007-excluir.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Importação">
+                                    Excluir </button>
                             </div>
                             <hr>
-
-                             {{  $pesq  }}
-                            
-                            <hr>
-                            
-                            <button type="button" class="btn btn-secondary" onclick="window.location='{{ url('/campanhas/' .$campanha->id. '/edit/' )}}' ">
-                                <img src="{{ asset('img/009-voltar.svg') }}" width="15" data-toggle="tooltip" data-placement="bottom" title="Página Anterior">
-                                Voltar </button>
-
-                            {{-- <table id="table" name="table" class="table table-striped table-bordered mt-3">
+                                {{  $pesq  }}
+                            <hr>                           
+                            <table id="table" name="table" class="table table-striped table-bordered mt-3">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -41,10 +37,10 @@
                                         <th>Respostas</th>
                                         <th>Ação</th>
                                     </tr>
-                                </thead> --}}
+                                </thead>
                                 
  
-                                {{-- <tbody>
+                                <tbody>
                                     @forelse($pesq as $resp)
                                     <tr>
                                         <td>{{ $resp->respondente->nome }}</td>
@@ -69,7 +65,7 @@
                                     </tr>
                                     @empty
                                     @endforelse
-                                </tbody> --}}
+                                </tbody>
                             </table>
                         </div>
                     </div>

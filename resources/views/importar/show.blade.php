@@ -22,6 +22,8 @@
 
                             </div>
                             <hr>
+                                {{  $pesq  }}
+                            <hr>
                             <table id="table" name="table" class="table table-striped table-bordered mt-3">
                                 <thead>
                                     <tr>
