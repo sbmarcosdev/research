@@ -93,7 +93,7 @@ class CampanhaRespondenteController extends Controller
                 CampanhaRespondente::insert($c);
             }
 
-        $sql = "SELECT email FROM embracon_satisfacao.respondentes group by email having count(email)>1";
+        $sql = "SELECT email FROM respondentes group by email having count(email)>1";
          
         $duplicados = DB::select($sql);
 
