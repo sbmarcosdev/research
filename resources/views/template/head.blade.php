@@ -30,7 +30,7 @@
     <script src="{{asset('assets/popper.min.js')}}"></script>
     <script src="{{asset('assets/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/script.js')}}"></script>
-    <script src="{{asset('assets/sbmscript.js')}}"></script>
+    <script src="{{asset('assets/sbmscript_v01.js')}}"></script>
     <script  src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
 
     @yield('styles')
