@@ -32,7 +32,7 @@ class LoginADController extends Controller
 
             $body = [];
             $body['grant_type'] = "password";
-            $body['username'] = str_replace('@embracon.com.br', '', $request->email);
+            $body['username'] = str_replace('@teste.com.br', '', $request->email);
             $body['password'] = $request->senha;
 
             $response = Http::withHeaders($headers)->post($urlChamada, $body);
