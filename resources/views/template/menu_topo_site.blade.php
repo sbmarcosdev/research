@@ -1,7 +1,7 @@
-<nav class="corEbracon navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="corEmpresa navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
 
-        <img src="https://assets.website-files.com/5e3432bccb627f3b9e392438/5e38594f6267e68d9084632f_Logo-Embracon-branco.svg" alt="">
+        <img src="Logo-corEmpresa.svg" alt="">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
